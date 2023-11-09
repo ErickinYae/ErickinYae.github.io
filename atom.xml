@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2023-11-09T05:44:51.088Z</updated>
+  <updated>2023-11-09T05:47:26.982Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://example.com/2023/undefined/%E5%AE%89%E5%85%A8%E5%9F%BA%E7%A1%80.html"/>
     <id>http://example.com/2023/undefined/%E5%AE%89%E5%85%A8%E5%9F%BA%E7%A1%80.html</id>
     <published>2023-11-09T05:33:04.000Z</published>
-    <updated>2023-11-09T05:44:51.088Z</updated>
+    <updated>2023-11-09T05:47:26.982Z</updated>
     
     <content type="html"><![CDATA[<h1 id="资源"><a href="#资源" class="headerlink" title="资源"></a>资源</h1><table><thead><tr><th>地址</th><th>描述</th></tr></thead><tbody><tr><td><a href="https://tryhackme.com/dashboard#">https://tryhackme.com/dashboard#</a></td><td>攻击与网络基础</td></tr><tr><td><a href="https://tryhackme.com/room/owasptop102021">https://tryhackme.com/room/owasptop102021</a></td><td>OWASP TOP10</td></tr><tr><td><a href="https://labs.play-with-docker.com/">https://labs.play-with-docker.com/</a></td><td>docker学习</td></tr><tr><td><a href="https://cyberdefenders.org/blueteam-ctf-challenges/">https://cyberdefenders.org/blueteam-ctf-challenges/</a></td><td>蓝队训练</td></tr></tbody></table><h1 id="资讯"><a href="#资讯" class="headerlink" title="资讯"></a>资讯</h1><table><thead><tr><th>地址</th><th>描述</th></tr></thead><tbody><tr><td><a href="https://sec.today/pulses/">https://sec.today/pulses/</a></td><td>每日安全</td></tr><tr><td></td><td></td></tr><tr><td></td><td></td></tr></tbody></table>]]></content>
     
@@ -40,6 +40,8 @@
       
     
     
+    
+    <category term="安全" scheme="http://example.com/categories/%E5%AE%89%E5%85%A8/"/>
     
     
     <category term="基础" scheme="http://example.com/tags/%E5%9F%BA%E7%A1%80/"/>
