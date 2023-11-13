@@ -6,7 +6,7 @@
   <link href="https://erickinyae.github.io/atom.xml" rel="self"/>
   
   <link href="https://erickinyae.github.io/"/>
-  <updated>2023-11-13T00:51:31.703Z</updated>
+  <updated>2023-11-13T01:29:01.547Z</updated>
   <id>https://erickinyae.github.io/</id>
   
   <author>
@@ -21,12 +21,17 @@
     <link href="https://erickinyae.github.io/2023/11/13/Penetration-Test/"/>
     <id>https://erickinyae.github.io/2023/11/13/Penetration-Test/</id>
     <published>2023-11-13T00:51:31.000Z</published>
-    <updated>2023-11-13T00:51:31.703Z</updated>
+    <updated>2023-11-13T01:29:01.547Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Penetration-Testing-Methodologies"><a href="#Penetration-Testing-Methodologies" class="headerlink" title="Penetration Testing Methodologies"></a>Penetration Testing Methodologies</h1><table><thead><tr><th>Stage</th><th>Description</th></tr></thead><tbody><tr><td>Information Gathering</td><td>情报收集，不涉及扫描任何系统</td></tr><tr><td>Enumeration&#x2F;Scanning</td><td>发现系统运行的应用程序和服务</td></tr><tr><td>Exploitation</td><td>利用在系统和应用程序上发现的漏洞</td></tr><tr><td>Privilege Escalation</td><td>提权</td></tr><tr><td>Post-exploitation</td><td>同网段水平扩展、获取信息、掩盖踪迹</td></tr></tbody></table><h1 id="Developer-Tools"><a href="#Developer-Tools" class="headerlink" title="Developer Tools"></a>Developer Tools</h1><h2 id="Inspector"><a href="#Inspector" class="headerlink" title="Inspector"></a>Inspector</h2><p>检查网页前端源代码，可以从其中获取一些开发环节忘记屏蔽或删除的信息；</p><h2 id="Debugger"><a href="#Debugger" class="headerlink" title="Debugger"></a>Debugger</h2><p>主要用于开发人员调试JavaScript，作为渗透测试人员，可以让我们以此为入口深入挖掘JavaScript代码；</p><h2 id="Network"><a href="#Network" class="headerlink" title="Network"></a>Network</h2><p>跟踪网页发出的每个外部请求，如果单机”Network“选项卡，然后刷新页面，即可看到该页面请求的所有文件；</p>]]></content>
     
     
+      
+      
+    <summary type="html">&lt;h1 id=&quot;Penetration-Testing-Methodologies&quot;&gt;&lt;a href=&quot;#Penetration-Testing-Methodologies&quot; class=&quot;headerlink&quot; title=&quot;Penetration Testing Method</summary>
+      
     
     
-    <category term="后端" scheme="https://erickinyae.github.io/categories/%E5%90%8E%E7%AB%AF/"/>
     
     
   </entry>
