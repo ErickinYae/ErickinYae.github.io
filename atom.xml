@@ -6,7 +6,7 @@
   <link href="https://erickinyae.github.io/atom.xml" rel="self"/>
   
   <link href="https://erickinyae.github.io/"/>
-  <updated>2023-11-13T02:21:10.820Z</updated>
+  <updated>2023-11-13T07:07:18.563Z</updated>
   <id>https://erickinyae.github.io/</id>
   
   <author>
@@ -17,22 +17,26 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Penetration Test</title>
-    <link href="https://erickinyae.github.io/2023/11/13/Penetration-Test/"/>
-    <id>https://erickinyae.github.io/2023/11/13/Penetration-Test/</id>
+    <title>渗透测试</title>
+    <link href="https://erickinyae.github.io/2023/11/13/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/"/>
+    <id>https://erickinyae.github.io/2023/11/13/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/</id>
     <published>2023-11-13T00:51:31.000Z</published>
-    <updated>2023-11-13T02:21:10.820Z</updated>
+    <updated>2023-11-13T07:07:18.563Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="Penetration-Testing-Methodologies"><a href="#Penetration-Testing-Methodologies" class="headerlink" title="Penetration Testing Methodologies"></a>Penetration Testing Methodologies</h1><table><thead><tr><th>Stage</th><th>Description</th></tr></thead><tbody><tr><td>Information Gathering</td><td>情报收集，不涉及扫描任何系统</td></tr><tr><td>Enumeration&#x2F;Scanning</td><td>发现系统运行的应用程序和服务</td></tr><tr><td>Exploitation</td><td>利用在系统和应用程序上发现的漏洞</td></tr><tr><td>Privilege Escalation</td><td>提权</td></tr><tr><td>Post-exploitation</td><td>同网段水平扩展、获取信息、掩盖踪迹</td></tr></tbody></table><h1 id="Developer-Tools"><a href="#Developer-Tools" class="headerlink" title="Developer Tools"></a>Developer Tools</h1><h2 id="Inspector"><a href="#Inspector" class="headerlink" title="Inspector"></a>Inspector</h2><p>检查网页前端源代码，可以从其中获取一些开发环节忘记屏蔽或删除的信息；</p><h2 id="Debugger"><a href="#Debugger" class="headerlink" title="Debugger"></a>Debugger</h2><p>主要用于开发人员调试JavaScript，作为渗透测试人员，可以让我们以此为入口深入挖掘JavaScript代码；</p><h2 id="Network"><a href="#Network" class="headerlink" title="Network"></a>Network</h2><p>跟踪网页发出的每个外部请求，如果单机”Network“选项卡，然后刷新页面，即可看到该页面请求的所有文件；</p><h1 id="Content-Discovery"><a href="#Content-Discovery" class="headerlink" title="Content Discovery"></a>Content Discovery</h1><table><thead><tr><th>资源</th><th>描述</th></tr></thead><tbody><tr><td>HTTP Headers</td><td>可以通过Http请求头获取一些服务器信息，包括浏览器版本、机器版本、协议等；</td></tr><tr><td><a href="https://www.wappalyzer.com/">https://www.wappalyzer.com/</a></td><td>识别网站使用的技术、包括框架、CMS、支付处理器等，还可以查看版本号；</td></tr><tr><td><a href="https://archive.org/web/">https://archive.org/web/</a></td><td>网站历史档案，有助于查看某网站停止使用但暂未关闭的历史网站；</td></tr></tbody></table><h2 id="Atuomated-Discovery"><a href="#Atuomated-Discovery" class="headerlink" title="Atuomated Discovery"></a>Atuomated Discovery</h2><table><thead><tr><th>工具</th><th>指令</th></tr></thead><tbody><tr><td>ffuf</td><td><code>ffuf -w &lt;./wordlists&gt; -u &lt;url&gt;</code></td></tr><tr><td>dirb</td><td><code>dirb &lt;url&gt; &lt;./wordlists&gt;</code></td></tr><tr><td>Gobuster</td><td><code>gobuster dir --url &lt;url&gt; -w &lt;./wordlists&gt;</code></td></tr></tbody></table>]]></content>
+    <content type="html"><![CDATA[<h1 id="渗透测试"><a href="#渗透测试" class="headerlink" title="渗透测试"></a>渗透测试</h1><h1 id="Penetration-Testing-Methodologies"><a href="#Penetration-Testing-Methodologies" class="headerlink" title="Penetration Testing Methodologies"></a>Penetration Testing Methodologies</h1><table><thead><tr><th>Stage</th><th>Description</th></tr></thead><tbody><tr><td>Information Gathering</td><td>情报收集，不涉及扫描任何系统</td></tr><tr><td>Enumeration&#x2F;Scanning</td><td>发现系统运行的应用程序和服务</td></tr><tr><td>Exploitation</td><td>利用在系统和应用程序上发现的漏洞</td></tr><tr><td>Privilege Escalation</td><td>提权</td></tr><tr><td>Post-exploitation</td><td>同网段水平扩展、获取信息、掩盖踪迹</td></tr></tbody></table><h1 id="浏览器工具"><a href="#浏览器工具" class="headerlink" title="浏览器工具"></a>浏览器工具</h1><h2 id="检查"><a href="#检查" class="headerlink" title="检查"></a>检查</h2><p>检查网页前端源代码，可以从其中获取一些开发环节忘记屏蔽或删除的信息；</p><h2 id="调试"><a href="#调试" class="headerlink" title="调试"></a>调试</h2><p>主要用于开发人员调试JavaScript，作为渗透测试人员，可以让我们以此为入口深入挖掘JavaScript代码；</p><h2 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h2><p>跟踪网页发出的每个外部请求，如果单机”Network“选项卡，然后刷新页面，即可看到该页面请求的所有文件；</p><h1 id="内容发现"><a href="#内容发现" class="headerlink" title="内容发现"></a>内容发现</h1><table><thead><tr><th>资源</th><th>描述</th></tr></thead><tbody><tr><td>HTTP Headers</td><td>可以通过Http请求头获取一些服务器信息，包括浏览器版本、机器版本、协议等；</td></tr><tr><td><a href="https://www.wappalyzer.com/">https://www.wappalyzer.com/</a></td><td>识别网站使用的技术、包括框架、CMS、支付处理器等，还可以查看版本号；</td></tr><tr><td><a href="https://archive.org/web/">https://archive.org/web/</a></td><td>网站历史档案，有助于查看某网站停止使用但暂未关闭的历史网站；</td></tr></tbody></table><h2 id="自动发现"><a href="#自动发现" class="headerlink" title="自动发现"></a>自动发现</h2><table><thead><tr><th>工具</th><th>指令</th></tr></thead><tbody><tr><td>ffuf</td><td><code>ffuf -w &lt;./wordlists&gt; -u &lt;url&gt;</code></td></tr><tr><td>dirb</td><td><code>dirb &lt;url&gt; &lt;./wordlists&gt;</code></td></tr><tr><td>Gobuster</td><td><code>gobuster dir --url &lt;url&gt; -w &lt;./wordlists&gt;</code></td></tr></tbody></table>]]></content>
     
     
       
       
-    <summary type="html">&lt;h1 id=&quot;Penetration-Testing-Methodologies&quot;&gt;&lt;a href=&quot;#Penetration-Testing-Methodologies&quot; class=&quot;headerlink&quot; title=&quot;Penetration Testing Method</summary>
+    <summary type="html">&lt;h1 id=&quot;渗透测试&quot;&gt;&lt;a href=&quot;#渗透测试&quot; class=&quot;headerlink&quot; title=&quot;渗透测试&quot;&gt;&lt;/a&gt;渗透测试&lt;/h1&gt;&lt;h1 id=&quot;Penetration-Testing-Methodologies&quot;&gt;&lt;a href=&quot;#Penetration-</summary>
       
     
     
     
+    <category term="安全" scheme="https://erickinyae.github.io/categories/%E5%AE%89%E5%85%A8/"/>
+    
+    
+    <category term="渗透测试" scheme="https://erickinyae.github.io/tags/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/"/>
     
   </entry>
   
