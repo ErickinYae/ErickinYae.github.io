@@ -26,7 +26,7 @@
 <meta property="og:description" content="Penetration Testing Methodologies   Stage Description    Information Gathering 情报收集，不涉及扫描任何系统   Enumeration&#x2F;Scanning 发现系统运行的应用程序和服务   Exploitation 利用在系统和应用程序上发现的漏洞   Privilege Escalation 提权   Pos">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-11-13T00:51:31.000Z">
-<meta property="article:modified_time" content="2023-11-13T01:29:01.547Z">
+<meta property="article:modified_time" content="2023-11-13T02:21:10.820Z">
 <meta property="article:author" content="Erickin">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
@@ -320,7 +320,7 @@
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2023/11/13/Penetration-Test/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 187(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 325(字)</span>
 	
 	
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1(分)</span>
@@ -361,6 +361,46 @@
 <h1 id="Developer-Tools"><a href="#Developer-Tools" class="headerlink" title="Developer Tools"></a>Developer Tools</h1><h2 id="Inspector"><a href="#Inspector" class="headerlink" title="Inspector"></a>Inspector</h2><p>检查网页前端源代码，可以从其中获取一些开发环节忘记屏蔽或删除的信息；</p>
 <h2 id="Debugger"><a href="#Debugger" class="headerlink" title="Debugger"></a>Debugger</h2><p>主要用于开发人员调试JavaScript，作为渗透测试人员，可以让我们以此为入口深入挖掘JavaScript代码；</p>
 <h2 id="Network"><a href="#Network" class="headerlink" title="Network"></a>Network</h2><p>跟踪网页发出的每个外部请求，如果单机”Network“选项卡，然后刷新页面，即可看到该页面请求的所有文件；</p>
+<h1 id="Content-Discovery"><a href="#Content-Discovery" class="headerlink" title="Content Discovery"></a>Content Discovery</h1><table>
+<thead>
+<tr>
+<th>资源</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>HTTP Headers</td>
+<td>可以通过Http请求头获取一些服务器信息，包括浏览器版本、机器版本、协议等；</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.wappalyzer.com/">https://www.wappalyzer.com/</a></td>
+<td>识别网站使用的技术、包括框架、CMS、支付处理器等，还可以查看版本号；</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://archive.org/web/">https://archive.org/web/</a></td>
+<td>网站历史档案，有助于查看某网站停止使用但暂未关闭的历史网站；</td>
+</tr>
+</tbody></table>
+<h2 id="Atuomated-Discovery"><a href="#Atuomated-Discovery" class="headerlink" title="Atuomated Discovery"></a>Atuomated Discovery</h2><table>
+<thead>
+<tr>
+<th>工具</th>
+<th>指令</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ffuf</td>
+<td><code>ffuf -w &lt;./wordlists&gt; -u &lt;url&gt;</code></td>
+</tr>
+<tr>
+<td>dirb</td>
+<td><code>dirb &lt;url&gt; &lt;./wordlists&gt;</code></td>
+</tr>
+<tr>
+<td>Gobuster</td>
+<td><code>gobuster dir --url &lt;url&gt; -w &lt;./wordlists&gt;</code></td>
+</tr>
+</tbody></table>
 
       
     </div>
