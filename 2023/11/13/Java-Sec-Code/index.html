@@ -26,7 +26,7 @@
 <meta property="og:description" content="Command Inject错误示例123456789@GetMapping(&quot;&#x2F;codeinject&quot;)    public String codeInject(String filepath) throws IOException &#123;        String[] cmdList &#x3D; new String[]&#123;&quot;sh&quot;, &amp;quot">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-11-13T07:49:13.000Z">
-<meta property="article:modified_time" content="2023-11-15T07:08:26.669Z">
+<meta property="article:modified_time" content="2023-11-15T08:30:21.593Z">
 <meta property="article:author" content="Erickin">
 <meta property="article:tag" content="代码审计">
 <meta name="twitter:card" content="summary">
@@ -331,10 +331,10 @@
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2023/11/13/Java-Sec-Code/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 366(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 487(字)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1(分)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 2(分)</span>
 	
 
       </div>
@@ -361,6 +361,13 @@
 <li>用户输入被添加到<code>ProcessBuilder</code>的命令列表中，而不是直接插入到命令字符串中。<code>ProcessBuilder</code>会处理参数的转义和引用，确保它们在系统命令中被正确解释；</li>
 <li>如果用户输入包含空格等特殊字符，<code>ProcessBuilder</code>会负责正确处理，而不会使它们被错误地解释为命令的一部分。这有助于防止命令注入攻击。</li>
 <li>总体而言，使用<code>ProcessBuilder</code>并正确处理命令和参数是防范命令注入的一种有效方式；</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">Pattern</span> <span class="variable">FILTER_PATTERN</span> <span class="operator">=</span> Pattern.compile(<span class="string">&quot;^[a-zA-Z0-9_/\\.-]+$&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// SecurityUtil.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title function_">cmdFilter</span><span class="params">(String input)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (!FILTER_PATTERN.matcher(input).matches()) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> input;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@GetMapping(&quot;/codeinject&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">codeInject</span><span class="params">(String filepath)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">		<span class="type">String</span> <span class="variable">filterFilePath</span> <span class="operator">=</span> SecurityUtil.cmdFilter(filepath);</span><br><span class="line">        <span class="keyword">if</span> (<span class="literal">null</span> == filterFilePath) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&quot;Bad boy. I got u.&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        String[] cmdList = <span class="keyword">new</span> <span class="title class_">String</span>[]&#123;<span class="string">&quot;sh&quot;</span>, <span class="string">&quot;-c&quot;</span>, <span class="string">&quot;ls -la &quot;</span> + filepath&#125;;</span><br><span class="line">        <span class="type">ProcessBuilder</span> <span class="variable">builder</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ProcessBuilder</span>(cmdList);</span><br><span class="line">        builder.redirectErrorStream(<span class="literal">true</span>);</span><br><span class="line">        <span class="type">Process</span> <span class="variable">process</span> <span class="operator">=</span> builder.start();</span><br><span class="line">        <span class="keyword">return</span> WebUtils.convertStreamToString(process.getInputStream());</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>通过对字符串进行过滤也能有效处理代码注入问题。</li>
 </ul>
 
       
