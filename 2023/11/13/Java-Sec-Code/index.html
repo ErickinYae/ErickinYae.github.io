@@ -26,7 +26,7 @@
 <meta property="og:description" content="Command Inject错误示例123456789@GetMapping(&quot;&#x2F;codeinject&quot;)    public String codeInject(String filepath) throws IOException &#123;        String[] cmdList &#x3D; new String[]&#123;&quot;sh&quot;, &amp;quot">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-11-13T07:49:13.000Z">
-<meta property="article:modified_time" content="2023-11-16T00:47:13.979Z">
+<meta property="article:modified_time" content="2023-11-16T01:40:20.389Z">
 <meta property="article:author" content="Erickin">
 <meta property="article:tag" content="代码审计">
 <meta name="twitter:card" content="summary">
@@ -331,10 +331,10 @@
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2023/11/13/Java-Sec-Code/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1.3k(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 2.4k(字)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 5(分)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 9(分)</span>
 	
 
       </div>
@@ -402,7 +402,34 @@
 </blockquote>
 </li>
 </ol>
-
+<h1 id="Actuators-to-RCE"><a href="#Actuators-to-RCE" class="headerlink" title="Actuators to RCE"></a>Actuators to RCE</h1><p>“Actuators to RCE”  是指攻击者通过滥用应用程序中的执行器（Actuator）来实现远程代码执行（RCE）。执行器通常是一些用于监控、管理或与应用程序进行交互的组件，例如应用程序的健康检查、配置信息、日志等。攻击者可能会通过滥用这些执行器中的某些功能，以执行恶意代码并实现远程代码执行。</p>
+<p><em><strong>Actuator</strong></em></p>
+<blockquote>
+<p>执行器（Actuator）是指一种用于监控和管理应用程序的组件，通常作为应用程序的附加模块提供。执行器为开发人员和系统管理员提供了一组工具和端点，用于查看应用程序的内部状态、配置信息、性能指标等。</p>
+<ol>
+<li><strong>Spring Boot Actuator：</strong> Spring Boot 提供了一个执行器模块，称为 Spring Boot Actuator，用于监控和管理 Spring Boot 应用程序。它包括一系列端点，如 <code>/health</code>（健康状态）、<code>/info</code>（应用程序信息）、<code>/metrics</code>（性能指标）等，开发人员可以使用这些端点来获取关于应用程序运行时状态的信息。</li>
+<li><strong>Micrometer：</strong> Micrometer 是一个用于度量应用程序性能指标的库，支持多种后端。在 Spring Boot 中，Micrometer 可以与 Spring Boot Actuator 集成，提供更多有关应用程序性能的度量。</li>
+<li><strong>Dropwizard Metrics：</strong> Dropwizard Metrics 是一个用于度量和监控 Java 应用程序的库。它提供了一组度量类，用于测量应用程序中的各种指标，如请求速率、响应时间等。</li>
+<li><strong>Quarkus Metrics：</strong> Quarkus 是一种用于构建 Java 云原生应用程序的框架，它包括 Quarkus Metrics 扩展，用于集成 Micrometer，并提供有关应用程序度量的端点。</li>
+</ol>
+<p>执行器的主要目的是提供对应用程序运行时状态的可视化和监控，以便于调试、性能优化和故障排除。然而，由于执行器具有访问敏感信息的能力，必须小心配置，确保只有授权的用户或系统可以访问相关端点，以防止滥用和安全威胁。</p>
+</blockquote>
+<p><em><strong>Jolokia</strong></em></p>
+<blockquote>
+<p>（Java Operations Integration）是一个用于在Java应用程序中实现远程JMX（Java  Management  Extensions）访问的工具和协议。它提供了一种简化和安全的方式，允许通过HTTP&#x2F;JSON协议远程管理和监控Java应用程序，而无需直接使用JMX。</p>
+<p>以下是 Jolokia 的功能和作用的详细解释：</p>
+<ol>
+<li><strong>远程访问：</strong> Jolokia 允许通过HTTP&#x2F;JSON协议进行远程访问，从而可以轻松地从任何位置远程管理和监控 Java 应用程序。这种远程访问不需要在客户端和服务器之间建立复杂的JMX连接，而是使用简单的HTTP请求和JSON响应。</li>
+<li><strong>简化的协议：</strong> Jolokia使用RESTful风格的协议，将JMX操作映射到HTTP请求。这样，客户端可以使用常见的HTTP客户端（如浏览器、curl等）来进行JMX操作，而不需要额外的JMX客户端工具。</li>
+<li><strong>安全性：</strong> Jolokia 提供了一些安全特性，如基于角色的访问控制、SSL支持等，以确保远程访问的安全性。通过配置合适的安全选项，可以限制对敏感操作和信息的访问。</li>
+<li><strong>元数据信息：</strong> Jolokia 提供了关于MBean（管理Bean）的元数据信息，使客户端能够动态发现可用的MBeans、属性、操作等信息。这有助于开发人员和管理员理解和利用应用程序的管理接口。</li>
+<li><strong>多协议支持：</strong> Jolokia 支持多种协议，包括HTTP、HTTPS、JSON、XML等，以适应不同的使用场景和需求。</li>
+<li><strong>插件体系结构：</strong> Jolokia 采用插件体系结构，允许扩展其功能。例如，Jolokia 支持用于监控和度量的 JMX 进程标准，如 Micrometer。</li>
+<li><strong>集成到应用程序：</strong> Jolokia 可以轻松地集成到Java应用程序中，而不需要修改应用程序的代码。通过简单的配置，开发人员可以启用 Jolokia 代理，使应用程序的JMX接口可通过HTTP&#x2F;JSON进行访问。</li>
+</ol>
+<p>总体而言，Jolokia 提供了一种方便、灵活、安全的方式，使开发人员和系统管理员能够远程监控和管理Java应用程序的运行时状态，而无需直接访问底层的JMX接口。</p>
+</blockquote>
+<h1 id="Deserialize"><a href="#Deserialize" class="headerlink" title="Deserialize"></a>Deserialize</h1>
       
     </div>
     <div class="article-footer">
