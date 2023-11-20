@@ -26,7 +26,7 @@
 <meta property="og:description" content="Command Inject错误示例123456789@GetMapping(&quot;&#x2F;codeinject&quot;)    public String codeInject(String filepath) throws IOException &#123;        String[] cmdList &#x3D; new String[]&#123;&quot;sh&quot;, &amp;quot">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-11-13T07:49:13.000Z">
-<meta property="article:modified_time" content="2023-11-20T00:55:29.206Z">
+<meta property="article:modified_time" content="2023-11-20T01:54:26.198Z">
 <meta property="article:author" content="Erickin">
 <meta property="article:tag" content="代码审计">
 <meta name="twitter:card" content="summary">
@@ -179,7 +179,7 @@
   <div class="widget">
     <h3 class="widget-title">分类</h3>
     <div class="widget-body">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%85%B6%E4%BB%96/">其他</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%90%8E%E7%AB%AF/">后端</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AE%89%E5%85%A8/">安全</a><span class="category-list-count">4</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%85%B6%E4%BB%96/">其他</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%90%8E%E7%AB%AF/">后端</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AE%89%E5%85%A8/">安全</a><span class="category-list-count">5</span></li></ul>
     </div>
   </div>
 
@@ -201,6 +201,21 @@
     <div class="widget-body">
       <ul class="recent-post-list list-unstyled no-thumbnail">
         
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E5%AE%89%E5%85%A8/">安全</a>
+              </p>
+              <p class="item-title">
+                <a href="/2023/11/20/%E5%A8%81%E8%83%81%E5%BB%BA%E6%A8%A1/" class="title">威胁建模</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-11-20T01:22:37.000Z" itemprop="datePublished">2023-11-20</time>
+              </p>
+            </div>
+          </li>
+          
           <li>
             
             <div class="item-inner">
@@ -257,21 +272,6 @@
               </p>
               <p class="item-date">
                 <time datetime="2023-11-09T05:33:04.000Z" itemprop="datePublished">2023-11-09</time>
-              </p>
-            </div>
-          </li>
-          
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                <a class="category-link" href="/categories/%E5%AE%89%E5%85%A8/">安全</a>
-              </p>
-              <p class="item-title">
-                <a href="/2023/11/09/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1LP/" class="title">代码审计LP</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2023-11-09T02:44:56.000Z" itemprop="datePublished">2023-11-09</time>
               </p>
             </div>
           </li>
@@ -340,7 +340,7 @@
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2023/11/13/Java-Sec-Code/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 7.8k(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 7.9k(字)</span>
 	
 	
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 34(分)</span>
@@ -581,7 +581,7 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 判断MIME类型是否在黑名单内 校验2</span></span><br><span class="line">String[] mimeTypeBlackList = &#123;</span><br><span class="line">                <span class="string">&quot;text/html&quot;</span>,</span><br><span class="line">                <span class="string">&quot;text/javascript&quot;</span>,</span><br><span class="line">                <span class="string">&quot;application/javascript&quot;</span>,</span><br><span class="line">                <span class="string">&quot;application/ecmascript&quot;</span>,</span><br><span class="line">                <span class="string">&quot;text/xml&quot;</span>,</span><br><span class="line">                <span class="string">&quot;application/xml&quot;</span></span><br><span class="line">        &#125;;</span><br><span class="line">        <span class="keyword">for</span> (String blackMimeType : mimeTypeBlackList) &#123;</span><br><span class="line">            <span class="comment">// 用contains是为了防止text/html;charset=UTF-8绕过</span></span><br><span class="line">            <span class="keyword">if</span> (SecurityUtil.replaceSpecialStr(mimeType).toLowerCase().contains(blackMimeType)) &#123;</span><br><span class="line">                logger.error(<span class="string">&quot;[-] Mime type error: &quot;</span> + mimeType);</span><br><span class="line">                deleteFile(filePath);</span><br><span class="line">                <span class="keyword">return</span> <span class="string">&quot;Upload failed. Illeagl picture.&quot;</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>判断文件内容是否为图片；</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">  </span><br></pre></td></tr></table></figure></li>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="type">boolean</span> <span class="title function_">isImage</span><span class="params">(File file)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">    <span class="type">BufferedImage</span> <span class="variable">bi</span> <span class="operator">=</span> ImageIO.read(file);</span><br><span class="line">    <span class="keyword">return</span> bi != <span class="literal">null</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ul>
 
       
