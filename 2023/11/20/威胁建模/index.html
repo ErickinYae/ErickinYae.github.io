@@ -25,10 +25,17 @@
 <meta property="og:site_name" content="Erickin">
 <meta property="og:description" content="如何做好威胁就建模：https:&#x2F;&#x2F;tech.meituan.com&#x2F;2021&#x2F;04&#x2F;08&#x2F;threat-modeling-security.html 安全架构评审实战：https:&#x2F;&#x2F;mp.weixin.qq.com&#x2F;s&#x2F;YQn1FQICk1esxvBCHZntFA 威胁建模图例：https:&#x2F;&#x2F;zhuanlan.zhihu.com&#x2F;p&#x2F;73205112 微软威胁建模教程：https:&#x2F;">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://learn.microsoft.com/zh-cn/training/modules/tm-introduction-to-threat-modeling/media/process50.png">
+<meta property="og:image" content="https://learn.microsoft.com/zh-cn/training/modules/tm-introduction-to-threat-modeling/media/data-store50.png">
+<meta property="og:image" content="https://learn.microsoft.com/zh-cn/training/modules/tm-introduction-to-threat-modeling/media/external-entity50.png">
+<meta property="og:image" content="https://learn.microsoft.com/zh-cn/training/modules/tm-introduction-to-threat-modeling/media/data-flow50.png">
+<meta property="og:image" content="https://learn.microsoft.com/zh-cn/training/modules/tm-introduction-to-threat-modeling/media/trust-boundary-box50.png">
+<meta property="og:image" content="https://learn.microsoft.com/zh-cn/training/modules/tm-introduction-to-threat-modeling/media/trust-boundary-line50.png">
 <meta property="article:published_time" content="2023-11-20T01:22:37.000Z">
-<meta property="article:modified_time" content="2023-11-21T15:46:07.816Z">
+<meta property="article:modified_time" content="2023-11-21T15:50:36.779Z">
 <meta property="article:author" content="Erickin">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://learn.microsoft.com/zh-cn/training/modules/tm-introduction-to-threat-modeling/media/process50.png">
   <!-- Canonical links -->
   <link rel="canonical" href="https://erickinyae.github.io/2023/11/20/%E5%A8%81%E8%83%81%E5%BB%BA%E6%A8%A1/index.html">
   
@@ -334,7 +341,7 @@
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2023/11/20/%E5%A8%81%E8%83%81%E5%BB%BA%E6%A8%A1/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 2.6k(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 2.8k(字)</span>
 	
 	
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 9(分)</span>
@@ -596,7 +603,41 @@
 <td>系统如何处理密钥、证书和凭据？</td>
 </tr>
 </tbody></table>
-<h3 id="创建数据流图"><a href="#创建数据流图" class="headerlink" title="创建数据流图"></a>创建数据流图</h3>
+<h3 id="创建数据流图"><a href="#创建数据流图" class="headerlink" title="创建数据流图"></a>创建数据流图</h3><table>
+<thead>
+<tr>
+<th>元素</th>
+<th>形状</th>
+<th>定义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>过程</td>
+<td><img src="https://learn.microsoft.com/zh-cn/training/modules/tm-introduction-to-threat-modeling/media/process50.png" alt="Process."></td>
+<td>接收、修改输入或将输入重定向到输出的任务，如 Web 服务。</td>
+</tr>
+<tr>
+<td>数据存储</td>
+<td><img src="https://learn.microsoft.com/zh-cn/training/modules/tm-introduction-to-threat-modeling/media/data-store50.png" alt="Data Store."></td>
+<td>永久和临时数据存储，如 Web 缓存和 Azure 托管数据库。</td>
+</tr>
+<tr>
+<td>外部实体</td>
+<td><img src="https://learn.microsoft.com/zh-cn/training/modules/tm-introduction-to-threat-modeling/media/external-entity50.png" alt="External Entity."></td>
+<td>直接控制之外的任务、实体或数据存储，如用户和第三方 API。</td>
+</tr>
+<tr>
+<td>数据流</td>
+<td><img src="https://learn.microsoft.com/zh-cn/training/modules/tm-introduction-to-threat-modeling/media/data-flow50.png" alt="Data-flow."></td>
+<td>进程、数据存储和外部实体之间的数据移动，如连接字符串和有效负载。</td>
+</tr>
+<tr>
+<td>信任边界</td>
+<td><img src="https://learn.microsoft.com/zh-cn/training/modules/tm-introduction-to-threat-modeling/media/trust-boundary-box50.png" alt="Trust Boundary Box."><img src="https://learn.microsoft.com/zh-cn/training/modules/tm-introduction-to-threat-modeling/media/trust-boundary-line50.png" alt="Trust Boundary Line"></td>
+<td>信任区域在数据流经系统时更改，如用户使用 Internet 访问受保护的公司网络时。</td>
+</tr>
+</tbody></table>
+
       
     </div>
     <div class="article-footer">
