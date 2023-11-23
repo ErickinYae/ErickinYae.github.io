@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://erickinyae.github.io/2023/11/23/java/</loc>
+    <loc>https://erickinyae.github.io/2023/11/23/%E8%BA%AB%E4%BB%BD%E9%AA%8C%E8%AF%81/</loc>
     
     <lastmod>2023-11-23</lastmod>
     
@@ -12,6 +12,15 @@
   
   <url>
     <loc>https://erickinyae.github.io/2023/11/13/Java-Sec-Code/</loc>
+    
+    <lastmod>2023-11-23</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://erickinyae.github.io/2023/11/23/java/</loc>
     
     <lastmod>2023-11-23</lastmod>
     
@@ -196,6 +205,13 @@
     <priority>0.2</priority>
   </url>
   
+  <url>
+    <loc>https://erickinyae.github.io/tags/%E9%89%B4%E6%9D%83/</loc>
+    <lastmod>2023-11-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
 
   
   <url>
@@ -221,6 +237,13 @@
   
   <url>
     <loc>https://erickinyae.github.io/categories/%E5%BC%80%E5%8F%91/</loc>
+    <lastmod>2023-11-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://erickinyae.github.io/categories/%E7%BD%91%E7%BB%9C/</loc>
     <lastmod>2023-11-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
