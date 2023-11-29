@@ -25,14 +25,14 @@
 <meta property="og:site_name" content="Erickin">
 <meta property="og:description" content="Finalshell无法上传文件问题连接管理器 -&gt; 编辑 -&gt; 认证，登录的信息必须是root用户。 IDEA2022.3.1 激活失效激活方式：https:&#x2F;&#x2F;www.exception.site&#x2F;essay&#x2F;idea-yongjiu-jihuoma  在 idea64.exe.vmoptions（idea&#x2F;bin&#x2F;) 配置文件结尾添加如下配置： 123456#">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200525212710417.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200525212831700.png">
+<meta property="og:image" content="https://erickinyae.github.io/2023/11/17/problem-resolved/20200525212710417.png">
+<meta property="og:image" content="https://erickinyae.github.io/2023/11/17/problem-resolved/20200525212831700.png">
 <meta property="og:image" content="https://erickinyae.github.io/2023/11/17/problem-resolved/image-20231129103946710.png">
 <meta property="article:published_time" content="2023-11-17T07:13:06.000Z">
-<meta property="article:modified_time" content="2023-11-29T02:41:56.092Z">
+<meta property="article:modified_time" content="2023-11-29T05:54:39.780Z">
 <meta property="article:author" content="Erickin">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20200525212710417.png">
+<meta name="twitter:image" content="https://erickinyae.github.io/2023/11/17/problem-resolved/20200525212710417.png">
   <!-- Canonical links -->
   <link rel="canonical" href="https://erickinyae.github.io/2023/11/17/problem-resolved/index.html">
   
@@ -338,10 +338,10 @@
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2023/11/17/problem-resolved/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 974(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1.2k(字)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 4(分)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 5(分)</span>
 	
 
       </div>
@@ -361,18 +361,27 @@
 
 
 <h1 id="Docker启动mysql报错"><a href="#Docker启动mysql报错" class="headerlink" title="Docker启动mysql报错"></a>Docker启动mysql报错</h1><p><strong>mysql镜像运行报错： docker: Error response from daemon: No command specified.</strong></p>
+<blockquote>
+<p>在运行命令后加&#x2F;bin&#x2F;bash，应该该镜像是导出的不是直接从仓库下载的。</p>
+</blockquote>
 <p>当通过下列命令启动mysql时报错</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -itd -p 3306:3306 --name  sample-mysql -e MYSQL_ROOT_PASSWORD=123456 -v /mydata/mysql/log:/var/log/mysql -v /mydata/mysql/data:/var/lib/mysql -v /mydata/mysql/conf:/etc/mysql -d mysql:8.0</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://img-blog.csdnimg.cn/20200525212710417.png" alt="在这里插入图片描述"></p>
+<p><img src="/2023/11/17/problem-resolved/20200525212710417.png" alt="123"></p>
 <h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p> 是由于命令没启用的缘故，所以需要在运行命令后面追加 &#x2F;bin&#x2F;bash</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -itd -p 3306:3306 --name  sample-mysql -e MYSQL_ROOT_PASSWORD=123456 -v /mydata/mysql/log:/var/log/mysql -v /mydata/mysql/data:/var/lib/mysql -v /mydata/mysql/conf:/etc/mysql -d mysql:8.0 /bin/bash</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://img-blog.csdnimg.cn/20200525212831700.png" alt="在这里插入图片描述"></p>
+<p><img src="/2023/11/17/problem-resolved/20200525212831700.png" alt="123"></p>
 <p>问题解决。</p>
 <h1 id="docker启动mysql，启动后迅速关闭"><a href="#docker启动mysql，启动后迅速关闭" class="headerlink" title="docker启动mysql，启动后迅速关闭"></a>docker启动mysql，启动后迅速关闭</h1><p>在启动docker镜像指令中没有加</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-itd</span><br></pre></td></tr></table></figure>
 
+<ol>
+<li><strong><code>-i</code>（–interactive）：</strong> 允许你与容器进行交互。这通常涉及到在容器内部启动一个终端。</li>
+<li><strong><code>-t</code>（–tty）：</strong> 分配一个伪终端（pseudo-TTY）。这允许你在终端中执行命令。</li>
+<li><strong><code>-d</code>（–detach）：</strong> 在后台运行容器。即使你关闭了终端，容器也会继续运行。</li>
+</ol>
+<p>综合起来，<code>-itd</code>的组合允许你在后台运行一个容器，并且仍然能够与容器进行交互。这对于在生产环境中运行容器时非常有用，因为你可以在后台运行它们，同时仍然能够与容器进行通信，查看日志，或者执行其他管理任务。</p>
 <p>加了才会正常运行，完整的指令为：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -itd -p 3306:3306 --name  sample-mysql -e MYSQL_ROOT_PASSWORD=123456 -v /mydata/mysql/log:/var/log/mysql -v /mydata/mysql/data:/var/lib/mysql -v /mydata/mysql/conf:/etc/mysql -d mysql:8.0 /bin/bash</span><br></pre></td></tr></table></figure>
 
