@@ -1,3 +1,4 @@
+https://erickinyae.github.io/2023/11/29/CodeQL/
 https://erickinyae.github.io/2023/11/17/problem-resolved/
 https://erickinyae.github.io/2023/11/13/Java-Sec-Code/
 https://erickinyae.github.io/2023/11/23/java/

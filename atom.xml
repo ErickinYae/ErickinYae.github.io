@@ -6,7 +6,7 @@
   <link href="https://erickinyae.github.io/atom.xml" rel="self"/>
   
   <link href="https://erickinyae.github.io/"/>
-  <updated>2023-11-23T11:24:16.126Z</updated>
+  <updated>2023-11-29T09:19:39.303Z</updated>
   <id>https://erickinyae.github.io/</id>
   
   <author>
@@ -15,6 +15,19 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>CodeQL</title>
+    <link href="https://erickinyae.github.io/2023/11/29/CodeQL/"/>
+    <id>https://erickinyae.github.io/2023/11/29/CodeQL/</id>
+    <published>2023-11-29T09:19:39.000Z</published>
+    <updated>2023-11-29T09:19:39.303Z</updated>
+    
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>身份验证</title>
