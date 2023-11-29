@@ -27,9 +27,9 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20200525212710417.png">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20200525212831700.png">
-<meta property="og:image" content="https://erickinyae.github.io/.io//image-20231129101158466.png">
+<meta property="og:image" content="https://erickinyae.github.io/2023/11/17/problem-resolved/image-20231129103946710.png">
 <meta property="article:published_time" content="2023-11-17T07:13:06.000Z">
-<meta property="article:modified_time" content="2023-11-29T02:12:02.893Z">
+<meta property="article:modified_time" content="2023-11-29T02:40:00.485Z">
 <meta property="article:author" content="Erickin">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://img-blog.csdnimg.cn/20200525212710417.png">
@@ -329,7 +329,7 @@
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2023/11/17/problem-resolved/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 863(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 974(字)</span>
 	
 	
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 4(分)</span>
@@ -385,7 +385,16 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d -p 8881:8081 -v /usr/local/javaseccode:/usr/local/javaseccode --name javaseccode_dongtai openjdk:8u252 java -javaagent:/usr/local/iast/javaseccode/dongtai_agent.jar -jar /usr/local/javaseccode/java-sec-code-1.0.0.jar</span><br></pre></td></tr></table></figure>
 
 <p>问题解决。</p>
-<p><img src="/.io//image-20231129101158466.png" alt="image-20231129101158466"></p>
+<h1 id="Hexo文章图片无法加载"><a href="#Hexo文章图片无法加载" class="headerlink" title="Hexo文章图片无法加载"></a>Hexo文章图片无法加载</h1><h3 id="Hexo侧"><a href="#Hexo侧" class="headerlink" title="Hexo侧"></a>Hexo侧</h3><p>首先确认根目录_config.yml中有:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">post_asset_folder: <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<p>然后在hexo所在根目录，启动git bash终端下执行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install https://github.com/CodeFalling/hexo-asset-image --save</span><br></pre></td></tr></table></figure>
+
+<p>该指令的目的是下载0.0.5版本的hexo-asset-image，1.0.0版本实测无法正常加载图片。</p>
+<h3 id="Typora侧"><a href="#Typora侧" class="headerlink" title="Typora侧"></a>Typora侧</h3><p>在设置中，将图片的保存设置修改为：</p>
+<p><img src="/2023/11/17/problem-resolved/image-20231129103946710.png" alt="image-20231129103946710"></p>
+<p>完成。现在图片可以正常显示。</p>
 
       
     </div>
