@@ -6,7 +6,7 @@
   <link href="https://erickinyae.github.io/atom.xml" rel="self"/>
   
   <link href="https://erickinyae.github.io/"/>
-  <updated>2023-12-05T08:08:40.253Z</updated>
+  <updated>2023-12-06T02:56:13.391Z</updated>
   <id>https://erickinyae.github.io/</id>
   
   <author>
@@ -15,6 +15,40 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>QandA</title>
+    <link href="https://erickinyae.github.io/2023/12/06/QandA-1/"/>
+    <id>https://erickinyae.github.io/2023/12/06/QandA-1/</id>
+    <published>2023-12-06T02:56:13.000Z</published>
+    <updated>2023-12-06T02:56:13.391Z</updated>
+    
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>QandA</title>
+    <link href="https://erickinyae.github.io/2023/12/06/QandA/"/>
+    <id>https://erickinyae.github.io/2023/12/06/QandA/</id>
+    <published>2023-12-06T02:52:13.000Z</published>
+    <updated>2023-12-06T02:56:05.657Z</updated>
+    
+    <content type="html"><![CDATA[<hr><p>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</p><h1 id="xss注入疑问"><a href="#xss注入疑问" class="headerlink" title="xss注入疑问"></a>xss注入疑问</h1><p>项目地址：</p><p><a href="http://localhost:8888/admin/login">http://localhost:8888/admin/login</a> -&gt; 内容管理 -&gt; 查询</p><p><img src="/2023/12/06/QandA/image-20231206105414072.png" alt="image-20231206105414072"></p><p>通过xray扫到了xss注入漏洞，并按照报告注入了相应的负载，但响应中并没有正确执行js脚本。</p><p><img src="/2023/12/06/QandA/image-20231206105529859.png" alt="image-20231206105529859"></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">orderDirection=&amp;orderField=&quot;&gt;&lt;ScRiPt&gt;alert(&quot;123123123&quot;)&lt;/sCrIpT&gt;&amp;pageCurrent=1&amp;pageSize=50&amp;total=</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;hr&gt;
+&lt;p&gt;&amp;#x3D;&amp;#x3D;&amp;#x3D;&amp;#x3D;&amp;#x3D;&amp;#x3D;&amp;#x3D;&amp;#x3D;&amp;#x3D;&amp;#x3D;&amp;#x3D;&amp;#x3D;&amp;#x3D;&amp;#x3D;&amp;#x3D;&amp;#x3D;&amp;#x3D;&amp;#x3D;&amp;#x3D;&amp;#x3D;&amp;#x3D;&amp;#x3D;</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>代码审计_逻辑漏洞</title>
