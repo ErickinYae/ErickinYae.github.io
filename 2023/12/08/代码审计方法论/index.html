@@ -17,21 +17,21 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>身份验证 | Erickin的博客</title>
-  <meta name="description" content="JWTJWT（JSON Web Token）是一种用于在网络上安全地将声明传输的开放标准（RFC 7519）。它通常用于在身份验证和信息交换方面进行跨域通信。JWT 是一个紧凑的、自包含的方式，它可以在不同系统之间安全地传递信息。JWT 使用 JSON 对象进行编码，这使得它易于理解和处理。 JWT 由三部分组成：  Header（头部）： 包含了两部分信息，类型（typ）和使用的签名算法（alg">
+  <title>代码审计方法论 | Erickin的博客</title>
+  <meta name="description" content="黑盒验证 -&gt; 白盒代码级确认 -&gt; 代码修复建议 第一步 目标确认、理解功能与架构 确定要审计的应用程序或系统的范围，包括具体的功能、模块或代码库。具体而言，需要收集与应用程序相关的所有文档，包括设计文档、架构文档、数据库模型等。同时收集应用程序的源代码、依赖项和配置文件； 通过收集到的信息清晰地理解到应用中具体的一些功能和所使用的架构信息，并在此基础上，标记出容易出现漏洞的部分（如">
 <meta property="og:type" content="article">
-<meta property="og:title" content="身份验证">
-<meta property="og:url" content="https://erickinyae.github.io/2023/11/23/%E8%BA%AB%E4%BB%BD%E9%AA%8C%E8%AF%81/index.html">
+<meta property="og:title" content="代码审计方法论">
+<meta property="og:url" content="https://erickinyae.github.io/2023/12/08/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%E6%96%B9%E6%B3%95%E8%AE%BA/index.html">
 <meta property="og:site_name" content="Erickin">
-<meta property="og:description" content="JWTJWT（JSON Web Token）是一种用于在网络上安全地将声明传输的开放标准（RFC 7519）。它通常用于在身份验证和信息交换方面进行跨域通信。JWT 是一个紧凑的、自包含的方式，它可以在不同系统之间安全地传递信息。JWT 使用 JSON 对象进行编码，这使得它易于理解和处理。 JWT 由三部分组成：  Header（头部）： 包含了两部分信息，类型（typ）和使用的签名算法（alg">
+<meta property="og:description" content="黑盒验证 -&gt; 白盒代码级确认 -&gt; 代码修复建议 第一步 目标确认、理解功能与架构 确定要审计的应用程序或系统的范围，包括具体的功能、模块或代码库。具体而言，需要收集与应用程序相关的所有文档，包括设计文档、架构文档、数据库模型等。同时收集应用程序的源代码、依赖项和配置文件； 通过收集到的信息清晰地理解到应用中具体的一些功能和所使用的架构信息，并在此基础上，标记出容易出现漏洞的部分（如">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-11-23T07:42:58.000Z">
-<meta property="article:modified_time" content="2023-11-30T01:54:23.346Z">
+<meta property="article:published_time" content="2023-12-08T08:10:22.000Z">
+<meta property="article:modified_time" content="2023-12-08T08:10:50.180Z">
 <meta property="article:author" content="Erickin">
-<meta property="article:tag" content="鉴权">
+<meta property="article:tag" content="代码审计">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
-  <link rel="canonical" href="https://erickinyae.github.io/2023/11/23/%E8%BA%AB%E4%BB%BD%E9%AA%8C%E8%AF%81/index.html">
+  <link rel="canonical" href="https://erickinyae.github.io/2023/12/08/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%E6%96%B9%E6%B3%95%E8%AE%BA/index.html">
   
     <link rel="alternate" href="/atom.xml" title="Erickin" type="application/atom+xml">
   
@@ -289,14 +289,14 @@
   
 <main class="main" role="main">
   <div class="content">
-  <article id="post-身份验证" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-代码审计方法论" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      身份验证
+      代码审计方法论
     </h1>
   
 
@@ -304,20 +304,20 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/2023/11/23/%E8%BA%AB%E4%BB%BD%E9%AA%8C%E8%AF%81/" class="article-date">
-	  <time datetime="2023-11-23T07:42:58.000Z" itemprop="datePublished">2023-11-23</time>
+	<a href="/2023/12/08/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%E6%96%B9%E6%B3%95%E8%AE%BA/" class="article-date">
+	  <time datetime="2023-12-08T08:10:22.000Z" itemprop="datePublished">2023-12-08</time>
 	</a>
 </span>
         
   <span class="article-category">
     <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="/categories/%E7%BD%91%E7%BB%9C/">网络</a>
+    <a class="article-category-link" href="/categories/%E5%AE%89%E5%85%A8/">安全</a>
   </span>
 
         
   <span class="article-tag">
     <i class="icon icon-tags"></i>
-	<a class="article-tag-link-link" href="/tags/%E9%89%B4%E6%9D%83/" rel="tag">鉴权</a>
+	<a class="article-tag-link-link" href="/tags/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/" rel="tag">代码审计</a>
   </span>
 
 
@@ -325,13 +325,13 @@
 
 	<span class="article-read hidden-xs">
     	<i class="icon icon-eye-fill" aria-hidden="true"></i>
-    	<span id="/2023/11/23/%E8%BA%AB%E4%BB%BD%E9%AA%8C%E8%AF%81/" class="leancloud_visitors"  data-flag-title="身份验证">0</span>
+    	<span id="/2023/12/08/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%E6%96%B9%E6%B3%95%E8%AE%BA/" class="leancloud_visitors"  data-flag-title="代码审计方法论">0</span>
     </span>
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2023/11/23/%E8%BA%AB%E4%BB%BD%E9%AA%8C%E8%AF%81/#comments" class="article-comment-link">评论</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2023/12/08/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%E6%96%B9%E6%B3%95%E8%AE%BA/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 876(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 991(字)</span>
 	
 	
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 3(分)</span>
@@ -341,59 +341,47 @@
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h1 id="JWT"><a href="#JWT" class="headerlink" title="JWT"></a>JWT</h1><p>JWT（JSON Web Token）是一种用于在网络上安全地将声明传输的开放标准（RFC 7519）。它通常用于在身份验证和信息交换方面进行跨域通信。JWT 是一个紧凑的、自包含的方式，它可以在不同系统之间安全地传递信息。JWT 使用 JSON 对象进行编码，这使得它易于理解和处理。</p>
-<p>JWT 由三部分组成：</p>
-<ol>
-<li><strong>Header（头部）：</strong> 包含了两部分信息，类型（typ）和使用的签名算法（alg）。通常，这部分会被 Base64 编码。</li>
+        <p>黑盒验证 -&gt; 白盒代码级确认 -&gt; 代码修复建议</p>
+<h2 id="第一步-目标确认、理解功能与架构"><a href="#第一步-目标确认、理解功能与架构" class="headerlink" title="第一步 目标确认、理解功能与架构"></a>第一步 目标确认、理解功能与架构</h2><ol>
+<li>确定要审计的应用程序或系统的范围，包括具体的功能、模块或代码库。具体而言，需要收集与应用程序相关的所有文档，包括设计文档、架构文档、数据库模型等。同时收集应用程序的源代码、依赖项和配置文件；</li>
+<li>通过收集到的信息清晰地理解到应用中具体的一些功能和所使用的架构信息，并在此基础上，标记出容易出现漏洞的部分（如写库操作、高级权限操作等）；</li>
 </ol>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;alg&quot;</span><span class="punctuation">:</span> <span class="string">&quot;HS256&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;typ&quot;</span><span class="punctuation">:</span> <span class="string">&quot;JWT&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>Payload（负载）：</strong> 包含声明（claims）。声明是关于实体（通常是用户）和其他数据的声明。有三种类型的声明：注册声明，公共声明，和私有声明。通常，这部分也会被 Base64 编码。</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;sub&quot;</span><span class="punctuation">:</span> <span class="string">&quot;1234567890&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;John Doe&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;admin&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>Signature（签名）：</strong> 将前两部分编码后的字符串通过指定的算法进行签名。签名用于验证消息在传递过程中是否被篡改。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">HMACSHA256(</span><br><span class="line">  base64UrlEncode(header) + &quot;.&quot; +</span><br><span class="line">  base64UrlEncode(payload),</span><br><span class="line">  secret</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-
-<p>JWT 的主要优势包括：</p>
+<h2 id="第二步-动态黑盒分析"><a href="#第二步-动态黑盒分析" class="headerlink" title="第二步  动态黑盒分析"></a>第二步  动态黑盒分析</h2><ol>
+<li><p>配置测试环境：配置一个用于动态测试的安全环境，确保能够模拟真实攻击场景；</p>
+</li>
+<li><p>自动扫描：使用动态代码分析工具，包括：xray、Burp Suite等，对应用程序进行主动扫描，寻找运行时漏洞，这个部分主要是为了发现常见的OWASP Top10基本漏洞；</p>
+</li>
+<li><p><strong>主动测试：通过手动渗透测试，模拟攻击者行为，尝试绕过安全控制并发现更深层次的漏洞；</strong></p>
+<blockquote>
+<p>主要针对的有：</p>
 <ul>
-<li><strong>轻量且紧凑：</strong> JWT 是一种轻量级的令牌格式，适用于在网络上传输信息。</li>
-<li><strong>自包含：</strong> 由于包含了头部和负载，JWT 是一个自包含的令牌，不需要像传统的 Session 一样在服务器端保存状态。</li>
-<li><strong>可扩展：</strong> 负载中的声明可以自由扩展，以满足各种应用场景的需求。</li>
-<li><strong>跨语言支持：</strong> JWT 可以在不同的编程语言中轻松解析和生成，使其成为跨语言通信的良好选择。</li>
+<li>身份验证绕过：缺失对用户身份验证的检查或绕过密码验证；</li>
+<li>访问控制：缺失访问控制检查，导致未授权用户或角色访问敏感数据或功能；</li>
+<li>会话管理：错误的会话处理，包括会话劫持、会话固定、未正确终止会话等，可能会导致未授权访问；</li>
+<li>数据验证不足：对输入数据进行不足的验证，可能导致注入攻击、越权访问等问题；</li>
+<li>业务逻辑：与应用程序的业务逻辑相关的错误，可能导致不正确的数据处理或操作；</li>
+<li>不正确的错误处理：错误处理机制不当，可能会泄露敏感信息，或为攻击者提供有关系统的信息；</li>
+<li>文件上传：不正确地处理用户上传的文件，可能导致恶意文件上传和执行；</li>
+<li>多步骤操作原子性问题：缺乏适当的事务处理，导致在多步骤操作中的某些步骤失败时，系统处于不一致状态；</li>
+<li>竞态条件：在多线程或并发操作时，由于时序不当而引发的问题，可能导致未授权访问或数据不一致；</li>
+<li>缺乏日志监控：缺乏对关键事件和日常的日志记录和监控，使得对安全事件的检测和响应受到影响。</li>
 </ul>
-<p>JWT 主要用于身份验证（Authentication）和授权（Authorization）场景，特别是在分布式系统和前后端分离的应用中广泛使用。</p>
-<h2 id="应用举例"><a href="#应用举例" class="headerlink" title="应用举例"></a>应用举例</h2><p><strong>用户登录：</strong></p>
-<ul>
-<li>用户提供用户名和密码进行登录。</li>
-<li>服务器验证用户的凭据，并生成一个 JWT 作为响应。</li>
-</ul>
-<p><strong>JWT 的生成过程：</strong></p>
-<ul>
-<li>Header 部分：</li>
-</ul>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;alg&quot;</span><span class="punctuation">:</span> <span class="string">&quot;HS256&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;typ&quot;</span><span class="punctuation">:</span> <span class="string">&quot;JWT&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>Payload 部分：</strong></p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;sub&quot;</span><span class="punctuation">:</span> <span class="string">&quot;1234567890&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;username&quot;</span><span class="punctuation">:</span> <span class="string">&quot;john_doe&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;role&quot;</span><span class="punctuation">:</span> <span class="string">&quot;user&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>Signature 部分：</strong> 使用服务器端的密钥对前两部分进行签名。</p>
-<p><strong>生成的 JWT：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiAiMTIzNDU2Nzg5MCIsICJ1c2VybmFtZSI6ICJqb2huX2RvZSIsICJyb2xlIjogInVzZXIiLCAiaWF0IjogMTYxNzYwMjE4NCwiZXhwIjogMTYxNzYwMjM2NH0.NQSmS9BoD8OCMqkdSb0nLd6YBZnd7zLcXtFjIaAOt1k</span><br></pre></td></tr></table></figure>
-
-<p><strong>JWT 的传递：</strong></p>
-<ul>
-<li>客户端将 JWT 存储在本地，通常是在浏览器的 Local Storage 或 Session Storage 中。</li>
-<li>每次客户端向服务器发送请求时，都将 JWT 放在请求头中（通常是 <code>Authorization</code> 头）。</li>
-</ul>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiAiMTIzNDU2Nzg5MCIsICJ1c2VybmFtZSI6ICJqb2huX2RvZSIsICJyb2xlIjogInVzZXIiLCAiaWF0IjogMTYxNzYwMjE4NCwiZXhwIjogMTYxNzYwMjM2NH0.NQSmS9BoD8OCMqkdSb0nLd6YBZnd7zLcXtFjIaAOt1k</span><br></pre></td></tr></table></figure>
-
-<p><strong>服务器端验证和解析 JWT：</strong></p>
-<ul>
-<li>服务器在接收到请求时，从请求头中获取 JWT。</li>
-<li>服务器使用自己的密钥验证 JWT 的签名，确保它是有效的且未被篡改。</li>
-<li>如果验证通过，服务器解析 JWT，提取其中的用户信息（例如用户ID、用户名、角色等）。</li>
-</ul>
-<p>这种方式使得在分布式系统中进行身份验证变得简单，因为服务器无需在会话中保持用户的登录状态，而是可以通过验证 JWT 来获取用户信息。这也使得不同服务之间更容易实现无状态的身份验证。需要注意的是，JWT 中包含的信息是可以被客户端解码的，因此不应该将敏感信息直接存放在 JWT 中，或者至少需要采用适当的加密手段。</p>
+</blockquote>
+</li>
+</ol>
+<h2 id="第三步-白盒分析"><a href="#第三步-白盒分析" class="headerlink" title="第三步 白盒分析"></a>第三步 白盒分析</h2><ol>
+<li><p>代码分析：仔细阅读源代码，理解应用程序的工作原理、数据流和业务逻辑；</p>
+</li>
+<li><p>使用静态代码分析工具，尝试找到代码中存在的问题，黑盒测试找到的漏洞，需要在白盒中进行定位并找到修复方法，确定是方法使用不当、还是鉴权逻辑错误、还是第三方包漏洞等；</p>
+<blockquote>
+<p>主要针对的有：</p>
+<p>数据验证：验证应用程序对输入数据的处理方式，确保实施了正确的输入验证和过滤，以防止注入攻击；</p>
+<p>认证和授权：审查应用程序中的身份验证和授权机制，确认它们是否安全可靠。<strong>检查密码存储、会话管理和访问控制</strong>；</p>
+<p>敏感信息：检查应用程序处理敏感信息的方式，确保数据在传输和存储时都得到适当的加密和保护（密码）；</p>
+<p>异常处理：审查应用程序的异常处理机制和日志记录功能，确保它们不会泄漏敏感信息（SQL报错不要直接返回等），并能够帮助检测和响应安全事件；</p>
+</blockquote>
+</li>
+</ol>
 
       
     </div>
@@ -403,7 +391,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="https://erickinyae.github.io/2023/11/23/%E8%BA%AB%E4%BB%BD%E9%AA%8C%E8%AF%81/" title="身份验证" target="_blank" rel="external">https://erickinyae.github.io/2023/11/23/身份验证/</a>
+      <a href="https://erickinyae.github.io/2023/12/08/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%E6%96%B9%E6%B3%95%E8%AE%BA/" title="代码审计方法论" target="_blank" rel="external">https://erickinyae.github.io/2023/12/08/代码审计方法论/</a>
     </li>
     
     <li class="post-copyright-license">
@@ -449,13 +437,9 @@
   
   <ul class="pager pull-left">
     
-    <li class="prev">
-      <a href="/2023/11/29/CodeQL/" title="CodeQL"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
-    </li>
-    
     
     <li class="next">
-      <a href="/2023/11/23/java/" title="java"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/2023/12/06/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1-%E6%BC%8F%E6%B4%9E%E8%AE%B0%E5%BD%95/" title="代码审计-漏洞记录"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     

