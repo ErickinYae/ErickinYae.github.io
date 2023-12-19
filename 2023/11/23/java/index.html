@@ -26,7 +26,7 @@
 <meta property="og:description" content="回调函数回调函数（Callback Function）是一种作为参数传递给其他函数的函数。回调函数允许一个函数在另一个函数执行完毕或在特定事件发生时被调用。  从事件驱动的角度理解。  在Java中，回调函数通常通过接口或匿名类的方式实现。 1234567891011121314151617181920212223242526272829303132333435363738394041424">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-11-23T03:33:00.000Z">
-<meta property="article:modified_time" content="2023-11-27T02:04:09.432Z">
+<meta property="article:modified_time" content="2023-12-19T02:10:11.983Z">
 <meta property="article:author" content="Erickin">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
@@ -290,7 +290,7 @@
   <div class="slimContent">
     <nav id="toc" class="article-toc">
       <h3 class="toc-title">文章目录</h3>
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0"><span class="toc-number">1.</span> <span class="toc-text">回调函数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#JSONP"><span class="toc-number">2.</span> <span class="toc-text">JSONP</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#JSONP%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%EF%BC%9A"><span class="toc-number">2.1.</span> <span class="toc-text">JSONP工作原理：</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SPEL"><span class="toc-number">3.</span> <span class="toc-text">SPEL</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0"><span class="toc-number">1.</span> <span class="toc-text">回调函数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#JSONP"><span class="toc-number">2.</span> <span class="toc-text">JSONP</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#JSONP%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%EF%BC%9A"><span class="toc-number">2.1.</span> <span class="toc-text">JSONP工作原理：</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SPEL"><span class="toc-number">3.</span> <span class="toc-text">SPEL</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Cookie%E4%B8%8ESession"><span class="toc-number">4.</span> <span class="toc-text">Cookie与Session</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Cookie"><span class="toc-number">4.1.</span> <span class="toc-text">Cookie</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#java%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0%E8%BF%87%E7%A8%8B"><span class="toc-number">4.1.1.</span> <span class="toc-text">java代码实现过程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Session"><span class="toc-number">4.2.</span> <span class="toc-text">Session</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Java%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0%E8%BF%87%E7%A8%8B"><span class="toc-number">4.2.1.</span> <span class="toc-text">Java代码实现过程</span></a></li></ol></li></ol></li></ol>
     </nav>
   </div>
 </aside>
@@ -334,10 +334,10 @@
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2023/11/23/java/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1.5k(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 2.8k(字)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 6(分)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 11(分)</span>
 	
 
       </div>
@@ -392,6 +392,45 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Value(&quot;#&#123;T(java.util.UUID).randomUUID()&#125;&quot;)</span></span><br><span class="line"><span class="keyword">private</span> String uuid;</span><br></pre></td></tr></table></figure>
 
 <p>SpEL广泛用于Spring框架中的配置文件、注解处理、条件判断等场景，它提供了一种灵活的方式来处理动态值和运行时计算。在使用SpEL时，应注意避免执行具有潜在安全风险的表达式，特别是在从用户输入中构建表达式时。</p>
+<h1 id="Cookie与Session"><a href="#Cookie与Session" class="headerlink" title="Cookie与Session"></a>Cookie与Session</h1><h2 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a>Cookie</h2><blockquote>
+<p>Cookie不能跨域，固不能用在前后端分离项目中。</p>
+</blockquote>
+<p><strong>什么是 Cookie？</strong></p>
+<p>Cookie 是一种存储在用户计算机上的小型文本文件，由 Web 服务器生成，发送给浏览器，然后由浏览器保存。每当用户在同一网站再次访问时，浏览器会将该 Cookie 发送回服务器，以提供对用户信息的识别和跟踪。Cookie 主要用于记录用户的身份信息、用户的偏好设置、购物车内容等。</p>
+<p><strong>Cookie 的实现原理：</strong></p>
+<ol>
+<li><strong>服务器生成 Cookie：</strong> 当用户首次访问一个网站时，服务器可以通过在响应头中设置 <code>Set-Cookie</code> 字段来生成一个或多个 Cookie。该字段包含 Cookie 的名称、值和一些属性（如过期时间、路径、域）。</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Set-Cookie: name=value; expires=Sat, 01 Jan 2022 00:00:00 GMT; path=/; domain=.example.com; HttpOnly; Secure</span><br></pre></td></tr></table></figure>
+
+<p><strong>浏览器保存 Cookie：</strong> 浏览器在收到带有 <code>Set-Cookie</code> 头的响应后，会将 Cookie 保存在用户本地的 Cookie 存储中。</p>
+<p><strong>浏览器发送 Cookie：</strong> 在用户的每次请求中，浏览器都会将与请求匹配的 Cookie 发送给服务器。这是通过在请求头中添加 <code>Cookie</code> 字段来实现的。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Cookie: name=value</span><br></pre></td></tr></table></figure>
+
+<p><strong>服务器读取 Cookie：</strong> 服务器通过读取请求头中的 <code>Cookie</code> 字段来获取用户发送的 Cookie。服务器可以使用这些 Cookie 识别用户、维护会话状态或执行其他逻辑。</p>
+<p><strong>Cookie 的生命周期：</strong> Cookie 可以是会话 Cookie（仅在浏览器会话期间有效）或持久性 Cookie（在过期日期之前一直有效）。过期时间是通过 <code>expires</code> 或 <code>max-age</code> 属性设置的。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Set-Cookie: name=value; expires=Sat, 01 Jan 2022 00:00:00 GMT</span><br></pre></td></tr></table></figure>
+
+<p>总体而言，Cookie 是一种简单而有效的机制，用于在客户端和服务器之间跟踪和维护状态。然而，由于其本地存储的特性，安全性问题和隐私问题也需要注意。因此，对于一些敏感信息，建议使用安全性更高的方法，如使用 HTTPS、将信息存储在服务器端等。</p>
+<h3 id="java代码实现过程"><a href="#java代码实现过程" class="headerlink" title="java代码实现过程"></a>java代码实现过程</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//S→C: 首次收到请求，生成cookie返回给客户端</span></span><br><span class="line"><span class="meta">@GetMapping(&quot;/c1&quot;)</span></span><br><span class="line"><span class="keyword">public</span> Result <span class="title function_">cookie1</span><span class="params">(HttpServletResponse response)</span>&#123;</span><br><span class="line">    <span class="type">Cookie</span> <span class="variable">cookie</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Cookie</span>(<span class="string">&quot;login_username&quot;</span>, <span class="string">&quot;erickin&quot;</span>);</span><br><span class="line">    response.addCookie(cookie);</span><br><span class="line">    log.info(<span class="string">&quot;cookie已生成并返回, cookie_key:&#123;&#125;, cookie_value:&#123;&#125;&quot;</span>, cookie.getName(), cookie.getValue());</span><br><span class="line">    <span class="keyword">return</span> Result.success();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//C→S: 其后的每个请求中将携带该cookie；</span></span><br><span class="line"><span class="meta">@GetMapping(&quot;/c2&quot;)</span></span><br><span class="line"><span class="keyword">public</span> Result <span class="title function_">cookie2</span><span class="params">(HttpServletRequest request)</span>&#123;</span><br><span class="line">    Cookie[] cookies = request.getCookies();</span><br><span class="line">    <span class="keyword">for</span>(Cookie cookie : cookies)&#123;</span><br><span class="line">        <span class="keyword">if</span>(cookie.getName().equals(<span class="string">&quot;login_username&quot;</span>))&#123;</span><br><span class="line">            log.info(<span class="string">&quot;服务端cookie已捕获, cookie_key:&#123;&#125;, cookie_value:&#123;&#125;&quot;</span>, cookie.getName(), cookie.getValue());</span><br><span class="line">            System.out.println(<span class="string">&quot;login_username:&quot;</span> + cookie.getValue());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> Result.success();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Session"><a href="#Session" class="headerlink" title="Session"></a>Session</h2><p>Session 是一种在客户端和服务器之间保存状态的机制，用于跟踪用户的会话信息。Session  的主要目的是在用户与服务器之间建立一种持久性的状态，以便服务器能够识别用户并在用户访问不同页面或执行不同操作时保持状态。与 Cookie  不同，Session 数据存储在服务器上而不是在客户端。</p>
+<p><strong>Session 的实现原理：</strong></p>
+<ol>
+<li><strong>会话标识符（Session ID）：</strong> 当用户首次访问一个网站时，服务器会为其分配一个唯一的 Session ID，通常是一个长随机字符串。这个 Session ID 通过 Cookie 或 URL 参数的方式发送给客户端。</li>
+<li><strong>客户端发送 Session ID：</strong> 客户端在每次请求时都会将之前收到的 Session ID 发送给服务器，通常是通过 Cookie 的方式发送。</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Cookie: JSESSIONID=abc123</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://example.com/page?JSESSIONID=abc123</span><br></pre></td></tr></table></figure>
+
+<p><strong>服务器端存储 Session 数据：</strong> 服务器接收到带有 Session ID 的请求后，会根据该 ID 查找相应的 Session 数据。Session 数据通常存储在服务器内存、数据库或其他持久化存储中。</p>
+<p><strong>Session 生命周期：</strong> Session 有一个生命周期，可以设置过期时间，通常通过 <code>maxInactiveInterval</code> 属性来定义。一旦会话超时或用户注销，Session 数据可能被销毁。</p>
+<p><strong>Session 的安全性：</strong> 为了提高安全性，Session ID 通常需要是难以猜测的复杂字符串，并且通过 HTTPS 传输以防止中间人攻击。另外，服务器可能会实现一些安全机制，如限制每个用户的并发会话数量。</p>
+<p><strong>分布式环境：</strong> 在分布式环境下，为了实现 Session 共享，通常会使用一些技术，如粘性会话、Session 复制、Session 集中存储等。</p>
+<h3 id="Java代码实现过程"><a href="#Java代码实现过程" class="headerlink" title="Java代码实现过程"></a>Java代码实现过程</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//服务端生成session-key，返回给客户端保存，通常以cookie的形式将session-key返回。</span></span><br><span class="line"><span class="meta">@GetMapping(&quot;/s1&quot;)</span></span><br><span class="line"><span class="keyword">public</span> Result <span class="title function_">session1</span><span class="params">(HttpSession session)</span>&#123;</span><br><span class="line">    log.info(<span class="string">&quot;HttpSession-s1: &#123;&#125;&quot;</span>, session.hashCode());</span><br><span class="line">    session.setAttribute(<span class="string">&quot;loginUser&quot;</span>, <span class="string">&quot;Jimmy&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> Result.success();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//服务端收到客户端发送的session-key，在服务端中session表进行命中并得到相应的数据进行处理。</span></span><br><span class="line"><span class="meta">@GetMapping(&quot;/s2&quot;)</span></span><br><span class="line"><span class="keyword">public</span> Result <span class="title function_">session2</span><span class="params">(HttpServletRequest request)</span>&#123;</span><br><span class="line">    <span class="type">HttpSession</span> <span class="variable">session</span> <span class="operator">=</span> request.getSession();</span><br><span class="line">    log.info(<span class="string">&quot;HttpSession-s2: &#123;&#125;&quot;</span>, session.hashCode());</span><br><span class="line"></span><br><span class="line">    <span class="type">String</span> <span class="variable">loginUser</span> <span class="operator">=</span> (String)session.getAttribute(<span class="string">&quot;loginUser&quot;</span>);</span><br><span class="line">    log.info(<span class="string">&quot;loginUser: &#123;&#125;&quot;</span>, loginUser);</span><br><span class="line">    <span class="keyword">return</span> Result.success(loginUser);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
