@@ -26,7 +26,7 @@
 <meta property="og:description" content="回调函数回调函数（Callback Function）是一种作为参数传递给其他函数的函数。回调函数允许一个函数在另一个函数执行完毕或在特定事件发生时被调用。  从事件驱动的角度理解。  在Java中，回调函数通常通过接口或匿名类的方式实现。 1234567891011121314151617181920212223242526272829303132333435363738394041424">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-11-23T03:33:00.000Z">
-<meta property="article:modified_time" content="2023-12-19T03:42:07.222Z">
+<meta property="article:modified_time" content="2023-12-19T03:46:52.205Z">
 <meta property="article:author" content="Erickin">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
@@ -290,7 +290,7 @@
   <div class="slimContent">
     <nav id="toc" class="article-toc">
       <h3 class="toc-title">文章目录</h3>
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0"><span class="toc-number">1.</span> <span class="toc-text">回调函数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#JSONP"><span class="toc-number">2.</span> <span class="toc-text">JSONP</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#JSONP%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%EF%BC%9A"><span class="toc-number">2.1.</span> <span class="toc-text">JSONP工作原理：</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SPEL"><span class="toc-number">3.</span> <span class="toc-text">SPEL</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Cookie%E4%B8%8ESession"><span class="toc-number">4.</span> <span class="toc-text">Cookie与Session</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Cookie"><span class="toc-number">4.1.</span> <span class="toc-text">Cookie</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#java%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0%E8%BF%87%E7%A8%8B"><span class="toc-number">4.1.1.</span> <span class="toc-text">java代码实现过程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Session"><span class="toc-number">4.2.</span> <span class="toc-text">Session</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Java%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0%E8%BF%87%E7%A8%8B"><span class="toc-number">4.2.1.</span> <span class="toc-text">Java代码实现过程</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#JWT"><span class="toc-number">5.</span> <span class="toc-text">JWT</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="toc-number">5.1.</span> <span class="toc-text">代码实现</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Filter%E8%BF%87%E6%BB%A4%E5%99%A8"><span class="toc-number">6.</span> <span class="toc-text">Filter过滤器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8"><span class="toc-number">6.0.1.</span> <span class="toc-text">快速入门</span></a></li></ol></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0"><span class="toc-number">1.</span> <span class="toc-text">回调函数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#JSONP"><span class="toc-number">2.</span> <span class="toc-text">JSONP</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#JSONP%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%EF%BC%9A"><span class="toc-number">2.1.</span> <span class="toc-text">JSONP工作原理：</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SPEL"><span class="toc-number">3.</span> <span class="toc-text">SPEL</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Cookie%E4%B8%8ESession"><span class="toc-number">4.</span> <span class="toc-text">Cookie与Session</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Cookie"><span class="toc-number">4.1.</span> <span class="toc-text">Cookie</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#java%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0%E8%BF%87%E7%A8%8B"><span class="toc-number">4.1.1.</span> <span class="toc-text">java代码实现过程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Session"><span class="toc-number">4.2.</span> <span class="toc-text">Session</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Java%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0%E8%BF%87%E7%A8%8B"><span class="toc-number">4.2.1.</span> <span class="toc-text">Java代码实现过程</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#JWT"><span class="toc-number">5.</span> <span class="toc-text">JWT</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="toc-number">5.1.</span> <span class="toc-text">代码实现</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Filter%E8%BF%87%E6%BB%A4%E5%99%A8"><span class="toc-number">6.</span> <span class="toc-text">Filter过滤器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8"><span class="toc-number">6.0.1.</span> <span class="toc-text">快速入门</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%87%E6%BB%A4%E5%99%A8%E9%93%BE"><span class="toc-number">6.1.</span> <span class="toc-text">过滤器链</span></a></li></ol></li></ol>
     </nav>
   </div>
 </aside>
@@ -334,10 +334,10 @@
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2023/11/23/java/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 3.6k(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 3.7k(字)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 14(分)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 15(分)</span>
 	
 
       </div>
@@ -492,6 +492,10 @@
 </li>
 <li><p><code>ServletComponentScan</code>: 加在Application启动类上；</p>
 </li>
+</ul>
+<h2 id="过滤器链"><a href="#过滤器链" class="headerlink" title="过滤器链"></a>过滤器链</h2><ul>
+<li>一个web应用中，可以配置多个过滤器，这多个过滤器就形成了一个过滤器链；</li>
+<li>注解配置的filter，优先级按照过滤器类名（字符串）的自然排序，比如abcFilter会在demoFilter之前执行，到应用程序执行后，会按顺序依次推出过滤器链执行后逻辑。</li>
 </ul>
 
       
