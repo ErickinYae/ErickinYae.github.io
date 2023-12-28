@@ -1,3 +1,4 @@
+https://erickinyae.github.io/2023/12/28/Vue/
 https://erickinyae.github.io/2023/12/20/%E5%89%8D%E7%AB%AF/
 https://erickinyae.github.io/2023/11/23/java/
 https://erickinyae.github.io/2023/11/17/problem-resolved/
@@ -31,7 +32,9 @@ https://erickinyae.github.io/tags/%E5%AE%A1%E8%AE%A1/
 https://erickinyae.github.io/tags/%E5%9F%BA%E7%A1%80/
 https://erickinyae.github.io/tags/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/
 https://erickinyae.github.io/tags/%E9%89%B4%E6%9D%83/
+https://erickinyae.github.io/tags/%E6%A1%86%E6%9E%B6/
 https://erickinyae.github.io/categories/%E5%AE%89%E5%85%A8/
 https://erickinyae.github.io/categories/%E5%90%8E%E7%AB%AF/
 https://erickinyae.github.io/categories/%E5%85%B6%E4%BB%96/
 https://erickinyae.github.io/categories/%E7%BD%91%E7%BB%9C/
+https://erickinyae.github.io/categories/%E5%89%8D%E7%AB%AF/
