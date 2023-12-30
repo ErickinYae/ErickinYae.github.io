@@ -44,31 +44,11 @@
   </entry>
   
   <entry>
-    <title>前端</title>
-    <link href="https://erickinyae.github.io/2023/12/20/%E5%89%8D%E7%AB%AF/"/>
-    <id>https://erickinyae.github.io/2023/12/20/%E5%89%8D%E7%AB%AF/</id>
-    <published>2023-12-20T06:40:01.000Z</published>
-    <updated>2023-12-22T09:46:57.406Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="前端基础"><a href="#前端基础" class="headerlink" title="前端基础"></a>前端基础</h1><h2 id="依赖"><a href="#依赖" class="headerlink" title="依赖"></a>依赖</h2><h3 id="存放位置"><a href="#存放位置" class="headerlink" title="存放位置"></a>存放位置</h3><p>项目的依赖等信息都放在前端根目录下的：package.json文件中；</p><p><img src="/2023/12/20/%E5%89%8D%E7%AB%AF/image-20231220144138085.png" alt="image-20231220144138085"></p><p><img src="/2023/12/20/%E5%89%8D%E7%AB%AF/image-20231220144156242.png" alt="image-20231220144156242"></p><h3 id="依赖下载"><a href="#依赖下载" class="headerlink" title="依赖下载"></a>依赖下载</h3><p>在根目录中，在终端执行npm install，即可将依赖拉下来。</p><p><img src="/2023/12/20/%E5%89%8D%E7%AB%AF/image-20231220144300074.png" alt="image-20231220144300074"></p><h2 id="项目启动命令"><a href="#项目启动命令" class="headerlink" title="项目启动命令"></a>项目启动命令</h2><p>在package.json中查看</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;scripts&quot;</span>: &#123;</span><br><span class="line">  <span class="string">&quot;dev&quot;</span>: <span class="string">&quot;vue-cli-service serve&quot;</span>,</span><br><span class="line">  <span class="string">&quot;build:prod&quot;</span>: <span class="string">&quot;vue-cli-service build&quot;</span>,</span><br><span class="line">  <span class="string">&quot;build:stage&quot;</span>: <span class="string">&quot;vue-cli-service build --mode staging&quot;</span>,</span><br><span class="line">  <span class="string">&quot;preview&quot;</span>: <span class="string">&quot;node build/index.js --preview&quot;</span>,</span><br><span class="line">  <span class="string">&quot;svgo&quot;</span>: <span class="string">&quot;svgo -f src/icons/svg --config=src/icons/svgo.yml&quot;</span>,</span><br><span class="line">  <span class="string">&quot;lint&quot;</span>: <span class="string">&quot;eslint --ext .js,.vue src&quot;</span>,</span><br><span class="line">  <span class="string">&quot;test:unit&quot;</span>: <span class="string">&quot;jest --clearCache &amp;&amp; vue-cli-service test:unit&quot;</span>,</span><br><span class="line">  <span class="string">&quot;test:ci&quot;</span>: <span class="string">&quot;npm run lint &amp;&amp; npm run test:unit&quot;</span></span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure><p>看到第一行，dev关键词对应了vue-cli-service serve，即可以通过 dev start 启动前端项目。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run dev</span><br></pre></td></tr></table></figure><h2 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h2><p><img src="/2023/12/20/%E5%89%8D%E7%AB%AF/image-20231220145346280.png" alt="image-20231220145346280"></p><h2 id="解决跨域问题"><a href="#解决跨域问题" class="headerlink" title="解决跨域问题"></a>解决跨域问题</h2><p><img src="/2023/12/20/%E5%89%8D%E7%AB%AF/image-20231222151934712.png" alt="image-20231222151934712"></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;前端基础&quot;&gt;&lt;a href=&quot;#前端基础&quot; class=&quot;headerlink&quot; title=&quot;前端基础&quot;&gt;&lt;/a&gt;前端基础&lt;/h1&gt;&lt;h2 id=&quot;依赖&quot;&gt;&lt;a href=&quot;#依赖&quot; class=&quot;headerlink&quot; title=&quot;依赖&quot;&gt;&lt;/a&gt;依赖&lt;/h</summary>
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
     <title>前端基础</title>
     <link href="https://erickinyae.github.io/2023/12/20/%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80/"/>
     <id>https://erickinyae.github.io/2023/12/20/%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80/</id>
     <published>2023-12-20T06:40:01.000Z</published>
-    <updated>2023-12-30T15:53:47.783Z</updated>
+    <updated>2023-12-30T15:54:42.897Z</updated>
     
     <content type="html"><![CDATA[<h1 id="前端基础"><a href="#前端基础" class="headerlink" title="前端基础"></a>前端基础</h1><h2 id="依赖"><a href="#依赖" class="headerlink" title="依赖"></a>依赖</h2><h3 id="存放位置"><a href="#存放位置" class="headerlink" title="存放位置"></a>存放位置</h3><p>项目的依赖等信息都放在前端根目录下的：package.json文件中；</p><p><img src="/2023/12/20/%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80/image-20231220144138085.png" alt="image-20231220144138085"></p><p><img src="/2023/12/20/%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80/image-20231220144156242.png" alt="image-20231220144156242"></p><h3 id="依赖下载"><a href="#依赖下载" class="headerlink" title="依赖下载"></a>依赖下载</h3><p>在根目录中，在终端执行npm install，即可将依赖拉下来。</p><p><img src="/2023/12/20/%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80/image-20231220144300074.png" alt="image-20231220144300074"></p><h2 id="项目启动命令"><a href="#项目启动命令" class="headerlink" title="项目启动命令"></a>项目启动命令</h2><p>在package.json中查看</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;scripts&quot;</span>: &#123;</span><br><span class="line">  <span class="string">&quot;dev&quot;</span>: <span class="string">&quot;vue-cli-service serve&quot;</span>,</span><br><span class="line">  <span class="string">&quot;build:prod&quot;</span>: <span class="string">&quot;vue-cli-service build&quot;</span>,</span><br><span class="line">  <span class="string">&quot;build:stage&quot;</span>: <span class="string">&quot;vue-cli-service build --mode staging&quot;</span>,</span><br><span class="line">  <span class="string">&quot;preview&quot;</span>: <span class="string">&quot;node build/index.js --preview&quot;</span>,</span><br><span class="line">  <span class="string">&quot;svgo&quot;</span>: <span class="string">&quot;svgo -f src/icons/svg --config=src/icons/svgo.yml&quot;</span>,</span><br><span class="line">  <span class="string">&quot;lint&quot;</span>: <span class="string">&quot;eslint --ext .js,.vue src&quot;</span>,</span><br><span class="line">  <span class="string">&quot;test:unit&quot;</span>: <span class="string">&quot;jest --clearCache &amp;&amp; vue-cli-service test:unit&quot;</span>,</span><br><span class="line">  <span class="string">&quot;test:ci&quot;</span>: <span class="string">&quot;npm run lint &amp;&amp; npm run test:unit&quot;</span></span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure><p>看到第一行，dev关键词对应了vue-cli-service serve，即可以通过 dev start 启动前端项目。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run dev</span><br></pre></td></tr></table></figure><h2 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h2><p><img src="/2023/12/20/%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80/image-20231220145346280.png" alt="image-20231220145346280"></p><h2 id="解决跨域问题"><a href="#解决跨域问题" class="headerlink" title="解决跨域问题"></a>解决跨域问题</h2><p><img src="/2023/12/20/%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80/image-20231222151934712.png" alt="image-20231222151934712"></p>]]></content>
     
@@ -79,6 +59,8 @@
       
     
     
+    
+    <category term="前端" scheme="https://erickinyae.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
     
     
   </entry>
@@ -142,7 +124,7 @@
     <link href="https://erickinyae.github.io/2023/12/06/QandA/"/>
     <id>https://erickinyae.github.io/2023/12/06/QandA/</id>
     <published>2023-12-06T02:52:13.000Z</published>
-    <updated>2023-12-06T02:56:47.997Z</updated>
+    <updated>2023-12-30T15:55:26.920Z</updated>
     
     <content type="html"><![CDATA[<hr><p>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</p><h1 id="xss注入疑问"><a href="#xss注入疑问" class="headerlink" title="xss注入疑问"></a>xss注入疑问</h1><p>通过xray扫到了xss注入漏洞，并按照报告注入了相应的负载，但响应中并没有正确执行js脚本。</p><p>项目地址：</p><p><a href="http://localhost:8888/admin/login">http://localhost:8888/admin/login</a> -&gt; 内容管理 -&gt; 查询</p><p><img src="/2023/12/06/QandA/image-20231206105414072.png" alt="image-20231206105414072"></p><p><img src="/2023/12/06/QandA/image-20231206105529859.png" alt="image-20231206105529859"></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">orderDirection=&amp;orderField=&quot;&gt;&lt;ScRiPt&gt;alert(&quot;123123123&quot;)&lt;/sCrIpT&gt;&amp;pageCurrent=1&amp;pageSize=50&amp;total=</span><br></pre></td></tr></table></figure>]]></content>
     
@@ -154,6 +136,8 @@
       
     
     
+    
+    <category term="其他" scheme="https://erickinyae.github.io/categories/%E5%85%B6%E4%BB%96/"/>
     
     
   </entry>
@@ -180,11 +164,15 @@
     <link href="https://erickinyae.github.io/2023/11/30/OWASP%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%E6%8C%87%E5%8D%97/"/>
     <id>https://erickinyae.github.io/2023/11/30/OWASP%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%E6%8C%87%E5%8D%97/</id>
     <published>2023-11-30T07:53:45.000Z</published>
-    <updated>2023-11-30T07:53:45.340Z</updated>
+    <updated>2023-12-30T15:55:18.166Z</updated>
     
     
     
     
+    <category term="安全" scheme="https://erickinyae.github.io/categories/%E5%AE%89%E5%85%A8/"/>
+    
+    
+    <category term="代码审计" scheme="https://erickinyae.github.io/tags/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/"/>
     
   </entry>
   
@@ -218,11 +206,15 @@
     <link href="https://erickinyae.github.io/2023/11/29/CodeQL/"/>
     <id>https://erickinyae.github.io/2023/11/29/CodeQL/</id>
     <published>2023-11-29T09:19:39.000Z</published>
-    <updated>2023-11-29T09:19:39.303Z</updated>
+    <updated>2023-12-30T15:54:57.753Z</updated>
     
     
     
     
+    <category term="安全" scheme="https://erickinyae.github.io/categories/%E5%AE%89%E5%85%A8/"/>
+    
+    
+    <category term="代码审计" scheme="https://erickinyae.github.io/tags/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/"/>
     
   </entry>
   
@@ -493,6 +485,32 @@
     
     <category term="其他" scheme="https://erickinyae.github.io/categories/%E5%85%B6%E4%BB%96/"/>
     
+    
+  </entry>
+  
+  <entry>
+    <title>git</title>
+    <link href="https://erickinyae.github.io/2023/10/21/git/"/>
+    <id>https://erickinyae.github.io/2023/10/21/git/</id>
+    <published>2023-10-21T15:57:30.000Z</published>
+    <updated>2023-11-09T05:53:51.386Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="添加与提交"><a href="#添加与提交" class="headerlink" title="添加与提交"></a>添加与提交</h1><p>代码的提交分为两个部分，分别是提交到缓存区，和提交到仓库。</p><p>提交到缓存区的方法为: </p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add &lt;filename&gt;</span><br></pre></td></tr></table></figure><p>将代码从缓存区提交到仓库的方法为：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m &lt;提交说明&gt; &lt;filename&gt;</span><br></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">eg: git commit -m &quot;first commit&quot; ./agent.jar</span><br></pre></td></tr></table></figure><h2 id="当代码拉取到本地"><a href="#当代码拉取到本地" class="headerlink" title="当代码拉取到本地"></a>当代码拉取到本地</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull &lt;remote name&gt; &lt;branch&gt;</span><br></pre></td></tr></table></figure><p>示例</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull git-demo master</span><br></pre></td></tr></table></figure><h2 id="克隆仓库代码到本地"><a href="#克隆仓库代码到本地" class="headerlink" title="克隆仓库代码到本地"></a>克隆仓库代码到本地</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone &lt;仓库链接&gt;</span><br></pre></td></tr></table></figure><p>克隆操作会做以下三件事情：</p><ol><li>拉取代码；</li><li>初始化本地仓库；</li><li>创建别名；</li></ol><h2 id="当前版本更改"><a href="#当前版本更改" class="headerlink" title="当前版本更改"></a>当前版本更改</h2><p>更改当前的版本代码，以实现代码版本回退的功能：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard &lt;代码版本号&gt;</span><br></pre></td></tr></table></figure><blockquote><p>代码版本号可以用git reflog 查到；</p><p>代码版本更改的底层原理是修改head指针指向的版本代码位置；</p></blockquote><h2 id="git日志查看"><a href="#git日志查看" class="headerlink" title="git日志查看"></a>git日志查看</h2><p>查看简单日志：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reflog</span><br></pre></td></tr></table></figure><p>查看详细日志：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git log</span><br></pre></td></tr></table></figure><h2 id="git分支操作"><a href="#git分支操作" class="headerlink" title="git分支操作"></a>git分支操作</h2><table><thead><tr><th>命令名称</th><th>作用</th></tr></thead><tbody><tr><td>git branch 分支名</td><td>创建分支</td></tr><tr><td>git branch -v</td><td>查看分支</td></tr><tr><td>git checkout 分支名</td><td>切换分支</td></tr><tr><td>git merge 分支名</td><td>把指定的分支合并到当前分支上</td></tr></tbody></table><blockquote><p>一般情况下，每次写代码都需要将别人的代码先merge下来</p></blockquote><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git merge hot-fix</span><br><span class="line">#将hot-fix分支上的代码merge到当前分支上进行合并；</span><br></pre></td></tr></table></figure><h2 id="代码冲突时"><a href="#代码冲突时" class="headerlink" title="代码冲突时"></a>代码冲突时</h2><p>当代码冲突时，需要人为的到代码中去选择要删除和保留哪些内容，然后！</p><ol><li>第一步，手动的将修改完成的代码加入到缓存区（<code>git add &lt;filename&gt;</code>)；</li><li>第二步，执行提交，此时使用<code>git commit -m &lt;描述信息&gt;</code> 时，不能带文件名。</li></ol><h2 id="不同分支时代码提交-pull-request"><a href="#不同分支时代码提交-pull-request" class="headerlink" title="不同分支时代码提交(pull request)"></a>不同分支时代码提交(pull request)</h2><ol><li>让master主分支将我拉到该项目的团队中，然后fork一份代码库给到我的分支中；</li><li>自己首先需要将代码clone下来，然后进行开发、修改等操作；</li><li>开发、修改完成后，需要将代码push到属于我的分支的代码库中；</li><li>pull request：需要给其他分支发起推送请求，并等待其审核，如果代码没问题则合并到目标分支的代码中；</li></ol><h2 id="git本地给远程库创建一个别名"><a href="#git本地给远程库创建一个别名" class="headerlink" title="git本地给远程库创建一个别名"></a>git本地给远程库创建一个别名</h2><table><thead><tr><th>代码</th><th>含义</th></tr></thead><tbody><tr><td>git remote -v</td><td>查看当前远程库-别名列表；</td></tr><tr><td>git remote add &lt;别名&gt; &lt;远程地址&gt;</td><td>给远程库取一个名字</td></tr></tbody></table><p>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;添加与提交&quot;&gt;&lt;a href=&quot;#添加与提交&quot; class=&quot;headerlink&quot; title=&quot;添加与提交&quot;&gt;&lt;/a&gt;添加与提交&lt;/h1&gt;&lt;p&gt;代码的提交分为两个部分，分别是提交到缓存区，和提交到仓库。&lt;/p&gt;
+&lt;p&gt;提交到缓存区的方法为: &lt;/p&gt;
+&lt;fig</summary>
+      
+    
+    
+    
+    <category term="后端" scheme="https://erickinyae.github.io/categories/%E5%90%8E%E7%AB%AF/"/>
+    
+    
+    <category term="CI&#92;CD" scheme="https://erickinyae.github.io/tags/CI-CD/"/>
     
   </entry>
   
