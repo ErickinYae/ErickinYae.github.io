@@ -26,7 +26,7 @@
 <meta property="og:description" content="差值表达式差值表达式是一种Vue的模板语法； 差值表达式不具备解析标签的能力； 1234567891011121314151617181920&lt;div id&#x3D;&quot;app&quot;&gt;    &lt;!--此处编写用于渲染的代码逻辑--&gt;    &lt;div v-html&#x3D;&quot;msg&quot;&gt;&lt;&#x2F;div&gt;&lt;&#x2F;div&gt;&lt;sc">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-12-28T00:59:18.000Z">
-<meta property="article:modified_time" content="2023-12-29T10:40:47.090Z">
+<meta property="article:modified_time" content="2023-12-30T15:36:44.735Z">
 <meta property="article:author" content="Erickin">
 <meta property="article:tag" content="框架">
 <meta name="twitter:card" content="summary">
@@ -235,6 +235,21 @@
             
             <div class="item-inner">
               <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2023/12/20/%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80/" class="title">前端基础</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-12-20T06:40:01.000Z" itemprop="datePublished">2023-12-20</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
                 <a class="category-link" href="/categories/%E5%AE%89%E5%85%A8/">安全</a>
               </p>
               <p class="item-title">
@@ -257,21 +272,6 @@
               </p>
               <p class="item-date">
                 <time datetime="2023-12-06T05:56:28.000Z" itemprop="datePublished">2023-12-06</time>
-              </p>
-            </div>
-          </li>
-          
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                
-              </p>
-              <p class="item-title">
-                <a href="/2023/12/06/QandA/" class="title">QandA</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2023-12-06T02:52:13.000Z" itemprop="datePublished">2023-12-06</time>
               </p>
             </div>
           </li>
@@ -340,10 +340,10 @@
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2023/12/28/Vue/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 3.9k(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 4.2k(字)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 19(分)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 20(分)</span>
 	
 
       </div>
@@ -520,7 +520,10 @@
 </ul>
 </li>
 </ul>
-<h1 id="计算属性data-computed"><a href="#计算属性data-computed" class="headerlink" title="计算属性data: computed: {}"></a>计算属性data: computed: {}</h1><ul>
+<h1 id="计算属性data-computed"><a href="#计算属性data-computed" class="headerlink" title="计算属性data: computed: {}"></a>计算属性data: computed: {}</h1><blockquote>
+<p>注意：计算属性对应的属性或对象将不在data中声明。</p>
+</blockquote>
+<ul>
 <li>概念：基于现有的数据，计算出来的新属性，依赖的数据变化，自动重新计算；</li>
 <li>语法：声明在computed配置项中，一个计算属性对应一个函数；</li>
 <li>使用起来和普通属性一样使用 <code>&#123;&#123; 计算属性名 &#125;&#125;</code></li>
@@ -542,13 +545,21 @@
 
 
 <h1 id="watch侦听器（监视器）"><a href="#watch侦听器（监视器）" class="headerlink" title="watch侦听器（监视器）"></a>watch侦听器（监视器）</h1><ul>
-<li>作用：监视数据变化，执行一些业务逻辑 或 异步操作；</li>
-<li>语法：<ul>
-<li>简单写法：简单类型数据，直接监视；</li>
-<li>完整写法：添加额外配置项。</li>
+<li><p>作用：监视数据变化，执行一些业务逻辑 或 异步操作；</p>
+</li>
+<li><p>语法：</p>
+<ul>
+<li><p>简单写法：简单类型数据，直接监视；</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">watch: &#123;</span><br><span class="line">	数据属性名 (newValue, oldValue) &#123;</span><br><span class="line">		某些业务逻辑 或 异步操作;</span><br><span class="line">	&#125;,</span><br><span class="line">	&#x27;对象.属性名&#x27; (newValue, oldValue) &#123;</span><br><span class="line">		某些业务逻辑 或 异步操作;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>完整写法：添加额外配置项。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">watch: &#123;</span><br><span class="line">	数据属性名: &#123;</span><br><span class="line">		deep: true, //深度监视（监视对象中的每一个属性） </span><br><span class="line">		immediate: true, //是否立刻执行一次handler</span><br><span class="line">		handler (newValue) &#123;</span><br><span class="line">			console.log(newValue)</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ul>
 </li>
 </ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">const app = new Vue(&#123;</span><br><span class="line">  el: &#x27;#app&#x27;,</span><br><span class="line">  data: &#123;</span><br><span class="line">    obj: &#123;</span><br><span class="line">      words: &#x27;小黑&#x27;,</span><br><span class="line">      lang: &#x27;italy&#x27;</span><br><span class="line">    &#125;,</span><br><span class="line">    result: &#x27;&#x27;, // 翻译结果</span><br><span class="line">  &#125;,</span><br><span class="line">  watch: &#123;</span><br><span class="line">    obj: &#123;</span><br><span class="line">      deep: true, // 深度监视</span><br><span class="line">      immediate: true, // 立刻执行，一进入页面handler就立刻执行一次</span><br><span class="line">      handler (newValue) &#123;</span><br><span class="line">        clearTimeout(this.timer)</span><br><span class="line">        this.timer = setTimeout(async () =&gt; &#123;</span><br><span class="line">          const res = await axios(&#123;</span><br><span class="line">            url: &#x27;https://applet-base-api-t.itheima.net/api/translate&#x27;,</span><br><span class="line">            params: newValue</span><br><span class="line">          &#125;)</span><br><span class="line">          this.result = res.data.data</span><br><span class="line">          console.log(res.data.data)</span><br><span class="line">        &#125;, 300)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>​	</p>
 
       
     </div>
