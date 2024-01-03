@@ -42,7 +42,7 @@
 <meta property="og:image" content="https://erickinyae.github.io/2023/12/28/Vue/image-20240103094628239.png">
 <meta property="og:image" content="https://erickinyae.github.io/2023/12/28/Vue/1682394495346.png">
 <meta property="article:published_time" content="2023-12-28T00:59:18.000Z">
-<meta property="article:modified_time" content="2024-01-03T02:48:09.092Z">
+<meta property="article:modified_time" content="2024-01-03T02:51:46.183Z">
 <meta property="article:author" content="Erickin">
 <meta property="article:tag" content="框架">
 <meta name="twitter:card" content="summary">
@@ -357,7 +357,7 @@
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2023/12/28/Vue/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 7.9k(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 8k(字)</span>
 	
 	
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 38(分)</span>
@@ -753,7 +753,7 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//在main.js中</span></span><br><span class="line"><span class="title class_">Vue</span>.<span class="title function_">directive</span>(<span class="string">&#x27;指令名&#x27;</span>, &#123;</span><br><span class="line">  <span class="string">&quot;inserted&quot;</span> (el) &#123;</span><br><span class="line">    <span class="comment">// 可以对 el 标签，扩展额外功能</span></span><br><span class="line">    el.<span class="title function_">focus</span>()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>局部注册</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">//在Vue组件的配置项中</span><br><span class="line">directives: &#123;</span><br><span class="line">  &quot;指令名&quot;: &#123;</span><br><span class="line">    inserted () &#123;</span><br><span class="line">      // 可以对 el 标签，扩展额外功能</span><br><span class="line">      el.focus()</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">export default &#123;</span><br><span class="line">  // mounted () &#123;</span><br><span class="line">  //   this.$refs.inp.focus()</span><br><span class="line">  // &#125;</span><br><span class="line">  </span><br><span class="line">  // 2. 局部注册指令</span><br><span class="line">  directives: &#123;</span><br><span class="line">    // 指令名：指令的配置项</span><br><span class="line">    focus: &#123;</span><br><span class="line">      inserted (el) &#123;</span><br><span class="line">        el.focus()</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>使用指令</p>
 <p>注意：在使用指令的时候，一定要<strong>先注册</strong>，<strong>再使用</strong>，否则会报错<br>使用指令语法： v-指令名。如：<code>&lt;input type=&quot;text&quot;  v-focus/&gt;</code>  </p>
@@ -769,7 +769,9 @@
 
 
 <h2 id="6-总结-1"><a href="#6-总结-1" class="headerlink" title="6.总结"></a>6.总结</h2><p>1.自定义指令的作用是什么？</p>
+<p>封装DOM操作，扩展额外的功能；</p>
 <p>2.使用自定义指令的步骤是哪两步？</p>
+<p>第一步，通过全局(main.js)、局部(组件的vue)进行自定义指令的注册；第二步，通过v-xxx指令在DOM中进行使用。</p>
 
       
     </div>
