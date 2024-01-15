@@ -17,19 +17,16 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>代码审计_逻辑漏洞 | Erickin的博客</title>
-  <meta property="og:type" content="article">
-<meta property="og:title" content="代码审计_逻辑漏洞">
-<meta property="og:url" content="https://erickinyae.github.io/2023/12/05/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1-%E9%80%BB%E8%BE%91%E6%BC%8F%E6%B4%9E/index.html">
+  <title>Erickin的博客</title>
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Erickin">
+<meta property="og:url" content="https://erickinyae.github.io/page/3/index.html">
 <meta property="og:site_name" content="Erickin">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-12-05T08:08:23.000Z">
-<meta property="article:modified_time" content="2023-12-05T08:08:40.253Z">
 <meta property="article:author" content="Erickin">
-<meta property="article:tag" content="审计">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
-  <link rel="canonical" href="https://erickinyae.github.io/2023/12/05/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1-%E9%80%BB%E8%BE%91%E6%BC%8F%E6%B4%9E/index.html">
+  <link rel="canonical" href="https://erickinyae.github.io/page/3/index.html">
   
     <link rel="alternate" href="/atom.xml" title="Erickin" type="application/atom+xml">
   
@@ -284,17 +281,18 @@
 </aside>
 
   
+  <main class="main" role="main">
   
-<main class="main" role="main">
-  <div class="content">
-  <article id="post-代码审计-逻辑漏洞" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+    <div class="content">
+  <article id="post-git" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
-    <h1 class="article-title" itemprop="name">
-      代码审计_逻辑漏洞
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/10/21/git/">git</a>
     </h1>
   
 
@@ -302,20 +300,20 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/2023/12/05/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1-%E9%80%BB%E8%BE%91%E6%BC%8F%E6%B4%9E/" class="article-date">
-	  <time datetime="2023-12-05T08:08:23.000Z" itemprop="datePublished">2023-12-05</time>
+	<a href="/2023/10/21/git/" class="article-date">
+	  <time datetime="2023-10-21T15:57:30.000Z" itemprop="datePublished">2023-10-21</time>
 	</a>
 </span>
         
   <span class="article-category">
     <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="/categories/%E5%AE%89%E5%85%A8/">安全</a>
+    <a class="article-category-link" href="/categories/%E5%90%8E%E7%AB%AF/">后端</a>
   </span>
 
         
   <span class="article-tag">
     <i class="icon icon-tags"></i>
-	<a class="article-tag-link-link" href="/tags/%E5%AE%A1%E8%AE%A1/" rel="tag">审计</a>
+	<a class="article-tag-link-link" href="/tags/CI-CD/" rel="tag">CI\CD</a>
   </span>
 
 
@@ -323,23 +321,115 @@
 
 	<span class="article-read hidden-xs">
     	<i class="icon icon-eye-fill" aria-hidden="true"></i>
-    	<span id="/2023/12/05/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1-%E9%80%BB%E8%BE%91%E6%BC%8F%E6%B4%9E/" class="leancloud_visitors"  data-flag-title="代码审计_逻辑漏洞">0</span>
+    	<span id="/2023/10/21/git/" class="leancloud_visitors"  data-flag-title="git">0</span>
     </span>
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2023/12/05/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1-%E9%80%BB%E8%BE%91%E6%BC%8F%E6%B4%9E/#comments" class="article-comment-link">评论</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2023/10/21/git/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 0(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 625(字)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1(分)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 2(分)</span>
 	
 
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        
+        <h1 id="添加与提交"><a href="#添加与提交" class="headerlink" title="添加与提交"></a>添加与提交</h1><p>代码的提交分为两个部分，分别是提交到缓存区，和提交到仓库。</p>
+<p>提交到缓存区的方法为: </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add &lt;filename&gt;</span><br></pre></td></tr></table></figure>
+
+<p>将代码从缓存区提交到仓库的方法为：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m &lt;提交说明&gt; &lt;filename&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">eg: git commit -m &quot;first commit&quot; ./agent.jar</span><br></pre></td></tr></table></figure>
+
+<h2 id="当代码拉取到本地"><a href="#当代码拉取到本地" class="headerlink" title="当代码拉取到本地"></a>当代码拉取到本地</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull &lt;remote name&gt; &lt;branch&gt;</span><br></pre></td></tr></table></figure>
+
+<p>示例</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull git-demo master</span><br></pre></td></tr></table></figure>
+
+<h2 id="克隆仓库代码到本地"><a href="#克隆仓库代码到本地" class="headerlink" title="克隆仓库代码到本地"></a>克隆仓库代码到本地</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone &lt;仓库链接&gt;</span><br></pre></td></tr></table></figure>
+
+<p>克隆操作会做以下三件事情：</p>
+<ol>
+<li>拉取代码；</li>
+<li>初始化本地仓库；</li>
+<li>创建别名；</li>
+</ol>
+<h2 id="当前版本更改"><a href="#当前版本更改" class="headerlink" title="当前版本更改"></a>当前版本更改</h2><p>更改当前的版本代码，以实现代码版本回退的功能：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard &lt;代码版本号&gt;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>代码版本号可以用git reflog 查到；</p>
+<p>代码版本更改的底层原理是修改head指针指向的版本代码位置；</p>
+</blockquote>
+<h2 id="git日志查看"><a href="#git日志查看" class="headerlink" title="git日志查看"></a>git日志查看</h2><p>查看简单日志：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reflog</span><br></pre></td></tr></table></figure>
+
+<p>查看详细日志：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git log</span><br></pre></td></tr></table></figure>
+
+<h2 id="git分支操作"><a href="#git分支操作" class="headerlink" title="git分支操作"></a>git分支操作</h2><table>
+<thead>
+<tr>
+<th>命令名称</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>git branch 分支名</td>
+<td>创建分支</td>
+</tr>
+<tr>
+<td>git branch -v</td>
+<td>查看分支</td>
+</tr>
+<tr>
+<td>git checkout 分支名</td>
+<td>切换分支</td>
+</tr>
+<tr>
+<td>git merge 分支名</td>
+<td>把指定的分支合并到当前分支上</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>一般情况下，每次写代码都需要将别人的代码先merge下来</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git merge hot-fix</span><br><span class="line">#将hot-fix分支上的代码merge到当前分支上进行合并；</span><br></pre></td></tr></table></figure>
+
+<h2 id="代码冲突时"><a href="#代码冲突时" class="headerlink" title="代码冲突时"></a>代码冲突时</h2><p>当代码冲突时，需要人为的到代码中去选择要删除和保留哪些内容，然后！</p>
+<ol>
+<li>第一步，手动的将修改完成的代码加入到缓存区（<code>git add &lt;filename&gt;</code>)；</li>
+<li>第二步，执行提交，此时使用<code>git commit -m &lt;描述信息&gt;</code> 时，不能带文件名。</li>
+</ol>
+<h2 id="不同分支时代码提交-pull-request"><a href="#不同分支时代码提交-pull-request" class="headerlink" title="不同分支时代码提交(pull request)"></a>不同分支时代码提交(pull request)</h2><ol>
+<li>让master主分支将我拉到该项目的团队中，然后fork一份代码库给到我的分支中；</li>
+<li>自己首先需要将代码clone下来，然后进行开发、修改等操作；</li>
+<li>开发、修改完成后，需要将代码push到属于我的分支的代码库中；</li>
+<li>pull request：需要给其他分支发起推送请求，并等待其审核，如果代码没问题则合并到目标分支的代码中；</li>
+</ol>
+<h2 id="git本地给远程库创建一个别名"><a href="#git本地给远程库创建一个别名" class="headerlink" title="git本地给远程库创建一个别名"></a>git本地给远程库创建一个别名</h2><table>
+<thead>
+<tr>
+<th>代码</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>git remote -v</td>
+<td>查看当前远程库-别名列表；</td>
+</tr>
+<tr>
+<td>git remote add &lt;别名&gt; &lt;远程地址&gt;</td>
+<td>给远程库取一个名字</td>
+</tr>
+</tbody></table>
+<p>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</p>
+
       
     </div>
     <div class="article-footer">
@@ -348,7 +438,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="https://erickinyae.github.io/2023/12/05/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1-%E9%80%BB%E8%BE%91%E6%BC%8F%E6%B4%9E/" title="代码审计_逻辑漏洞" target="_blank" rel="external">https://erickinyae.github.io/2023/12/05/代码审计-逻辑漏洞/</a>
+      <a href="https://erickinyae.github.io/2023/10/21/git/" title="git" target="_blank" rel="external">https://erickinyae.github.io/2023/10/21/git/</a>
     </li>
     
     <li class="post-copyright-license">
@@ -378,46 +468,37 @@
     </div>
   </article>
   
-    
-  <section id="comments">
-  	
-      <div id="vcomments"></div>
-    
-  </section>
-
-
-  
 </div>
 
-  <nav class="bar bar-footer clearfix" data-stick-bottom>
-  <div class="bar-inner">
-  
-  <ul class="pager pull-left">
-    
-    <li class="prev">
-      <a href="/2023/12/06/QandA/" title="QandA"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
-    </li>
-    
-    
-    <li class="next">
-      <a href="/2023/11/30/OWASP%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%E6%8C%87%E5%8D%97/" title="OWASP代码审计指南"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
-    </li>
-    
-    
-  </ul>
-  
-  
-  
-  <div class="bar-right">
-    
-    <div class="share-component" data-sites="weibo,qq,wechat# PC端显示的分享图标" data-mobile-sites="weibo,qq,qzone"></div>
-    
-  </div>
-  </div>
-</nav>
   
 
-
+  
+    
+    <nav class="bar bar-footer clearfix" data-stick-bottom>
+        <div class="bar-inner">
+        <ul class="pager pull-left">
+            
+            <li class="prev">
+                <a href="/page/2/">
+                    <i class="icon icon-angle-left"></i>
+                    上一页
+                </a>
+            </li>
+            
+            
+            <li class="next disabled">
+                <a href="javascript:;">
+                    下一页
+                    <i class="icon icon-angle-right"></i>                    
+                </a>
+            </li>
+            
+        </ul>
+            <div class="total-article bar-right">Page 3 of 3</div>
+        </div>
+    </nav>
+    
+ 
 </main>
 
   <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
@@ -564,33 +645,6 @@ $(function() {
 }); 
 </script>
 
-
-
-   
-    
-  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/valine"></script>
-  <script type="text/javascript">
-  var GUEST = ['nick', 'mail', 'link'];
-  var meta = 'nick,mail,link';
-  meta = meta.split(',').filter(function(item) {
-    return GUEST.indexOf(item) > -1;
-  });
-  new Valine({
-    el: '#vcomments',
-    verify: true,
-    notify: true,
-    appId: 'SUyBw2O3KrfIHPmB9F7wtwKM-gzGzoHsz',
-    appKey: 'GytafoX6e83t5QtTlbX6wwQt',
-    placeholder: '说点什么吧',
-    avatar: 'mm',
-    meta: meta,
-    pageSize: '10' || 10,
-    visitor: false
-  });
-  </script>
-
-     
 
 
 
