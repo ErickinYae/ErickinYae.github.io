@@ -6,7 +6,7 @@
   <link href="https://erickinyae.github.io/atom.xml" rel="self"/>
   
   <link href="https://erickinyae.github.io/"/>
-  <updated>2024-03-06T10:08:18.614Z</updated>
+  <updated>2024-03-06T10:45:36.691Z</updated>
   <id>https://erickinyae.github.io/</id>
   
   <author>
@@ -15,6 +15,40 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>漏洞利用</title>
+    <link href="https://erickinyae.github.io/2024/03/06/%E6%BC%8F%E6%B4%9E%E5%88%A9%E7%94%A8/"/>
+    <id>https://erickinyae.github.io/2024/03/06/%E6%BC%8F%E6%B4%9E%E5%88%A9%E7%94%A8/</id>
+    <published>2024-03-06T10:12:30.000Z</published>
+    <updated>2024-03-06T10:45:36.691Z</updated>
+    
+    
+    
+    
+    <category term="安全" scheme="https://erickinyae.github.io/categories/%E5%AE%89%E5%85%A8/"/>
+    
+    
+    <category term="漏洞" scheme="https://erickinyae.github.io/tags/%E6%BC%8F%E6%B4%9E/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>漏洞类型</title>
+    <link href="https://erickinyae.github.io/2024/03/06/%E6%BC%8F%E6%B4%9E%E7%B1%BB%E5%9E%8B/"/>
+    <id>https://erickinyae.github.io/2024/03/06/%E6%BC%8F%E6%B4%9E%E7%B1%BB%E5%9E%8B/</id>
+    <published>2024-03-06T10:12:23.000Z</published>
+    <updated>2024-03-06T10:45:40.352Z</updated>
+    
+    
+    
+    
+    <category term="安全" scheme="https://erickinyae.github.io/categories/%E5%AE%89%E5%85%A8/"/>
+    
+    
+    <category term="漏洞" scheme="https://erickinyae.github.io/tags/%E6%BC%8F%E6%B4%9E/"/>
+    
+  </entry>
   
   <entry>
     <title>Vue</title>
@@ -474,32 +508,6 @@
     
     
     <category term="博客" scheme="https://erickinyae.github.io/tags/%E5%8D%9A%E5%AE%A2/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>git</title>
-    <link href="https://erickinyae.github.io/2023/10/21/git/"/>
-    <id>https://erickinyae.github.io/2023/10/21/git/</id>
-    <published>2023-10-21T15:57:30.000Z</published>
-    <updated>2024-03-06T09:55:01.188Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="添加与提交"><a href="#添加与提交" class="headerlink" title="添加与提交"></a>添加与提交</h1><p>代码的提交分为两个部分，分别是提交到缓存区，和提交到仓库。</p><p>提交到缓存区的方法为: </p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add &lt;filename&gt;</span><br></pre></td></tr></table></figure><p>将代码从缓存区提交到仓库的方法为：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m &lt;提交说明&gt; &lt;filename&gt;</span><br></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">eg: git commit -m &quot;first commit&quot; ./agent.jar</span><br></pre></td></tr></table></figure><h2 id="当代码拉取到本地"><a href="#当代码拉取到本地" class="headerlink" title="当代码拉取到本地"></a>当代码拉取到本地</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull &lt;remote name&gt; &lt;branch&gt;</span><br></pre></td></tr></table></figure><p>示例</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull git-demo master</span><br></pre></td></tr></table></figure><h2 id="克隆仓库代码到本地"><a href="#克隆仓库代码到本地" class="headerlink" title="克隆仓库代码到本地"></a>克隆仓库代码到本地</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone &lt;仓库链接&gt;</span><br></pre></td></tr></table></figure><p>克隆操作会做以下三件事情：</p><ol><li>拉取代码；</li><li>初始化本地仓库；</li><li>创建别名；</li></ol><h2 id="当前版本更改"><a href="#当前版本更改" class="headerlink" title="当前版本更改"></a>当前版本更改</h2><p>更改当前的版本代码，以实现代码版本回退的功能：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard &lt;代码版本号&gt;</span><br></pre></td></tr></table></figure><blockquote><p>代码版本号可以用git reflog 查到；</p><p>代码版本更改的底层原理是修改head指针指向的版本代码位置；</p></blockquote><h2 id="git日志查看"><a href="#git日志查看" class="headerlink" title="git日志查看"></a>git日志查看</h2><p>查看简单日志：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reflog</span><br></pre></td></tr></table></figure><p>查看详细日志：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git log</span><br></pre></td></tr></table></figure><h2 id="git分支操作"><a href="#git分支操作" class="headerlink" title="git分支操作"></a>git分支操作</h2><table><thead><tr><th>命令名称</th><th>作用</th></tr></thead><tbody><tr><td>git branch 分支名</td><td>创建分支</td></tr><tr><td>git branch -v</td><td>查看分支</td></tr><tr><td>git checkout 分支名</td><td>切换分支</td></tr><tr><td>git merge 分支名</td><td>把指定的分支合并到当前分支上</td></tr></tbody></table><blockquote><p>一般情况下，每次写代码都需要将别人的代码先merge下来</p></blockquote><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git merge hot-fix</span><br><span class="line">#将hot-fix分支上的代码merge到当前分支上进行合并；</span><br></pre></td></tr></table></figure><h2 id="代码冲突时"><a href="#代码冲突时" class="headerlink" title="代码冲突时"></a>代码冲突时</h2><p>当代码冲突时，需要人为的到代码中去选择要删除和保留哪些内容，然后！</p><ol><li>第一步，手动的将修改完成的代码加入到缓存区（<code>git add &lt;filename&gt;</code>)；</li><li>第二步，执行提交，此时使用<code>git commit -m &lt;描述信息&gt;</code> 时，不能带文件名。</li></ol><h2 id="不同分支时代码提交-pull-request"><a href="#不同分支时代码提交-pull-request" class="headerlink" title="不同分支时代码提交(pull request)"></a>不同分支时代码提交(pull request)</h2><ol><li>让master主分支将我拉到该项目的团队中，然后fork一份代码库给到我的分支中；</li><li>自己首先需要将代码clone下来，然后进行开发、修改等操作；</li><li>开发、修改完成后，需要将代码push到属于我的分支的代码库中；</li><li>pull request：需要给其他分支发起推送请求，并等待其审核，如果代码没问题则合并到目标分支的代码中；</li></ol><h2 id="git本地给远程库创建一个别名"><a href="#git本地给远程库创建一个别名" class="headerlink" title="git本地给远程库创建一个别名"></a>git本地给远程库创建一个别名</h2><table><thead><tr><th>代码</th><th>含义</th></tr></thead><tbody><tr><td>git remote -v</td><td>查看当前远程库-别名列表；</td></tr><tr><td>git remote add &lt;别名&gt; &lt;远程地址&gt;</td><td>给远程库取一个名字</td></tr></tbody></table><p>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;添加与提交&quot;&gt;&lt;a href=&quot;#添加与提交&quot; class=&quot;headerlink&quot; title=&quot;添加与提交&quot;&gt;&lt;/a&gt;添加与提交&lt;/h1&gt;&lt;p&gt;代码的提交分为两个部分，分别是提交到缓存区，和提交到仓库。&lt;/p&gt;
-&lt;p&gt;提交到缓存区的方法为: &lt;/p&gt;
-&lt;fig</summary>
-      
-    
-    
-    
-    <category term="开发" scheme="https://erickinyae.github.io/categories/%E5%BC%80%E5%8F%91/"/>
-    
-    
-    <category term="CI&#92;CD" scheme="https://erickinyae.github.io/tags/CI-CD/"/>
     
   </entry>
   
