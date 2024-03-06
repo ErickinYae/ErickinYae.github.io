@@ -6,7 +6,7 @@
   <link href="https://erickinyae.github.io/atom.xml" rel="self"/>
   
   <link href="https://erickinyae.github.io/"/>
-  <updated>2024-03-06T10:45:36.691Z</updated>
+  <updated>2024-03-06T11:07:39.498Z</updated>
   <id>https://erickinyae.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>burpsuite使用</title>
+    <link href="https://erickinyae.github.io/2024/03/06/burpsuite%E4%BD%BF%E7%94%A8/"/>
+    <id>https://erickinyae.github.io/2024/03/06/burpsuite%E4%BD%BF%E7%94%A8/</id>
+    <published>2024-03-06T10:46:22.000Z</published>
+    <updated>2024-03-06T11:07:39.498Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Proxy"><a href="#Proxy" class="headerlink" title="Proxy"></a>Proxy</h1><h2 id="获取目标服务端响应"><a href="#获取目标服务端响应" class="headerlink" title="获取目标服务端响应"></a>获取目标服务端响应</h2><p>BurpSuite中如果需要在bp中获取服务端响应，并将其返回给浏览器，需要进行如下步骤：</p><p>在Proxy -&gt; Intercept界面下，在捕捉到的消息包中右键Do Intercept -&gt; Response to this request，返回一个响应包；</p><h2 id="Burpsuite-VPN-真实IP泄漏"><a href="#Burpsuite-VPN-真实IP泄漏" class="headerlink" title="Burpsuite + VPN 真实IP泄漏"></a>Burpsuite + VPN 真实IP泄漏</h2><p>注意，开启Burpsuite + VPN的使用方式可能会导致真实IP的泄漏。</p><p>原因：</p><p>数据流：Data -&gt; Brower -&gt; BurpSuite -&gt; Web服务端 -&gt; BurpSuite -&gt; Brower</p><p>在这个过程中，Brower是受到vpn代理的，但是BurpSuite没有，就会导致数据经由BurpSuite使用真实ip发送请求给Web服务端，从而导致泄漏。</p><h1 id="Intruder"><a href="#Intruder" class="headerlink" title="Intruder"></a>Intruder</h1><h2 id="弱密码爆破方法"><a href="#弱密码爆破方法" class="headerlink" title="弱密码爆破方法"></a>弱密码爆破方法</h2><ul><li><p>在proxy中右键send to intruder</p></li><li><p>在intruder中的target中确定爆破的地址和端口</p></li><li><p>在positions中确定爆破输入的位置</p></li><li><p>在payloads中：</p><ul><li><p>payload options[simple list]位置输入密码爆破载荷集；</p></li><li><p>在payload processing中选择载荷集的加密方式，即载荷被加密后再发送到服务器进行爆破；</p></li><li><p>payload encoding中取消勾选，从而取消转义。</p></li></ul></li></ul><p><img src="/2024/03/06/burpsuite%E4%BD%BF%E7%94%A8/image-20240306190735333.png" alt="image-20240306190735333"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;Proxy&quot;&gt;&lt;a href=&quot;#Proxy&quot; class=&quot;headerlink&quot; title=&quot;Proxy&quot;&gt;&lt;/a&gt;Proxy&lt;/h1&gt;&lt;h2 id=&quot;获取目标服务端响应&quot;&gt;&lt;a href=&quot;#获取目标服务端响应&quot; class=&quot;headerlink&quot; ti</summary>
+      
+    
+    
+    
+    <category term="安全" scheme="https://erickinyae.github.io/categories/%E5%AE%89%E5%85%A8/"/>
+    
+    
+    <category term="工具" scheme="https://erickinyae.github.io/tags/%E5%B7%A5%E5%85%B7/"/>
+    
+  </entry>
   
   <entry>
     <title>漏洞利用</title>
@@ -38,8 +62,15 @@
     <link href="https://erickinyae.github.io/2024/03/06/%E6%BC%8F%E6%B4%9E%E7%B1%BB%E5%9E%8B/"/>
     <id>https://erickinyae.github.io/2024/03/06/%E6%BC%8F%E6%B4%9E%E7%B1%BB%E5%9E%8B/</id>
     <published>2024-03-06T10:12:23.000Z</published>
-    <updated>2024-03-06T10:45:40.352Z</updated>
+    <updated>2024-03-06T11:04:42.384Z</updated>
     
+    <content type="html"><![CDATA[<h1 id="越权漏洞-cookie越权漏洞"><a href="#越权漏洞-cookie越权漏洞" class="headerlink" title="越权漏洞 &amp; cookie越权漏洞"></a>越权漏洞 &amp; cookie越权漏洞</h1><h2 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h2><p>平行越权漏洞：同等级之下的越权操作；<br>垂直越权漏洞：由下而上的越权操作；</p><h2 id="网站权限的划分"><a href="#网站权限的划分" class="headerlink" title="网站权限的划分"></a>网站权限的划分</h2><p>管理员、会员、来宾</p><p>平行越权：会员 &lt;-&gt; 会员</p><p>垂直越权：会员 &lt;-&gt; 管理员</p><h2 id="常见ID分类"><a href="#常见ID分类" class="headerlink" title="常见ID分类"></a>常见ID分类</h2><p>自增id：1、2、3、4、5、6</p><p>编码id：base64编码</p><p>加密id：MD5、AES、SHA1等</p><p>可逆id：202403041528</p><h1 id="弱口令漏洞"><a href="#弱口令漏洞" class="headerlink" title="弱口令漏洞"></a>弱口令漏洞</h1><p>漏洞类型：常规弱口令、默认弱口令</p><p>实践中的问题：</p><p>验证码校验无法爆破：</p><h2 id="绕过思路"><a href="#绕过思路" class="headerlink" title="绕过思路"></a>绕过思路</h2><ol><li>在提交信息完毕后是否及时销毁掉session中的验证码；</li><li>通过验证码识别软件或者某些burpsuite插件去绕过；</li></ol><h2 id="密码错误次数限制"><a href="#密码错误次数限制" class="headerlink" title="密码错误次数限制"></a>密码错误次数限制</h2><ol><li>数据库维护错误次数字段；</li><li>session失效或过期；</li></ol><h3 id="密码进行了某种加密算法"><a href="#密码进行了某种加密算法" class="headerlink" title="密码进行了某种加密算法"></a>密码进行了某种加密算法</h3><p>在前端代码中找到字段加密的方法：</p><p> 具体措施：</p><ol><li>在请求包中找到被加密字段的字段名；</li><li>在前端代码中搜索该字段名，找到对应的加密方法；</li><li>通过搜索或其他方式确定加密的类型。</li></ol><p>burp操作方法：</p><ul><li><p>在proxy中右键send to intruder</p></li><li><p>在intruder中的target中确定爆破的地址和端口</p></li><li><p>在positions中确定爆破输入的位置</p></li><li><p>在payloads中：</p><ul><li><p>payload options[simple list]位置输入密码爆破载荷集；</p></li><li><p>在payload processing中选择载荷集的加密方式，即载荷被加密后再发送到服务器进行爆破；</p></li><li><p>payload encoding中取消勾选，从而取消转义。</p></li></ul></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;越权漏洞-cookie越权漏洞&quot;&gt;&lt;a href=&quot;#越权漏洞-cookie越权漏洞&quot; class=&quot;headerlink&quot; title=&quot;越权漏洞 &amp;amp; cookie越权漏洞&quot;&gt;&lt;/a&gt;越权漏洞 &amp;amp; cookie越权漏洞&lt;/h1&gt;&lt;h2 id=&quot;分</summary>
+      
     
     
     
@@ -472,42 +503,6 @@
     
     
     <category term="数据库" scheme="https://erickinyae.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>hexo</title>
-    <link href="https://erickinyae.github.io/2023/11/04/hexo/"/>
-    <id>https://erickinyae.github.io/2023/11/04/hexo/</id>
-    <published>2023-11-04T15:41:40.000Z</published>
-    <updated>2024-03-06T09:55:23.355Z</updated>
-    
-    <content type="html"><![CDATA[<p>hexo基础指令</p><table><thead><tr><th>指令</th><th>作用</th><th>备注</th></tr></thead><tbody><tr><td>发布与上线</td><td>hexo  g -d</td><td></td></tr><tr><td>创建新文章</td><td>hexo new “title”</td><td></td></tr><tr><td>本地启动</td><td>hexo s</td><td></td></tr></tbody></table>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;hexo基础指令&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;指令&lt;/th&gt;
-&lt;th&gt;作用&lt;/th&gt;
-&lt;th&gt;备注&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;&lt;tr&gt;
-&lt;td&gt;发布与上线&lt;/td&gt;
-&lt;td&gt;hexo  g -d&lt;/td&gt;
-&lt;td&gt;&lt;</summary>
-      
-    
-    
-    
-    <category term="其他" scheme="https://erickinyae.github.io/categories/%E5%85%B6%E4%BB%96/"/>
-    
-    
-    <category term="博客" scheme="https://erickinyae.github.io/tags/%E5%8D%9A%E5%AE%A2/"/>
     
   </entry>
   

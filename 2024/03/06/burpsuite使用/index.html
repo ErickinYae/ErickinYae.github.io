@@ -17,16 +17,23 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>标签: 基础 | Erickin的博客</title>
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Erickin">
-<meta property="og:url" content="https://erickinyae.github.io/tags/%E5%9F%BA%E7%A1%80/index.html">
+  <title>burpsuite使用 | Erickin的博客</title>
+  <meta name="description" content="Proxy获取目标服务端响应BurpSuite中如果需要在bp中获取服务端响应，并将其返回给浏览器，需要进行如下步骤： 在Proxy -&gt; Intercept界面下，在捕捉到的消息包中右键Do Intercept -&gt; Response to this request，返回一个响应包； Burpsuite + VPN 真实IP泄漏注意，开启Burpsuite + VPN的使用方式可能会">
+<meta property="og:type" content="article">
+<meta property="og:title" content="burpsuite使用">
+<meta property="og:url" content="https://erickinyae.github.io/2024/03/06/burpsuite%E4%BD%BF%E7%94%A8/index.html">
 <meta property="og:site_name" content="Erickin">
+<meta property="og:description" content="Proxy获取目标服务端响应BurpSuite中如果需要在bp中获取服务端响应，并将其返回给浏览器，需要进行如下步骤： 在Proxy -&gt; Intercept界面下，在捕捉到的消息包中右键Do Intercept -&gt; Response to this request，返回一个响应包； Burpsuite + VPN 真实IP泄漏注意，开启Burpsuite + VPN的使用方式可能会">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://erickinyae.github.io/2024/03/06/burpsuite%E4%BD%BF%E7%94%A8/image-20240306190735333.png">
+<meta property="article:published_time" content="2024-03-06T10:46:22.000Z">
+<meta property="article:modified_time" content="2024-03-06T11:07:39.498Z">
 <meta property="article:author" content="Erickin">
+<meta property="article:tag" content="工具">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://erickinyae.github.io/2024/03/06/burpsuite%E4%BD%BF%E7%94%A8/image-20240306190735333.png">
   <!-- Canonical links -->
-  <link rel="canonical" href="https://erickinyae.github.io/tags/%E5%9F%BA%E7%A1%80/index.html">
+  <link rel="canonical" href="https://erickinyae.github.io/2024/03/06/burpsuite%E4%BD%BF%E7%94%A8/index.html">
   
     <link rel="alternate" href="/atom.xml" title="Erickin" type="application/atom+xml">
   
@@ -281,102 +288,161 @@
 </aside>
 
   
-  <main class="main" role="main">
-  <article class="content article article-tags post-type-list" itemscope="">
-    <header class="article-header">
-      <h1 itemprop="name" class="hidden-xs">标签: 基础</h1>
-      <p class="text-muted hidden-xs">共 2 篇文章</p>
-      <nav role="navigation" id="nav-main" class="okayNav">
-        <ul>
-          <li><a href="/tags">All</a></li>
-          
-          <li><a href="/tags/代码审计/">代码审计</a></li>
-          
-          <li><a href="/tags/CI-CD/">CI\CD</a></li>
-          
-          <li><a href="/tags/博客/">博客</a></li>
-          
-          <li><a href="/tags/问题/">问题</a></li>
-          
-          <li><a href="/tags/前端/">前端</a></li>
-          
-          <li><a href="/tags/基础/">基础</a></li>
-          
-          <li><a href="/tags/渗透测试/">渗透测试</a></li>
-          
-          <li><a href="/tags/鉴权/">鉴权</a></li>
-          
-          <li><a href="/tags/Java/">Java</a></li>
-          
-          <li><a href="/tags/威胁建模/">威胁建模</a></li>
-          
-          <li><a href="/tags/框架/">框架</a></li>
-          
-          <li><a href="/tags/数据库/">数据库</a></li>
-          
-          <li><a href="/tags/漏洞/">漏洞</a></li>
-          
-          <li><a href="/tags/工具/">工具</a></li>
-          
-        </ul>
-      </nav>
-    </header>
-    <!-- /header -->
-    <div class="article-body">
-      <div class="row">
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-burpsuite使用" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
         
-<div class="col-md-6">
-    
-<article class="panel panel-default hover-shadow hover-grow" itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="panel-body">
-     <div class="article-meta">
-       <time datetime="2023-11-30T07:24:20.000Z" itemprop="datePublished">2023-11-30</time>
-     </div>
-     <h3 class="article-title" itemprop="name">
-       <a class="article-link" href="/2023/11/30/%E8%AF%8D%E6%B1%87%E6%89%AB%E7%9B%B2/">词汇扫盲</a>
-     </h3>
-   </div>
-   
-   <div class="panel-footer">
-     
-      <a href="/tags/%E5%9F%BA%E7%A1%80/" class="label label-default mb">基础</a>
-     
-     
-   </div>
-   
-</article>
+  
+    <h1 class="article-title" itemprop="name">
+      burpsuite使用
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2024/03/06/burpsuite%E4%BD%BF%E7%94%A8/" class="article-date">
+	  <time datetime="2024-03-06T10:46:22.000Z" itemprop="datePublished">2024-03-06</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/%E5%AE%89%E5%85%A8/">安全</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/%E5%B7%A5%E5%85%B7/" rel="tag">工具</a>
+  </span>
 
 
-</div>
+        
 
-<div class="col-md-6">
-    
-<article class="panel panel-default hover-shadow hover-grow" itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="panel-body">
-     <div class="article-meta">
-       <time datetime="2023-11-09T05:33:04.000Z" itemprop="datePublished">2023-11-09</time>
-     </div>
-     <h3 class="article-title" itemprop="name">
-       <a class="article-link" href="/2023/11/09/%E5%AE%89%E5%85%A8%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/">安全学习资源</a>
-     </h3>
-   </div>
-   
-   <div class="panel-footer">
-     
-      <a href="/tags/%E5%9F%BA%E7%A1%80/" class="label label-default mb">基础</a>
-     
-     
-   </div>
-   
-</article>
+	<span class="article-read hidden-xs">
+    	<i class="icon icon-eye-fill" aria-hidden="true"></i>
+    	<span id="/2024/03/06/burpsuite%E4%BD%BF%E7%94%A8/" class="leancloud_visitors"  data-flag-title="burpsuite使用">0</span>
+    </span>
 
-
-</div>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2024/03/06/burpsuite%E4%BD%BF%E7%94%A8/#comments" class="article-comment-link">评论</a></span>
+        
+	
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 270(字)</span>
+	
+	
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1(分)</span>
+	
 
       </div>
     </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h1 id="Proxy"><a href="#Proxy" class="headerlink" title="Proxy"></a>Proxy</h1><h2 id="获取目标服务端响应"><a href="#获取目标服务端响应" class="headerlink" title="获取目标服务端响应"></a>获取目标服务端响应</h2><p>BurpSuite中如果需要在bp中获取服务端响应，并将其返回给浏览器，需要进行如下步骤：</p>
+<p>在Proxy -&gt; Intercept界面下，在捕捉到的消息包中右键Do Intercept -&gt; Response to this request，返回一个响应包；</p>
+<h2 id="Burpsuite-VPN-真实IP泄漏"><a href="#Burpsuite-VPN-真实IP泄漏" class="headerlink" title="Burpsuite + VPN 真实IP泄漏"></a>Burpsuite + VPN 真实IP泄漏</h2><p>注意，开启Burpsuite + VPN的使用方式可能会导致真实IP的泄漏。</p>
+<p>原因：</p>
+<p>数据流：Data -&gt; Brower -&gt; BurpSuite -&gt; Web服务端 -&gt; BurpSuite -&gt; Brower</p>
+<p>在这个过程中，Brower是受到vpn代理的，但是BurpSuite没有，就会导致数据经由BurpSuite使用真实ip发送请求给Web服务端，从而导致泄漏。</p>
+<h1 id="Intruder"><a href="#Intruder" class="headerlink" title="Intruder"></a>Intruder</h1><h2 id="弱密码爆破方法"><a href="#弱密码爆破方法" class="headerlink" title="弱密码爆破方法"></a>弱密码爆破方法</h2><ul>
+<li><p>在proxy中右键send to intruder</p>
+</li>
+<li><p>在intruder中的target中确定爆破的地址和端口</p>
+</li>
+<li><p>在positions中确定爆破输入的位置</p>
+</li>
+<li><p>在payloads中：</p>
+<ul>
+<li><p>payload options[simple list]位置输入密码爆破载荷集；</p>
+</li>
+<li><p>在payload processing中选择载荷集的加密方式，即载荷被加密后再发送到服务器进行爆破；</p>
+</li>
+<li><p>payload encoding中取消勾选，从而取消转义。</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="/2024/03/06/burpsuite%E4%BD%BF%E7%94%A8/image-20240306190735333.png" alt="image-20240306190735333"></p>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="https://erickinyae.github.io/2024/03/06/burpsuite%E4%BD%BF%E7%94%A8/" title="burpsuite使用" target="_blank" rel="external">https://erickinyae.github.io/2024/03/06/burpsuite使用/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/ErickinYae" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/icon.png" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/ErickinYae" target="_blank"><span class="text-dark">Erickin</span><small class="ml-1x">开发安全，安全开发</small></a></h3>
+        <div>打工人</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
   </article>
-   
+  
+    
+  <section id="comments">
+  	
+      <div id="vcomments"></div>
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    
+    <li class="next">
+      <a href="/2024/03/06/%E6%BC%8F%E6%B4%9E%E5%88%A9%E7%94%A8/" title="漏洞利用"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat# PC端显示的分享图标" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+
+
 </main>
 
   <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
@@ -429,6 +495,127 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
 
 
 
+
+   
+
+
+<!-- custom analytics part create by xiamo -->
+<script defer src="https://cdn1.lncld.net/static/js/av-min-1.2.1.js"></script>
+<script defer>
+AV.init({
+  appId: 'SUyBw2O3KrfIHPmB9F7wtwKM-gzGzoHsz',
+  appKey: 'GytafoX6e83t5QtTlbX6wwQt'
+});
+
+function showTime(Counter) {
+	var query = new AV.Query(Counter);
+		var visitors= $('.leancloud_visitors');
+		query.greaterThanOrEqualTo("time", 0);		
+		query.find({
+			success: function(results) {
+				if (results.length == 0) {				
+					return;
+				}
+				var data = results;
+				visitors.each(function(){
+					var url = $(this).attr('id').trim();					
+					for (var i = 0; i < data.length; i++) {
+						var object = data[i];
+						var content = object.get('time');
+						var _url = object.get('url')
+						if(url == _url){
+							$(this).text(content);
+						}
+					}
+				})
+				
+			},
+			error: function(object, error) {
+				console.log("Error: " + error.code + " " + error.message);
+			}
+		});
+}
+
+function addCount(Counter) {
+	var Counter = AV.Object.extend("Counter");
+	url = $(".leancloud_visitors").attr('id').trim();
+	title = $(".leancloud_visitors").attr('data-flag-title').trim();
+	var query = new AV.Query(Counter);
+	query.equalTo("url", url);
+	query.find({
+		success: function(results) {
+			if (results.length > 0) {
+				var counter = results[0];
+				counter.fetchWhenSave(true);
+				counter.increment("time");
+				counter.save(null, {
+					success: function(counter) {
+						var content = counter.get('time');
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(counter, error) {
+						console.log('Failed to save Visitor num, with error message: ' + error.message);
+					}
+				});
+			} else {
+				var newcounter = new Counter();
+				newcounter.set("title", title);
+				newcounter.set("url", url);
+				newcounter.set("time", 1);
+				newcounter.save(null, {
+					success: function(newcounter) {
+					    console.log("newcounter.get('time')="+newcounter.get('time'));
+						var content = newcounter.get('time');
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(newcounter, error) {
+						console.log('Failed to create');
+					}
+				});
+			}
+		},
+		error: function(error) {
+			console.log('Error:' + error.code + " " + error.message);
+		}
+	});
+}
+$(function() {
+	var Counter = AV.Object.extend("Counter");
+	if ($('.leancloud_visitors').length == 1) {
+		addCount(Counter);
+	} else {
+		showTime(Counter);
+	}
+}); 
+</script>
+
+
+
+   
+    
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: true,
+    notify: true,
+    appId: 'SUyBw2O3KrfIHPmB9F7wtwKM-gzGzoHsz',
+    appKey: 'GytafoX6e83t5QtTlbX6wwQt',
+    placeholder: '说点什么吧',
+    avatar: 'mm',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+  </script>
+
+     
 
 
 
