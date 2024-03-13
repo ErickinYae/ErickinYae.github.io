@@ -6,7 +6,7 @@
   <link href="https://erickinyae.github.io/atom.xml" rel="self"/>
   
   <link href="https://erickinyae.github.io/"/>
-  <updated>2024-03-10T13:20:48.087Z</updated>
+  <updated>2024-03-10T15:09:20.231Z</updated>
   <id>https://erickinyae.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>红军技术</title>
+    <link href="https://erickinyae.github.io/2024/03/10/%E7%BA%A2%E5%86%9B%E6%8A%80%E6%9C%AF/"/>
+    <id>https://erickinyae.github.io/2024/03/10/%E7%BA%A2%E5%86%9B%E6%8A%80%E6%9C%AF/</id>
+    <published>2024-03-10T14:41:23.000Z</published>
+    <updated>2024-03-10T15:09:20.231Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="资产梳理"><a href="#资产梳理" class="headerlink" title="资产梳理"></a>资产梳理</h1><h2 id="资产测绘"><a href="#资产测绘" class="headerlink" title="资产测绘"></a>资产测绘</h2><p>网络空间资产探测：IP存活性探测、端口&#x2F;服务探测、操作系统探测、应用类型探测、别名探测、DNS探测、流量探测等。</p><h3 id="服务探测技术"><a href="#服务探测技术" class="headerlink" title="服务探测技术"></a>服务探测技术</h3><h4 id="基于搜索引擎的非侵入式检测"><a href="#基于搜索引擎的非侵入式检测" class="headerlink" title="基于搜索引擎的非侵入式检测"></a>基于搜索引擎的非侵入式检测</h4><p>手段：</p><ul><li>Fofa：<a href="https://fofa.info/">https://fofa.info/</a></li><li>SHODAN：<a href="https://www.shodan.io/">https://www.shodan.io/</a></li><li>zoomeye：<a href="https://www.zoomeye.org/discover">ZoomEye - Cyberspace Search Engine</a></li><li>等空间资产测绘引擎；</li></ul><p>工具：</p><ul><li>Smap：<a href="https://github.com/s0md3v/">https://github.com/s0md3v/</a></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;资产梳理&quot;&gt;&lt;a href=&quot;#资产梳理&quot; class=&quot;headerlink&quot; title=&quot;资产梳理&quot;&gt;&lt;/a&gt;资产梳理&lt;/h1&gt;&lt;h2 id=&quot;资产测绘&quot;&gt;&lt;a href=&quot;#资产测绘&quot; class=&quot;headerlink&quot; title=&quot;资产测绘&quot;&gt;&lt;/a</summary>
+      
+    
+    
+    
+    <category term="安全" scheme="https://erickinyae.github.io/categories/%E5%AE%89%E5%85%A8/"/>
+    
+    
+    <category term="红军" scheme="https://erickinyae.github.io/tags/%E7%BA%A2%E5%86%9B/"/>
+    
+  </entry>
   
   <entry>
     <title>php</title>
@@ -471,31 +495,6 @@
     
     
     <category term="基础" scheme="https://erickinyae.github.io/tags/%E5%9F%BA%E7%A1%80/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>代码审计学习路线</title>
-    <link href="https://erickinyae.github.io/2023/11/09/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/"/>
-    <id>https://erickinyae.github.io/2023/11/09/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/</id>
-    <published>2023-11-09T02:44:56.000Z</published>
-    <updated>2024-03-06T10:07:23.530Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="资源"><a href="#资源" class="headerlink" title="资源"></a>资源</h1><p>审计入门：</p><p><a href="https://github.com/JoyChou93/java-sec-code">https://github.com/JoyChou93/java-sec-code</a></p><p>博客：</p><p><a href="https://skewwg.github.io/">https://skewwg.github.io/</a></p><p>进阶：</p><p>在github中搜java cms项目，拉下来进行代码审计。</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;资源&quot;&gt;&lt;a href=&quot;#资源&quot; class=&quot;headerlink&quot; title=&quot;资源&quot;&gt;&lt;/a&gt;资源&lt;/h1&gt;&lt;p&gt;审计入门：&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://github.com/JoyChou93/java-sec-code&quot;&gt;http</summary>
-      
-    
-    
-    
-    <category term="安全" scheme="https://erickinyae.github.io/categories/%E5%AE%89%E5%85%A8/"/>
-    
-    
-    <category term="代码审计" scheme="https://erickinyae.github.io/tags/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/"/>
     
   </entry>
   
