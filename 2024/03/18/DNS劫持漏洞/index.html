@@ -17,29 +17,23 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>tomcat默认账号远程控制 | Erickin的博客</title>
-  <meta name="description" content="tomcat默认账号远程控制1. 资产扫描确认该服务器使用的是tomcat，可通过nmap等资产测绘工具进行扫描； 2.访问tomcat管理界面通过ip:8080端口访问tomcat默认管理界面；  点击Manager App进入管理界面进行登录；  默认用户密码tomcat、tomcat；  在war file deploy栏目中，进行war文件上传；  将behinder中的shell.jsp">
+  <title>DNS劫持漏洞 | Erickin的博客</title>
+  <meta name="description" content="DNS劫持基本原理DNS（域名系统）劫持又叫域名劫持，指攻击者利用其他攻击手段，篡改了某个域名的解析结果，使得指向该域名的IP变成了另一个IP，导致对相应网址的访问被劫持到另一个不可达的或假冒的网址，从而实现非法窃取用户信息或者破坏正常网络服务的目的。  DNS劫持应对方法 修改路由器默认密码； 手动修改DNS地址。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="tomcat默认账号远程控制">
-<meta property="og:url" content="https://erickinyae.github.io/2024/03/17/tomcat%E9%BB%98%E8%AE%A4%E8%B4%A6%E5%8F%B7%E8%BF%9C%E7%A8%8B%E6%8E%A7%E5%88%B6/index.html">
+<meta property="og:title" content="DNS劫持漏洞">
+<meta property="og:url" content="https://erickinyae.github.io/2024/03/18/DNS%E5%8A%AB%E6%8C%81%E6%BC%8F%E6%B4%9E/index.html">
 <meta property="og:site_name" content="Erickin">
-<meta property="og:description" content="tomcat默认账号远程控制1. 资产扫描确认该服务器使用的是tomcat，可通过nmap等资产测绘工具进行扫描； 2.访问tomcat管理界面通过ip:8080端口访问tomcat默认管理界面；  点击Manager App进入管理界面进行登录；  默认用户密码tomcat、tomcat；  在war file deploy栏目中，进行war文件上传；  将behinder中的shell.jsp">
+<meta property="og:description" content="DNS劫持基本原理DNS（域名系统）劫持又叫域名劫持，指攻击者利用其他攻击手段，篡改了某个域名的解析结果，使得指向该域名的IP变成了另一个IP，导致对相应网址的访问被劫持到另一个不可达的或假冒的网址，从而实现非法窃取用户信息或者破坏正常网络服务的目的。  DNS劫持应对方法 修改路由器默认密码； 手动修改DNS地址。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://erickinyae.github.io/2024/03/17/tomcat%E9%BB%98%E8%AE%A4%E8%B4%A6%E5%8F%B7%E8%BF%9C%E7%A8%8B%E6%8E%A7%E5%88%B6/image-20240317223611141.png">
-<meta property="og:image" content="https://erickinyae.github.io/2024/03/17/tomcat%E9%BB%98%E8%AE%A4%E8%B4%A6%E5%8F%B7%E8%BF%9C%E7%A8%8B%E6%8E%A7%E5%88%B6/image-20240317223708382.png">
-<meta property="og:image" content="https://erickinyae.github.io/2024/03/17/tomcat%E9%BB%98%E8%AE%A4%E8%B4%A6%E5%8F%B7%E8%BF%9C%E7%A8%8B%E6%8E%A7%E5%88%B6/image-20240317223738893.png">
-<meta property="og:image" content="https://erickinyae.github.io/2024/03/17/tomcat%E9%BB%98%E8%AE%A4%E8%B4%A6%E5%8F%B7%E8%BF%9C%E7%A8%8B%E6%8E%A7%E5%88%B6/image-20240317223855995.png">
-<meta property="og:image" content="https://erickinyae.github.io/2024/03/17/tomcat%E9%BB%98%E8%AE%A4%E8%B4%A6%E5%8F%B7%E8%BF%9C%E7%A8%8B%E6%8E%A7%E5%88%B6/image-20240317223942885.png">
-<meta property="og:image" content="https://erickinyae.github.io/2024/03/17/tomcat%E9%BB%98%E8%AE%A4%E8%B4%A6%E5%8F%B7%E8%BF%9C%E7%A8%8B%E6%8E%A7%E5%88%B6/image-20240317224032661.png">
-<meta property="og:image" content="https://erickinyae.github.io/2024/03/17/tomcat%E9%BB%98%E8%AE%A4%E8%B4%A6%E5%8F%B7%E8%BF%9C%E7%A8%8B%E6%8E%A7%E5%88%B6/image-20240317224733968.png">
-<meta property="article:published_time" content="2024-03-17T13:57:33.000Z">
-<meta property="article:modified_time" content="2024-03-18T13:06:12.004Z">
+<meta property="og:image" content="https://erickinyae.github.io/2024/03/18/DNS%E5%8A%AB%E6%8C%81%E6%BC%8F%E6%B4%9E/image-20240318224345859.png">
+<meta property="article:published_time" content="2024-03-18T14:42:29.000Z">
+<meta property="article:modified_time" content="2024-03-18T14:47:40.881Z">
 <meta property="article:author" content="Erickin">
 <meta property="article:tag" content="渗透">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://erickinyae.github.io/2024/03/17/tomcat%E9%BB%98%E8%AE%A4%E8%B4%A6%E5%8F%B7%E8%BF%9C%E7%A8%8B%E6%8E%A7%E5%88%B6/image-20240317223611141.png">
+<meta name="twitter:image" content="https://erickinyae.github.io/2024/03/18/DNS%E5%8A%AB%E6%8C%81%E6%BC%8F%E6%B4%9E/image-20240318224345859.png">
   <!-- Canonical links -->
-  <link rel="canonical" href="https://erickinyae.github.io/2024/03/17/tomcat%E9%BB%98%E8%AE%A4%E8%B4%A6%E5%8F%B7%E8%BF%9C%E7%A8%8B%E6%8E%A7%E5%88%B6/index.html">
+  <link rel="canonical" href="https://erickinyae.github.io/2024/03/18/DNS%E5%8A%AB%E6%8C%81%E6%BC%8F%E6%B4%9E/index.html">
   
     <link rel="alternate" href="/atom.xml" title="Erickin" type="application/atom+xml">
   
@@ -187,7 +181,7 @@
   <div class="widget">
     <h3 class="widget-title">分类</h3>
     <div class="widget-body">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%85%B6%E4%BB%96/">其他</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AE%89%E5%85%A8/">安全</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%BC%80%E5%8F%91/">开发</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BD%91%E7%BB%9C/">网络</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%85%B6%E4%BB%96/">其他</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AE%89%E5%85%A8/">安全</a><span class="category-list-count">19</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%BC%80%E5%8F%91/">开发</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BD%91%E7%BB%9C/">网络</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -197,7 +191,7 @@
   <div class="widget">
     <h3 class="widget-title">标签</h3>
     <div class="widget-body">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CI-CD/" rel="tag">CI\CD</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/" rel="tag">代码审计</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8D%9A%E5%AE%A2/" rel="tag">博客</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9F%BA%E7%A1%80/" rel="tag">基础</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A8%81%E8%83%81%E5%BB%BA%E6%A8%A1/" rel="tag">威胁建模</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7/" rel="tag">工具</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag">数据库</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A1%86%E6%9E%B6/" rel="tag">框架</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B8%97%E9%80%8F/" rel="tag">渗透</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/" rel="tag">渗透测试</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%BC%8F%E6%B4%9E/" rel="tag">漏洞</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BA%A2%E5%86%9B/" rel="tag">红军</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%AD%E8%A8%80/" rel="tag">语言</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%89%B4%E6%9D%83/" rel="tag">鉴权</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%97%AE%E9%A2%98/" rel="tag">问题</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CI-CD/" rel="tag">CI\CD</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/" rel="tag">代码审计</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8D%9A%E5%AE%A2/" rel="tag">博客</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9F%BA%E7%A1%80/" rel="tag">基础</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A8%81%E8%83%81%E5%BB%BA%E6%A8%A1/" rel="tag">威胁建模</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7/" rel="tag">工具</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag">数据库</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A1%86%E6%9E%B6/" rel="tag">框架</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B8%97%E9%80%8F/" rel="tag">渗透</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/" rel="tag">渗透测试</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%BC%8F%E6%B4%9E/" rel="tag">漏洞</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BA%A2%E5%86%9B/" rel="tag">红军</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%AD%E8%A8%80/" rel="tag">语言</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%89%B4%E6%9D%83/" rel="tag">鉴权</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%97%AE%E9%A2%98/" rel="tag">问题</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -216,70 +210,70 @@
                 <a class="category-link" href="/categories/%E5%AE%89%E5%85%A8/">安全</a>
               </p>
               <p class="item-title">
+                <a href="/2024/03/18/RPC%E6%BC%8F%E6%B4%9E/" class="title">RPC漏洞</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2024-03-18T14:57:05.000Z" itemprop="datePublished">2024-03-18</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2024/03/18/%E6%96%87%E4%BB%B6%E4%BC%A0%E8%BE%93%E6%9C%8D%E5%8A%A1FTP%E6%BC%8F%E6%B4%9E/" class="title">文件传输服务FTP漏洞</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2024-03-18T14:47:57.000Z" itemprop="datePublished">2024-03-18</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E5%AE%89%E5%85%A8/">安全</a>
+              </p>
+              <p class="item-title">
+                <a href="/2024/03/18/DNS%E5%8A%AB%E6%8C%81%E6%BC%8F%E6%B4%9E/" class="title">DNS劫持漏洞</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2024-03-18T14:42:29.000Z" itemprop="datePublished">2024-03-18</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E5%AE%89%E5%85%A8/">安全</a>
+              </p>
+              <p class="item-title">
+                <a href="/2024/03/18/%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1%E6%BC%8F%E6%B4%9E/" class="title">邮件服务漏洞</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2024-03-18T14:15:02.000Z" itemprop="datePublished">2024-03-18</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E5%AE%89%E5%85%A8/">安全</a>
+              </p>
+              <p class="item-title">
                 <a href="/2024/03/18/weblogic%E6%BC%8F%E6%B4%9E/" class="title">weblogic漏洞</a>
               </p>
               <p class="item-date">
                 <time datetime="2024-03-18T14:13:12.000Z" itemprop="datePublished">2024-03-18</time>
-              </p>
-            </div>
-          </li>
-          
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                <a class="category-link" href="/categories/%E5%AE%89%E5%85%A8/">安全</a>
-              </p>
-              <p class="item-title">
-                <a href="/2024/03/18/tomcat%E6%BC%8F%E6%B4%9E/" class="title">tomcat漏洞</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2024-03-18T14:10:49.000Z" itemprop="datePublished">2024-03-18</time>
-              </p>
-            </div>
-          </li>
-          
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                <a class="category-link" href="/categories/%E5%AE%89%E5%85%A8/">安全</a>
-              </p>
-              <p class="item-title">
-                <a href="/2024/03/17/tomcat%E9%BB%98%E8%AE%A4%E8%B4%A6%E5%8F%B7%E8%BF%9C%E7%A8%8B%E6%8E%A7%E5%88%B6/" class="title">tomcat默认账号远程控制</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2024-03-17T13:57:33.000Z" itemprop="datePublished">2024-03-17</time>
-              </p>
-            </div>
-          </li>
-          
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                <a class="category-link" href="/categories/%E5%BC%80%E5%8F%91/">开发</a>
-              </p>
-              <p class="item-title">
-                <a href="/2024/03/10/php/" class="title">php</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2024-03-09T23:17:38.000Z" itemprop="datePublished">2024-03-10</time>
-              </p>
-            </div>
-          </li>
-          
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                <a class="category-link" href="/categories/%E5%AE%89%E5%85%A8/">安全</a>
-              </p>
-              <p class="item-title">
-                <a href="/2024/03/06/burpsuite%E4%BD%BF%E7%94%A8/" class="title">burpsuite使用</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2024-03-06T10:46:22.000Z" itemprop="datePublished">2024-03-06</time>
               </p>
             </div>
           </li>
@@ -297,14 +291,14 @@
   
 <main class="main" role="main">
   <div class="content">
-  <article id="post-tomcat默认账号远程控制" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-DNS劫持漏洞" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      tomcat默认账号远程控制
+      DNS劫持漏洞
     </h1>
   
 
@@ -312,8 +306,8 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/2024/03/17/tomcat%E9%BB%98%E8%AE%A4%E8%B4%A6%E5%8F%B7%E8%BF%9C%E7%A8%8B%E6%8E%A7%E5%88%B6/" class="article-date">
-	  <time datetime="2024-03-17T13:57:33.000Z" itemprop="datePublished">2024-03-17</time>
+	<a href="/2024/03/18/DNS%E5%8A%AB%E6%8C%81%E6%BC%8F%E6%B4%9E/" class="article-date">
+	  <time datetime="2024-03-18T14:42:29.000Z" itemprop="datePublished">2024-03-18</time>
 	</a>
 </span>
         
@@ -333,13 +327,13 @@
 
 	<span class="article-read hidden-xs">
     	<i class="icon icon-eye-fill" aria-hidden="true"></i>
-    	<span id="/2024/03/17/tomcat%E9%BB%98%E8%AE%A4%E8%B4%A6%E5%8F%B7%E8%BF%9C%E7%A8%8B%E6%8E%A7%E5%88%B6/" class="leancloud_visitors"  data-flag-title="tomcat默认账号远程控制">0</span>
+    	<span id="/2024/03/18/DNS%E5%8A%AB%E6%8C%81%E6%BC%8F%E6%B4%9E/" class="leancloud_visitors"  data-flag-title="DNS劫持漏洞">0</span>
     </span>
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2024/03/17/tomcat%E9%BB%98%E8%AE%A4%E8%B4%A6%E5%8F%B7%E8%BF%9C%E7%A8%8B%E6%8E%A7%E5%88%B6/#comments" class="article-comment-link">评论</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2024/03/18/DNS%E5%8A%AB%E6%8C%81%E6%BC%8F%E6%B4%9E/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 159(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 133(字)</span>
 	
 	
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1(分)</span>
@@ -349,24 +343,12 @@
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h1 id="tomcat默认账号远程控制"><a href="#tomcat默认账号远程控制" class="headerlink" title="tomcat默认账号远程控制"></a>tomcat默认账号远程控制</h1><h2 id="1-资产扫描"><a href="#1-资产扫描" class="headerlink" title="1. 资产扫描"></a>1. 资产扫描</h2><p>确认该服务器使用的是tomcat，可通过nmap等资产测绘工具进行扫描；</p>
-<h2 id="2-访问tomcat管理界面"><a href="#2-访问tomcat管理界面" class="headerlink" title="2.访问tomcat管理界面"></a>2.访问tomcat管理界面</h2><p>通过ip:8080端口访问tomcat默认管理界面；</p>
-<p><img src="/2024/03/17/tomcat%E9%BB%98%E8%AE%A4%E8%B4%A6%E5%8F%B7%E8%BF%9C%E7%A8%8B%E6%8E%A7%E5%88%B6/image-20240317223611141.png" alt="image-20240317223611141"></p>
-<p>点击Manager App进入管理界面进行登录；</p>
-<p><img src="/2024/03/17/tomcat%E9%BB%98%E8%AE%A4%E8%B4%A6%E5%8F%B7%E8%BF%9C%E7%A8%8B%E6%8E%A7%E5%88%B6/image-20240317223708382.png" alt="image-20240317223708382"></p>
-<p>默认用户密码tomcat、tomcat；</p>
-<p><img src="/2024/03/17/tomcat%E9%BB%98%E8%AE%A4%E8%B4%A6%E5%8F%B7%E8%BF%9C%E7%A8%8B%E6%8E%A7%E5%88%B6/image-20240317223738893.png" alt="image-20240317223738893"></p>
-<p>在war file deploy栏目中，进行war文件上传；</p>
-<p><img src="/2024/03/17/tomcat%E9%BB%98%E8%AE%A4%E8%B4%A6%E5%8F%B7%E8%BF%9C%E7%A8%8B%E6%8E%A7%E5%88%B6/image-20240317223855995.png" alt="image-20240317223855995"></p>
-<p>将behinder中的shell.jsp打包成war上传</p>
-<p><img src="/2024/03/17/tomcat%E9%BB%98%E8%AE%A4%E8%B4%A6%E5%8F%B7%E8%BF%9C%E7%A8%8B%E6%8E%A7%E5%88%B6/image-20240317223942885.png" alt="image-20240317223942885"></p>
-<p>上传后可以访问：</p>
-<p><img src="/2024/03/17/tomcat%E9%BB%98%E8%AE%A4%E8%B4%A6%E5%8F%B7%E8%BF%9C%E7%A8%8B%E6%8E%A7%E5%88%B6/image-20240317224032661.png" alt="image-20240317224032661"></p>
-<p>把下面的文件，用以下命令行启动，进入管理界面，然后就可以新增示例，进行远程命令执行。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -jar Behinder.jar</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2024/03/17/tomcat%E9%BB%98%E8%AE%A4%E8%B4%A6%E5%8F%B7%E8%BF%9C%E7%A8%8B%E6%8E%A7%E5%88%B6/image-20240317224733968.png" alt="image-20240317224733968"></p>
-<p>默认密码：rebeyond</p>
+        <h1 id="DNS劫持基本原理"><a href="#DNS劫持基本原理" class="headerlink" title="DNS劫持基本原理"></a>DNS劫持基本原理</h1><p>DNS（域名系统）劫持又叫域名劫持，指攻击者利用其他攻击手段，篡改了某个域名的解析结果，使得指向该域名的IP变成了另一个IP，导致对相应网址的访问被劫持到另一个不可达的或假冒的网址，从而实现非法窃取用户信息或者破坏正常网络服务的目的。</p>
+<p><img src="/2024/03/18/DNS%E5%8A%AB%E6%8C%81%E6%BC%8F%E6%B4%9E/image-20240318224345859.png" alt="image-20240318224345859"></p>
+<h1 id="DNS劫持应对方法"><a href="#DNS劫持应对方法" class="headerlink" title="DNS劫持应对方法"></a>DNS劫持应对方法</h1><ul>
+<li>修改路由器默认密码；</li>
+<li>手动修改DNS地址。</li>
+</ul>
 
       
     </div>
@@ -376,7 +358,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="https://erickinyae.github.io/2024/03/17/tomcat%E9%BB%98%E8%AE%A4%E8%B4%A6%E5%8F%B7%E8%BF%9C%E7%A8%8B%E6%8E%A7%E5%88%B6/" title="tomcat默认账号远程控制" target="_blank" rel="external">https://erickinyae.github.io/2024/03/17/tomcat默认账号远程控制/</a>
+      <a href="https://erickinyae.github.io/2024/03/18/DNS%E5%8A%AB%E6%8C%81%E6%BC%8F%E6%B4%9E/" title="DNS劫持漏洞" target="_blank" rel="external">https://erickinyae.github.io/2024/03/18/DNS劫持漏洞/</a>
     </li>
     
     <li class="post-copyright-license">
@@ -423,12 +405,12 @@
   <ul class="pager pull-left">
     
     <li class="prev">
-      <a href="/2024/03/18/tomcat%E6%BC%8F%E6%B4%9E/" title="tomcat漏洞"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+      <a href="/2024/03/18/%E6%96%87%E4%BB%B6%E4%BC%A0%E8%BE%93%E6%9C%8D%E5%8A%A1FTP%E6%BC%8F%E6%B4%9E/" title="文件传输服务FTP漏洞"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
     </li>
     
     
     <li class="next">
-      <a href="/2024/03/10/php/" title="php"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/2024/03/18/%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1%E6%BC%8F%E6%B4%9E/" title="邮件服务漏洞"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     

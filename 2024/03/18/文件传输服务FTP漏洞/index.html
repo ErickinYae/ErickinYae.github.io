@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>文件传输服务FTP漏洞 | Erickin的博客</title>
+  <meta name="description" content="文件传输服务漏洞原因 FTP的数据传输未经加密，容易被中间人攻击窃取传输数据； FTP服务端存在溢出漏洞，攻击者可以利用该漏洞远程执行命令； FTP服务端存在目录遍历漏洞，攻击者可以通过该漏洞窃取FTP服务器上的敏感数据； FTP服务端存在拒绝服务漏洞，攻击者可以通过该漏洞造成服务器宕机，影响FTP服务的可用性。  FTP漏洞的风险 FTP服务器上存储的数据可能存在泄漏的风险，黑客可以利用FTP漏">
+<meta property="og:type" content="article">
+<meta property="og:title" content="文件传输服务FTP漏洞">
+<meta property="og:url" content="https://erickinyae.github.io/2024/03/18/%E6%96%87%E4%BB%B6%E4%BC%A0%E8%BE%93%E6%9C%8D%E5%8A%A1FTP%E6%BC%8F%E6%B4%9E/index.html">
+<meta property="og:site_name" content="Erickin">
+<meta property="og:description" content="文件传输服务漏洞原因 FTP的数据传输未经加密，容易被中间人攻击窃取传输数据； FTP服务端存在溢出漏洞，攻击者可以利用该漏洞远程执行命令； FTP服务端存在目录遍历漏洞，攻击者可以通过该漏洞窃取FTP服务器上的敏感数据； FTP服务端存在拒绝服务漏洞，攻击者可以通过该漏洞造成服务器宕机，影响FTP服务的可用性。  FTP漏洞的风险 FTP服务器上存储的数据可能存在泄漏的风险，黑客可以利用FTP漏">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-03-18T14:47:57.000Z">
+<meta property="article:modified_time" content="2024-03-18T14:54:45.507Z">
+<meta property="article:author" content="Erickin">
+<meta name="twitter:card" content="summary">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://erickinyae.github.io/2024/03/18/%E6%96%87%E4%BB%B6%E4%BC%A0%E8%BE%93%E6%9C%8D%E5%8A%A1FTP%E6%BC%8F%E6%B4%9E/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="Erickin" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/safe.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+  
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+
+<body class="main-center" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/ErickinYae" target="_blank">
+          <img class="img-circle img-rotate" src="/images/icon.png" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">Erickin</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">开发安全，安全开发</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Shanghai, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav menu-highlight">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">标签</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">项目</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/ErickinYae" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%85%B6%E4%BB%96/">其他</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AE%89%E5%85%A8/">安全</a><span class="category-list-count">19</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%BC%80%E5%8F%91/">开发</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BD%91%E7%BB%9C/">网络</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CI-CD/" rel="tag">CI\CD</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/" rel="tag">代码审计</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8D%9A%E5%AE%A2/" rel="tag">博客</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9F%BA%E7%A1%80/" rel="tag">基础</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A8%81%E8%83%81%E5%BB%BA%E6%A8%A1/" rel="tag">威胁建模</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7/" rel="tag">工具</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag">数据库</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A1%86%E6%9E%B6/" rel="tag">框架</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B8%97%E9%80%8F/" rel="tag">渗透</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/" rel="tag">渗透测试</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%BC%8F%E6%B4%9E/" rel="tag">漏洞</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BA%A2%E5%86%9B/" rel="tag">红军</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%AD%E8%A8%80/" rel="tag">语言</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%89%B4%E6%9D%83/" rel="tag">鉴权</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%97%AE%E9%A2%98/" rel="tag">问题</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E5%AE%89%E5%85%A8/">安全</a>
+              </p>
+              <p class="item-title">
+                <a href="/2024/03/18/RPC%E6%BC%8F%E6%B4%9E/" class="title">RPC漏洞</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2024-03-18T14:57:05.000Z" itemprop="datePublished">2024-03-18</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2024/03/18/%E6%96%87%E4%BB%B6%E4%BC%A0%E8%BE%93%E6%9C%8D%E5%8A%A1FTP%E6%BC%8F%E6%B4%9E/" class="title">文件传输服务FTP漏洞</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2024-03-18T14:47:57.000Z" itemprop="datePublished">2024-03-18</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E5%AE%89%E5%85%A8/">安全</a>
+              </p>
+              <p class="item-title">
+                <a href="/2024/03/18/DNS%E5%8A%AB%E6%8C%81%E6%BC%8F%E6%B4%9E/" class="title">DNS劫持漏洞</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2024-03-18T14:42:29.000Z" itemprop="datePublished">2024-03-18</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E5%AE%89%E5%85%A8/">安全</a>
+              </p>
+              <p class="item-title">
+                <a href="/2024/03/18/%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1%E6%BC%8F%E6%B4%9E/" class="title">邮件服务漏洞</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2024-03-18T14:15:02.000Z" itemprop="datePublished">2024-03-18</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E5%AE%89%E5%85%A8/">安全</a>
+              </p>
+              <p class="item-title">
+                <a href="/2024/03/18/weblogic%E6%BC%8F%E6%B4%9E/" class="title">weblogic漏洞</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2024-03-18T14:13:12.000Z" itemprop="datePublished">2024-03-18</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-文件传输服务FTP漏洞" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      文件传输服务FTP漏洞
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2024/03/18/%E6%96%87%E4%BB%B6%E4%BC%A0%E8%BE%93%E6%9C%8D%E5%8A%A1FTP%E6%BC%8F%E6%B4%9E/" class="article-date">
+	  <time datetime="2024-03-18T14:47:57.000Z" itemprop="datePublished">2024-03-18</time>
+	</a>
+</span>
+        
+        
+
+        
+
+	<span class="article-read hidden-xs">
+    	<i class="icon icon-eye-fill" aria-hidden="true"></i>
+    	<span id="/2024/03/18/%E6%96%87%E4%BB%B6%E4%BC%A0%E8%BE%93%E6%9C%8D%E5%8A%A1FTP%E6%BC%8F%E6%B4%9E/" class="leancloud_visitors"  data-flag-title="文件传输服务FTP漏洞">0</span>
+    </span>
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2024/03/18/%E6%96%87%E4%BB%B6%E4%BC%A0%E8%BE%93%E6%9C%8D%E5%8A%A1FTP%E6%BC%8F%E6%B4%9E/#comments" class="article-comment-link">评论</a></span>
+        
+	
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 427(字)</span>
+	
+	
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1(分)</span>
+	
+
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h1 id="文件传输服务漏洞原因"><a href="#文件传输服务漏洞原因" class="headerlink" title="文件传输服务漏洞原因"></a>文件传输服务漏洞原因</h1><ul>
+<li>FTP的数据传输未经加密，容易被中间人攻击窃取传输数据；</li>
+<li>FTP服务端存在溢出漏洞，攻击者可以利用该漏洞远程执行命令；</li>
+<li>FTP服务端存在目录遍历漏洞，攻击者可以通过该漏洞窃取FTP服务器上的敏感数据；</li>
+<li>FTP服务端存在拒绝服务漏洞，攻击者可以通过该漏洞造成服务器宕机，影响FTP服务的可用性。</li>
+</ul>
+<h1 id="FTP漏洞的风险"><a href="#FTP漏洞的风险" class="headerlink" title="FTP漏洞的风险"></a>FTP漏洞的风险</h1><ul>
+<li>FTP服务器上存储的数据可能存在泄漏的风险，黑客可以利用FTP漏洞窃取FTP服务器上的敏感数据；</li>
+<li>FTP服务可能被滥用，黑客可以利用FTP服务器进行恶意攻击，入侵其他主机；</li>
+<li>FTP服务器可能会被攻击者作为跳板，远程执行恶意攻击，对其他主机造成影响；</li>
+</ul>
+<h1 id="FTP漏洞攻击"><a href="#FTP漏洞攻击" class="headerlink" title="FTP漏洞攻击"></a>FTP漏洞攻击</h1><ul>
+<li>FTP暴力破解攻击：通过利用暴力破解工具，对FTP服务器的用户名和密码进行猜测，入侵FTP服务器；</li>
+<li>FTP漏洞利用攻击：利用FTP服务端存在的漏洞，执行攻击代码，窃取服务器上的敏感数据；</li>
+<li>FTP中间人攻击：通过窃取FTP服务器的传输数据，对数据进行篡改或劫持，以达到控制敏感信息的目的。</li>
+</ul>
+<h1 id="FTP漏洞如何修复"><a href="#FTP漏洞如何修复" class="headerlink" title="FTP漏洞如何修复"></a>FTP漏洞如何修复</h1><ul>
+<li>升级；</li>
+<li>加强安全管理；</li>
+<li>限制访问权限，避免未授权访问。</li>
+</ul>
+<h1 id="FTP漏洞命名"><a href="#FTP漏洞命名" class="headerlink" title="FTP漏洞命名"></a>FTP漏洞命名</h1><ul>
+<li>ProFTPD mod_copy漏洞</li>
+<li>Microsoft IIS FTP溢出漏洞</li>
+<li>FreeBSD FTP泄露漏洞；</li>
+<li>vsftpd PAM模块远程溢出漏洞；</li>
+<li>FileZilla Client安全升级漏洞。</li>
+</ul>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="https://erickinyae.github.io/2024/03/18/%E6%96%87%E4%BB%B6%E4%BC%A0%E8%BE%93%E6%9C%8D%E5%8A%A1FTP%E6%BC%8F%E6%B4%9E/" title="文件传输服务FTP漏洞" target="_blank" rel="external">https://erickinyae.github.io/2024/03/18/文件传输服务FTP漏洞/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/ErickinYae" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/icon.png" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/ErickinYae" target="_blank"><span class="text-dark">Erickin</span><small class="ml-1x">开发安全，安全开发</small></a></h3>
+        <div>打工人</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+      <div id="vcomments"></div>
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2024/03/18/RPC%E6%BC%8F%E6%B4%9E/" title="RPC漏洞"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/2024/03/18/DNS%E5%8A%AB%E6%8C%81%E6%BC%8F%E6%B4%9E/" title="DNS劫持漏洞"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat# PC端显示的分享图标" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/ErickinYae" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+   
+
+
+<!-- custom analytics part create by xiamo -->
+<script defer src="https://cdn1.lncld.net/static/js/av-min-1.2.1.js"></script>
+<script defer>
+AV.init({
+  appId: 'SUyBw2O3KrfIHPmB9F7wtwKM-gzGzoHsz',
+  appKey: 'GytafoX6e83t5QtTlbX6wwQt'
+});
+
+function showTime(Counter) {
+	var query = new AV.Query(Counter);
+		var visitors= $('.leancloud_visitors');
+		query.greaterThanOrEqualTo("time", 0);		
+		query.find({
+			success: function(results) {
+				if (results.length == 0) {				
+					return;
+				}
+				var data = results;
+				visitors.each(function(){
+					var url = $(this).attr('id').trim();					
+					for (var i = 0; i < data.length; i++) {
+						var object = data[i];
+						var content = object.get('time');
+						var _url = object.get('url')
+						if(url == _url){
+							$(this).text(content);
+						}
+					}
+				})
+				
+			},
+			error: function(object, error) {
+				console.log("Error: " + error.code + " " + error.message);
+			}
+		});
+}
+
+function addCount(Counter) {
+	var Counter = AV.Object.extend("Counter");
+	url = $(".leancloud_visitors").attr('id').trim();
+	title = $(".leancloud_visitors").attr('data-flag-title').trim();
+	var query = new AV.Query(Counter);
+	query.equalTo("url", url);
+	query.find({
+		success: function(results) {
+			if (results.length > 0) {
+				var counter = results[0];
+				counter.fetchWhenSave(true);
+				counter.increment("time");
+				counter.save(null, {
+					success: function(counter) {
+						var content = counter.get('time');
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(counter, error) {
+						console.log('Failed to save Visitor num, with error message: ' + error.message);
+					}
+				});
+			} else {
+				var newcounter = new Counter();
+				newcounter.set("title", title);
+				newcounter.set("url", url);
+				newcounter.set("time", 1);
+				newcounter.save(null, {
+					success: function(newcounter) {
+					    console.log("newcounter.get('time')="+newcounter.get('time'));
+						var content = newcounter.get('time');
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(newcounter, error) {
+						console.log('Failed to create');
+					}
+				});
+			}
+		},
+		error: function(error) {
+			console.log('Error:' + error.code + " " + error.message);
+		}
+	});
+}
+$(function() {
+	var Counter = AV.Object.extend("Counter");
+	if ($('.leancloud_visitors').length == 1) {
+		addCount(Counter);
+	} else {
+		showTime(Counter);
+	}
+}); 
+</script>
+
+
+
+   
+    
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: true,
+    notify: true,
+    appId: 'SUyBw2O3KrfIHPmB9F7wtwKM-gzGzoHsz',
+    appKey: 'GytafoX6e83t5QtTlbX6wwQt',
+    placeholder: '说点什么吧',
+    avatar: 'mm',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+  </script>
+
+     
+
+
+
+
+
+
+
+</body>
+</html>
