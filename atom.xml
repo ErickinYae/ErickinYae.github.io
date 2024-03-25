@@ -6,7 +6,7 @@
   <link href="https://erickinyae.github.io/atom.xml" rel="self"/>
   
   <link href="https://erickinyae.github.io/"/>
-  <updated>2024-03-18T15:02:49.378Z</updated>
+  <updated>2024-03-24T05:29:58.970Z</updated>
   <id>https://erickinyae.github.io/</id>
   
   <author>
@@ -15,6 +15,23 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>弱口令</title>
+    <link href="https://erickinyae.github.io/2024/03/24/%E5%BC%B1%E5%8F%A3%E4%BB%A4/"/>
+    <id>https://erickinyae.github.io/2024/03/24/%E5%BC%B1%E5%8F%A3%E4%BB%A4/</id>
+    <published>2024-03-24T05:29:44.000Z</published>
+    <updated>2024-03-24T05:29:58.970Z</updated>
+    
+    
+    
+    
+    <category term="安全" scheme="https://erickinyae.github.io/categories/%E5%AE%89%E5%85%A8/"/>
+    
+    
+    <category term="渗透" scheme="https://erickinyae.github.io/tags/%E6%B8%97%E9%80%8F/"/>
+    
+  </entry>
   
   <entry>
     <title>RPC漏洞</title>
@@ -445,30 +462,6 @@
     
     
     <category term="代码审计" scheme="https://erickinyae.github.io/tags/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>身份验证</title>
-    <link href="https://erickinyae.github.io/2023/11/23/%E8%BA%AB%E4%BB%BD%E9%AA%8C%E8%AF%81/"/>
-    <id>https://erickinyae.github.io/2023/11/23/%E8%BA%AB%E4%BB%BD%E9%AA%8C%E8%AF%81/</id>
-    <published>2023-11-23T07:42:58.000Z</published>
-    <updated>2024-03-06T10:08:26.578Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="JWT"><a href="#JWT" class="headerlink" title="JWT"></a>JWT</h1><p>JWT（JSON Web Token）是一种用于在网络上安全地将声明传输的开放标准（RFC 7519）。它通常用于在身份验证和信息交换方面进行跨域通信。JWT 是一个紧凑的、自包含的方式，它可以在不同系统之间安全地传递信息。JWT 使用 JSON 对象进行编码，这使得它易于理解和处理。</p><p>JWT 由三部分组成：</p><ol><li><strong>Header（头部）：</strong> 包含了两部分信息，类型（typ）和使用的签名算法（alg）。通常，这部分会被 Base64 编码。</li></ol><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;alg&quot;</span><span class="punctuation">:</span> <span class="string">&quot;HS256&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;typ&quot;</span><span class="punctuation">:</span> <span class="string">&quot;JWT&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure><p><strong>Payload（负载）：</strong> 包含声明（claims）。声明是关于实体（通常是用户）和其他数据的声明。有三种类型的声明：注册声明，公共声明，和私有声明。通常，这部分也会被 Base64 编码。</p><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;sub&quot;</span><span class="punctuation">:</span> <span class="string">&quot;1234567890&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;John Doe&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;admin&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure><p><strong>Signature（签名）：</strong> 将前两部分编码后的字符串通过指定的算法进行签名。签名用于验证消息在传递过程中是否被篡改。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">HMACSHA256(</span><br><span class="line">  base64UrlEncode(header) + &quot;.&quot; +</span><br><span class="line">  base64UrlEncode(payload),</span><br><span class="line">  secret</span><br><span class="line">)</span><br></pre></td></tr></table></figure><p>JWT 的主要优势包括：</p><ul><li><strong>轻量且紧凑：</strong> JWT 是一种轻量级的令牌格式，适用于在网络上传输信息。</li><li><strong>自包含：</strong> 由于包含了头部和负载，JWT 是一个自包含的令牌，不需要像传统的 Session 一样在服务器端保存状态。</li><li><strong>可扩展：</strong> 负载中的声明可以自由扩展，以满足各种应用场景的需求。</li><li><strong>跨语言支持：</strong> JWT 可以在不同的编程语言中轻松解析和生成，使其成为跨语言通信的良好选择。</li></ul><p>JWT 主要用于身份验证（Authentication）和授权（Authorization）场景，特别是在分布式系统和前后端分离的应用中广泛使用。</p><h2 id="应用举例"><a href="#应用举例" class="headerlink" title="应用举例"></a>应用举例</h2><p><strong>用户登录：</strong></p><ul><li>用户提供用户名和密码进行登录。</li><li>服务器验证用户的凭据，并生成一个 JWT 作为响应。</li></ul><p><strong>JWT 的生成过程：</strong></p><ul><li>Header 部分：</li></ul><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;alg&quot;</span><span class="punctuation">:</span> <span class="string">&quot;HS256&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;typ&quot;</span><span class="punctuation">:</span> <span class="string">&quot;JWT&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure><p><strong>Payload 部分：</strong></p><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;sub&quot;</span><span class="punctuation">:</span> <span class="string">&quot;1234567890&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;username&quot;</span><span class="punctuation">:</span> <span class="string">&quot;john_doe&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;role&quot;</span><span class="punctuation">:</span> <span class="string">&quot;user&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure><p><strong>Signature 部分：</strong> 使用服务器端的密钥对前两部分进行签名。</p><p><strong>生成的 JWT：</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiAiMTIzNDU2Nzg5MCIsICJ1c2VybmFtZSI6ICJqb2huX2RvZSIsICJyb2xlIjogInVzZXIiLCAiaWF0IjogMTYxNzYwMjE4NCwiZXhwIjogMTYxNzYwMjM2NH0.NQSmS9BoD8OCMqkdSb0nLd6YBZnd7zLcXtFjIaAOt1k</span><br></pre></td></tr></table></figure><p><strong>JWT 的传递：</strong></p><ul><li>客户端将 JWT 存储在本地，通常是在浏览器的 Local Storage 或 Session Storage 中。</li><li>每次客户端向服务器发送请求时，都将 JWT 放在请求头中（通常是 <code>Authorization</code> 头）。</li></ul><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiAiMTIzNDU2Nzg5MCIsICJ1c2VybmFtZSI6ICJqb2huX2RvZSIsICJyb2xlIjogInVzZXIiLCAiaWF0IjogMTYxNzYwMjE4NCwiZXhwIjogMTYxNzYwMjM2NH0.NQSmS9BoD8OCMqkdSb0nLd6YBZnd7zLcXtFjIaAOt1k</span><br></pre></td></tr></table></figure><p><strong>服务器端验证和解析 JWT：</strong></p><ul><li>服务器在接收到请求时，从请求头中获取 JWT。</li><li>服务器使用自己的密钥验证 JWT 的签名，确保它是有效的且未被篡改。</li><li>如果验证通过，服务器解析 JWT，提取其中的用户信息（例如用户ID、用户名、角色等）。</li></ul><p>这种方式使得在分布式系统中进行身份验证变得简单，因为服务器无需在会话中保持用户的登录状态，而是可以通过验证 JWT 来获取用户信息。这也使得不同服务之间更容易实现无状态的身份验证。需要注意的是，JWT 中包含的信息是可以被客户端解码的，因此不应该将敏感信息直接存放在 JWT 中，或者至少需要采用适当的加密手段。</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;JWT&quot;&gt;&lt;a href=&quot;#JWT&quot; class=&quot;headerlink&quot; title=&quot;JWT&quot;&gt;&lt;/a&gt;JWT&lt;/h1&gt;&lt;p&gt;JWT（JSON Web Token）是一种用于在网络上安全地将声明传输的开放标准（RFC 7519）。它通常用于在身份验证和信息交</summary>
-      
-    
-    
-    
-    <category term="网络" scheme="https://erickinyae.github.io/categories/%E7%BD%91%E7%BB%9C/"/>
-    
-    
-    <category term="鉴权" scheme="https://erickinyae.github.io/tags/%E9%89%B4%E6%9D%83/"/>
     
   </entry>
   
